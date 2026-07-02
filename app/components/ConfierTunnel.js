@@ -97,6 +97,12 @@ const ghostBtn = {
   border: '1px solid var(--border)', borderRadius: 8, fontSize: 13, cursor: 'pointer',
 }
 
+// Styles du texte de la convention (étape 2)
+const cH = { fontWeight: 700, color: 'var(--text)', fontSize: 12, letterSpacing: '0.02em', margin: '15px 0 5px', textTransform: 'uppercase' }
+const cP = { margin: '0 0 7px' }
+const cUL = { margin: '0 0 7px', paddingLeft: 16 }
+const cHR = { height: 1, background: 'var(--border)', margin: '12px 0' }
+
 export default function ConfierTunnel() {
   const [step, setStep] = useState(1)
   const [data, setData] = useState({
@@ -108,6 +114,7 @@ export default function ConfierTunnel() {
   const [echanges, setEchanges] = useState(null)
   const [signature, setSignature] = useState('')
   const [consent, setConsent] = useState(false)
+  const [execNow, setExecNow] = useState(false)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
@@ -130,6 +137,7 @@ export default function ConfierTunnel() {
   function next2() {
     if (!signature.trim()) { setError('Merci d’inscrire votre nom pour signer la convention.'); return }
     if (!consent) { setError('Merci de cocher la case d’acceptation de la convention.'); return }
+    if (!execNow) { setError('Merci de confirmer la demande d’exécution immédiate de la mission.'); return }
     setError(''); setStep(3)
   }
 
@@ -210,31 +218,97 @@ export default function ConfierTunnel() {
           <h2 style={{ fontSize: 17, fontWeight: 600, color: NAVY, marginBottom: 4 }}>Convention d’honoraires</h2>
           <p style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 16 }}>Phase amiable — pré-remplie à partir de vos informations.</p>
 
-          <div style={{ background: '#F8F7F3', border: '1px solid var(--border)', borderRadius: 8, padding: '16px 18px', fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.6, maxHeight: 280, overflowY: 'auto' }}>
-            <div style={{ fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>CONVENTION D’HONORAIRES — PHASE AMIABLE</div>
-            <p style={{ marginBottom: 8 }}>
-              Entre <strong>{data.prenom} {data.nom}</strong>{data.societe ? <>, {data.societe}</> : null} (le « Client »)
-              et le <strong>Cabinet Lazarègue Avocats</strong>, avocat au Barreau de Paris (le « Cabinet »).
+          <div style={{ background: '#F8F7F3', border: '1px solid var(--border)', borderRadius: 8, padding: '16px 18px', fontSize: 12, color: 'var(--secondary)', lineHeight: 1.6, maxHeight: 340, overflowY: 'auto' }}>
+            <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 13.5, marginBottom: 2 }}>CONVENTION D’HONORAIRES</div>
+            <div style={{ fontSize: 11.5, color: 'var(--muted)', marginBottom: 12 }}>Prise en charge d’une mise en demeure photographique — PicRights, Copytrack, Getty Images, Rights Control, AFP et organismes comparables.</div>
+
+            <div style={cH}>Entre les soussignés</div>
+            <p style={cP}>
+              <strong>Le Client</strong> : {(data.prenom || data.nom) ? <strong>{data.prenom} {data.nom}</strong> : 'les informations d’identité renseignées lors de la commande'}{data.societe ? <> — {data.societe}</> : null}. Ci-après « le Client ».
             </p>
-            <p style={{ marginBottom: 8 }}>
-              <strong>Mission :</strong> prise en charge de la phase amiable d’une réclamation pour usage allégué d’image(s)
-              émanant de <strong>{data.organisme || '—'}</strong> (montant réclamé : {data.montant || '—'} €). La mission comprend
-              l’examen juridique complet du dossier, la détermination de la réponse (contestation, demande de justificatifs ou
-              négociation selon l’examen), la rédaction et l’envoi du courrier à la partie adverse, ainsi que le suivi jusqu’à
-              clôture de la phase amiable.
+            <p style={cP}>
+              <strong>Lazarègue Avocats</strong>, cabinet d’avocats au Barreau de Paris, 18 rue de Tilsitt – 75017 Paris, représenté par Maître Alexandre Lazarègue. Ci-après « l’Avocat ».
             </p>
-            <p style={{ marginBottom: 8 }}><strong>Honoraires :</strong> forfait de <strong>200 € HT</strong>, indépendant du montant réclamé.</p>
-            <p style={{ marginBottom: 8 }}><strong>Exclusion :</strong> la présente convention ne couvre pas la phase judiciaire (assignation, représentation devant une juridiction), qui ferait l’objet, le cas échéant, d’une convention distincte.</p>
-            <p><strong>Aucun frais supplémentaire</strong> ne sera engagé sans l’accord préalable du Client.</p>
+
+            <div style={cH}>Article 1 — Objet de la mission</div>
+            <p style={cP}>
+              Le Client confie à l’Avocat la prise en charge d’une mise en demeure reçue d’un organisme revendiquant des droits sur une ou plusieurs photographies (notamment PicRights, Copytrack, Getty Images, Rights Control, l’AFP ou tout organisme comparable{data.organisme ? <> — en l’espèce&nbsp;: <strong>{data.organisme}</strong></> : null}). La mission est exclusivement limitée à la <strong>phase amiable</strong>.
+            </p>
+
+            <div style={cH}>Article 2 — Diligences comprises dans le forfait</div>
+            <ul style={cUL}>
+              <li>analyse juridique complète de la mise en demeure ;</li>
+              <li>examen de la photographie litigieuse ;</li>
+              <li>vérification des droits invoqués ;</li>
+              <li>vérification de la qualité du demandeur ;</li>
+              <li>analyse du montant réclamé ;</li>
+              <li>détermination de la stratégie adaptée au dossier ;</li>
+              <li>rédaction et envoi du courrier de réponse à la partie adverse ;</li>
+              <li>échanges avec la partie adverse pendant toute la phase amiable ;</li>
+              <li>information régulière du Client sur l’évolution du dossier.</li>
+            </ul>
+            <p style={cP}>Chaque dossier est traité personnellement par un avocat. L’Avocat est tenu à une obligation de moyens et non de résultat.</p>
+
+            <div style={cH}>Article 3 — Honoraires</div>
+            <p style={cP}>Les honoraires sont fixés forfaitairement à <strong>200 € HT</strong>, soit <strong>240 € TTC</strong>. Le forfait est indépendant du montant réclamé, du temps consacré au dossier et du nombre d’échanges nécessaires. Le règlement intervient intégralement lors de la commande. La mission débute après encaissement des honoraires.</p>
+
+            <div style={cH}>Article 4 — Ce qui n’est pas compris</div>
+            <ul style={cUL}>
+              <li>toute procédure judiciaire, d’appel ou d’exécution ;</li>
+              <li>toute expertise judiciaire ;</li>
+              <li>les frais d’huissier, frais de justice et débours.</li>
+            </ul>
+            <p style={cP}>Si une procédure judiciaire devient nécessaire, une nouvelle convention sera proposée au Client. Aucune diligence supplémentaire ne sera engagée sans son accord préalable.</p>
+
+            <div style={cH}>Article 5 — Engagements du Client</div>
+            <ul style={cUL}>
+              <li>transmettre des informations exactes ;</li>
+              <li>communiquer l’intégralité des documents utiles ;</li>
+              <li>informer immédiatement le cabinet de toute évolution du dossier ;</li>
+              <li>ne pas engager de négociation parallèle sans en informer l’Avocat.</li>
+            </ul>
+
+            <div style={cH}>Article 6 — Délais</div>
+            <p style={cP}>Sous réserve de la réception de l’ensemble des pièces nécessaires, le cabinet s’engage à prendre en charge le dossier dans un délai indicatif de <strong>48 heures ouvrées</strong>. Ce délai ne constitue pas une obligation de résultat.</p>
+
+            <div style={cH}>Article 7 — Dessaisissement</div>
+            <p style={cP}>Le Client peut mettre fin à la mission à tout moment. Les honoraires correspondant aux diligences déjà accomplies restent acquis au cabinet. Si la mission a été intégralement exécutée, aucun remboursement ne pourra être sollicité.</p>
+
+            <div style={cH}>Article 8 — Protection des données</div>
+            <p style={cP}>Les données communiquées par le Client sont traitées exclusivement dans le cadre de l’exécution de la présente mission, conformément au RGPD et aux règles déontologiques applicables aux avocats.</p>
+
+            <div style={cH}>Article 9 — Contestation des honoraires</div>
+            <p style={cP}>Toute contestation relative aux honoraires relève de la procédure prévue aux articles 174 et suivants du décret n° 91-1197 du 27 novembre 1991. Le Bâtonnier de l’Ordre des avocats de Paris est seul compétent.</p>
+
+            <div style={cHR} />
+
+            <div style={cH}>Acceptation</div>
+            <p style={cP}>En signant électroniquement la présente convention, le Client :</p>
+            <ul style={cUL}>
+              <li>reconnaît avoir pris connaissance de l’ensemble des conditions de la mission ;</li>
+              <li>accepte le montant forfaitaire des honoraires ;</li>
+              <li>demande au cabinet de commencer immédiatement sa mission après réception du paiement ;</li>
+              <li>reconnaît avoir reçu les informations précontractuelles nécessaires.</li>
+            </ul>
+
+            <div style={cH}>Commencement immédiat</div>
+            <p style={cP}>Le Client demande expressément que la mission débute immédiatement après la signature de la présente convention et le règlement des honoraires.</p>
+
+            <div style={cH}>Droit de rétractation</div>
+            <p style={cP}>Si le Client est un consommateur au sens du Code de la consommation, il reconnaît demander l’exécution immédiate de la prestation avant l’expiration du délai de rétractation, et reconnaît qu’en cas d’exécution complète de la mission avant l’expiration de ce délai, son droit de rétractation sera perdu, conformément aux dispositions applicables du Code de la consommation.</p>
           </div>
-          <div style={{ fontSize: 10, color: 'var(--muted)', margin: '6px 0 16px' }}>Texte à valider par le cabinet — version de travail.</div>
+          <div style={{ fontSize: 10, color: 'var(--muted)', margin: '6px 0 16px' }}>Convention conforme aux exigences déontologiques (RIN/CNB) — validez le texte définitif avant mise en production.</div>
 
           <Field label="Signature électronique — inscrivez vos prénom et nom" required>
             <input style={{ ...inputStyle, fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 16 }} value={signature} onChange={(e) => setSignature(e.target.value)} placeholder={`${data.prenom} ${data.nom}`.trim()} />
           </Field>
-          <label style={{ display: 'flex', gap: 10, fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5, marginBottom: 18, cursor: 'pointer' }}>
+          <label style={{ display: 'flex', gap: 10, fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5, marginBottom: 12, cursor: 'pointer' }}>
             <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} style={{ marginTop: 2, flexShrink: 0 }} />
             J’ai lu et j’accepte la convention d’honoraires ci-dessus et je la signe électroniquement (le {new Date().toLocaleDateString('fr-FR')}).
+          </label>
+          <label style={{ display: 'flex', gap: 10, fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5, marginBottom: 18, cursor: 'pointer' }}>
+            <input type="checkbox" checked={execNow} onChange={(e) => setExecNow(e.target.checked)} style={{ marginTop: 2, flexShrink: 0 }} />
+            Je demande l’exécution immédiate de la mission après paiement et, en tant que consommateur le cas échéant, je renonce à mon droit de rétractation une fois la mission intégralement exécutée.
           </label>
 
           <button style={primaryBtn} onClick={next2}>Signer et payer →</button>
