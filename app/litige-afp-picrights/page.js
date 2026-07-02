@@ -43,7 +43,7 @@ export default function Home() {
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', fontWeight: 500, marginBottom: 20 }}>
             À ce stade, vous n'avez plus besoin de décider si cette réclamation est fondée. C'est précisément notre travail.
           </p>
-          <Link href="#forfait" style={{ display: 'inline-block', background: 'white', color: 'var(--navy)', fontWeight: 600, fontSize: 14, padding: '11px 22px', borderRadius: 8, textDecoration: 'none' }}>
+          <Link href="/litige-afp-picrights/confier/" style={{ display: 'inline-block', background: 'white', color: 'var(--navy)', fontWeight: 600, fontSize: 14, padding: '11px 22px', borderRadius: 8, textDecoration: 'none' }}>
             Confier mon dossier au cabinet →
           </Link>
           <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>200 € HT · Convention incluse · Prise en charge sous 48h</div>
@@ -196,7 +196,7 @@ export default function Home() {
             <div style={{ fontSize: 12, color: 'var(--muted)', background: '#F8F7F3', borderRadius: 8, padding: '8px 12px', marginBottom: 16 }}>
               Que la demande porte sur 900 € ou 4 500 €, vous connaissez dès le départ le coût de notre intervention.
             </div>
-            <Link href="mailto:contact@lazaregue-avocats.fr" style={{ display: 'block', width: '100%', padding: 13, background: 'var(--navy)', color: 'white', borderRadius: 8, textDecoration: 'none', textAlign: 'center', fontSize: 14, fontWeight: 600 }}>
+            <Link href="/litige-afp-picrights/confier/" style={{ display: 'block', width: '100%', padding: 13, background: 'var(--navy)', color: 'white', borderRadius: 8, textDecoration: 'none', textAlign: 'center', fontSize: 14, fontWeight: 600 }}>
               Faire analyser ma mise en demeure
             </Link>
             <div style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'center', marginTop: 8 }}>Au-delà de la phase amiable, aucun frais sans votre accord.</div>
@@ -235,7 +235,7 @@ export default function Home() {
         <div style={{ textAlign: 'center', padding: '36px 0 24px' }}>
           <h2 style={{ fontSize: 18, fontWeight: 500, color: 'var(--text)', marginBottom: 8 }}>Prêt à confier votre mise en demeure ?</h2>
           <p style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 20 }}>Convention d'honoraires et facture incluses · Prise en charge sous 48h</p>
-          <Link href="mailto:contact@lazaregue-avocats.fr" style={{ display: 'inline-block', padding: '13px 32px', background: 'var(--navy)', color: 'white', borderRadius: 8, textDecoration: 'none', fontSize: 14, fontWeight: 600, marginBottom: 10 }}>
+          <Link href="/litige-afp-picrights/confier/" style={{ display: 'inline-block', padding: '13px 32px', background: 'var(--navy)', color: 'white', borderRadius: 8, textDecoration: 'none', fontSize: 14, fontWeight: 600, marginBottom: 10 }}>
             Confier mon dossier au cabinet
           </Link>
           <div style={{ fontSize: 11, color: 'var(--muted)' }}>Paiement Stripe sécurisé · Secret professionnel garanti · Barreau de Paris</div>
