@@ -48,9 +48,9 @@ export default function Home() {
           </Link>
           <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>200 € HT · Convention incluse · Prise en charge sous 48h</div>
 
-          {/* Pile de dossiers stylisés qui défilent (contenu fictif) */}
+          {/* Pile de vraies pièces reçues, anonymisées, qui défilent */}
           <HeroDocs />
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>Exemples de dossiers traités — reconstitutions, informations masquées</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>Pièces réelles reçues par nos clients — informations d'identification masquées</div>
         </div>
       </div>
 
