@@ -107,9 +107,16 @@ export default function Home() {
         <div style={s.block}>
           <div style={s.label}>L'avocat vous explique</div>
           <div style={{ background: 'var(--navy)', borderRadius: 10, overflow: 'hidden' }}>
-            <div style={{ height: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, cursor: 'pointer' }}>
-              <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.12)', border: '1.5px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, color: 'white' }}>▶</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>Comment nous traitons ce type de réclamation — 4 min</div>
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '16px 16px 14px' }}>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                style={{ width: '100%', maxWidth: 264, aspectRatio: '202 / 360', objectFit: 'cover', borderRadius: 8, background: '#000', display: 'block', boxShadow: '0 8px 22px rgba(0,0,0,0.35)' }}
+              >
+                <source src="/dossiers/interview-avocat.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la lecture de cette vidéo.
+              </video>
             </div>
             <div style={{ padding: '10px 16px', borderTop: '0.5px solid rgba(255,255,255,0.1)', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
               <strong style={{ color: 'rgba(255,255,255,0.65)' }}>Interview média :</strong> pourquoi certaines réclamations peuvent être sérieusement contestées, et ce que vous risquez réellement.

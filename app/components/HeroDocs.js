@@ -12,6 +12,7 @@
 const docs = [
   { src: '/dossiers/picrights-afp.jpg', alt: 'Mise en demeure PicRights au nom de l’AFP (destinataire masqué)' },
   { src: '/dossiers/picrights-lagardere.jpg', alt: 'Mise en demeure PicRights au nom de Lagardère (destinataire masqué)' },
+  { src: '/dossiers/assignation-afp.jpg', alt: 'Assignation de l’AFP devant le Tribunal judiciaire de Paris (défendeur masqué)' },
   { src: '/dossiers/accord-afp.jpg', alt: 'Accord transactionnel avec l’Agence France-Presse (informations masquées)' },
   { src: '/dossiers/attestation-afp.jpg', alt: 'Attestation de titularité de droits de l’AFP' },
 ]
