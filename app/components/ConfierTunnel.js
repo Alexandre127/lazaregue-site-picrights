@@ -12,7 +12,7 @@
 // Tant que ce n'est pas branché, l'étape 3 simule le paiement et affiche
 // l'étape 4. Les repères sont marqués « TODO(backend) ».
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const ORGANISMES = ['PicRights', 'Copytrack', 'Getty Images', 'Rights Control', 'AFP', 'Autre']
 
@@ -120,6 +120,14 @@ export default function ConfierTunnel() {
 
   const set = (k) => (e) => setData((d) => ({ ...d, [k]: e.target.value }))
 
+  // Retour depuis Stripe Checkout (le parcours a rechargé) : on affiche
+  // directement la bonne étape.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    if (p.get('paid') === '1') setStep(4)
+    else if (p.get('canceled') === '1') { setStep(3); setError('Paiement annulé — vous pouvez réessayer.') }
+  }, [])
+
   function validateStep1() {
     const need = ['prenom', 'nom', 'societe', 'email', 'telephone', 'organisme', 'montant']
     for (const k of need) if (!String(data[k]).trim()) return 'Merci de compléter tous les champs obligatoires.'
@@ -144,11 +152,21 @@ export default function ConfierTunnel() {
   async function pay() {
     setSubmitting(true); setError('')
     try {
-      // TODO(backend) : POST multipart /litige-afp-picrights/api/dossier
-      //   (champs + fichiers) -> stockage + création dossier + Yousign,
-      //   puis /api/checkout -> session Stripe -> window.location = session.url
-      await new Promise((r) => setTimeout(r, 900)) // simulation
-      setStep(4)
+      const fd = new FormData()
+      Object.entries(data).forEach(([k, v]) => fd.append(k, v))
+      fd.append('signature', signature)
+      const addFiles = (field, fl) => { if (fl) Array.from(fl).forEach((f) => fd.append(field, f)) }
+      addFiles('miseEnDemeure', miseEnDemeure)
+      addFiles('photo', photo)
+      addFiles('echanges', echanges)
+
+      const res = await fetch('/litige-afp-picrights/api/checkout/', { method: 'POST', body: fd })
+      const json = await res.json().catch(() => ({}))
+      // Paiement configuré : redirection vers Stripe Checkout.
+      if (res.ok && json.url) { window.location.href = json.url; return }
+      // Repli (clés non encore posées) : on affiche la confirmation.
+      if (res.ok && json.simulated) { setStep(4); return }
+      setError(json.error || 'Le paiement n’a pas pu être initié. Réessayez ou contactez le cabinet.')
     } catch (e) {
       setError('Le paiement n’a pas pu être initié. Réessayez ou contactez le cabinet.')
     } finally {
@@ -355,7 +373,7 @@ export default function ConfierTunnel() {
             <div>✓ La convention d’honoraires signée</div>
             <div>✓ Le lien vers votre espace de suivi</div>
           </div>
-          <p style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14 }}>Un e-mail de confirmation a été envoyé à <strong>{data.email}</strong>.</p>
+          <p style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14 }}>Un e-mail de confirmation vous a été envoyé{data.email ? <> à <strong>{data.email}</strong></> : null}.</p>
         </div>
       )}
     </div>
