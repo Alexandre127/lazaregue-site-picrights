@@ -1,4 +1,6 @@
+import { Fragment } from 'react'
 import Link from 'next/link'
+import HeroDocs from '../components/HeroDocs'
 
 export const metadata = {
   title: 'Mise en demeure PicRights, Copytrack, Getty Images — Prise en charge par un avocat',
@@ -46,14 +48,9 @@ export default function Home() {
           </Link>
           <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>200 € HT · Convention incluse · Prise en charge sous 48h</div>
 
-          {/* Doc mockup */}
-          <div style={{ background: '#fdfcf9', borderRadius: 6, padding: '14px 18px', marginTop: 20, position: 'relative', maxWidth: 260 }}>
-            {[50, 75, 65, 85].map((w, i) => <div key={i} style={{ height: 6, borderRadius: 2, background: '#d8d6cc', width: `${w}%`, marginBottom: 6, marginTop: i === 2 ? 8 : 0 }} />)}
-            <div style={{ height: 8, borderRadius: 2, background: '#2c2c2a', width: '55%', marginBottom: 6 }} />
-            {[80, 38].map((w, i) => <div key={i} style={{ height: 6, borderRadius: 2, background: '#d8d6cc', width: `${w}%`, marginBottom: 6, marginTop: i === 0 ? 8 : 0 }} />)}
-            <div style={{ position: 'absolute', top: 10, right: 12, fontSize: 10, fontWeight: 700, color: '#A32D2D', border: '1.5px solid #A32D2D', borderRadius: 3, padding: '2px 7px', transform: 'rotate(8deg)', opacity: 0.7 }}>PicRights</div>
-          </div>
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>Exemple réel de dossier traité — informations masquées</div>
+          {/* Pile de dossiers stylisés qui défilent (contenu fictif) */}
+          <HeroDocs />
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>Exemples de dossiers traités — reconstitutions, informations masquées</div>
         </div>
       </div>
 
@@ -143,14 +140,14 @@ export default function Home() {
           <div style={s.label}>Que risquez-vous réellement ?</div>
           <div style={{ display: 'flex', alignItems: 'center', margin: '14px 0 12px' }}>
             {[['Mise en demeure', 'Vous êtes ici', true, false], ['Relances', 'Courriers', false, false], ['Négociation', 'Notre intervention', false, true], ['Assignation', 'Éventuelle', false, false], ['Procédure', 'Judiciaire', false, false]].map(([name, desc, isRed, isBlue], i) => (
-              <>
-                <div key={name} style={{ flex: 1, textAlign: 'center', minWidth: 0 }}>
+              <Fragment key={name}>
+                <div style={{ flex: 1, textAlign: 'center', minWidth: 0 }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: isRed ? '#E24B4A' : isBlue ? 'var(--blue)' : '#c7c5ba', margin: '0 auto 6px' }} />
                   <div style={{ fontSize: 10, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3 }}>{name}</div>
                   <div style={{ fontSize: 9, color: 'var(--muted)' }}>{desc}</div>
                 </div>
-                {i < 4 && <div key={`c${i}`} style={{ flex: '0 0 10px', height: 1, background: '#c7c5ba', marginBottom: 14 }} />}
-              </>
+                {i < 4 && <div style={{ flex: '0 0 10px', height: 1, background: '#c7c5ba', marginBottom: 14 }} />}
+              </Fragment>
             ))}
           </div>
           <div style={{ fontSize: 12, color: 'var(--green)', background: 'var(--green-soft)', border: '0.5px solid #97C459', borderRadius: 8, padding: '10px 14px', display: 'flex', gap: 8 }}>
