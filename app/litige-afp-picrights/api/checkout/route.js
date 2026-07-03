@@ -44,9 +44,10 @@ export async function POST(req) {
       return Response.json({ simulated: true })
     }
 
-    // Upload des pièces sur Vercel Blob (URLs non devinables).
-    const fileUrls = { miseEnDemeure: [], photo: [], echanges: [] }
-    let uploadError = null
+    // Upload des pièces sur Vercel Blob (store privé — accès authentifié).
+    // On stocke les pathnames ; le webhook les relit avec get() pour les
+    // joindre à l'e-mail cabinet.
+    const filePaths = { miseEnDemeure: [], photo: [], echanges: [] }
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       const slug = (client.email || 'client').replace(/[^\w.@-]/g, '_')
       const uploadField = async (field) => {
@@ -54,26 +55,36 @@ export async function POST(req) {
         for (const f of form.getAll(field)) {
           if (typeof f === 'object' && f && f.size) {
             const name = (f.name || 'piece').replace(/[^\w.\-]/g, '_')
-            const blob = await put(`dossiers/${slug}/${field}-${name}`, f, { access: 'public', addRandomSuffix: true })
-            out.push(blob.url)
+            const blob = await put(`dossiers/${slug}/${field}-${name}`, f, { access: 'private', addRandomSuffix: true })
+            out.push(blob.pathname)
           }
         }
         return out
       }
       try {
-        fileUrls.miseEnDemeure = await uploadField('miseEnDemeure')
-        fileUrls.photo = await uploadField('photo')
-        fileUrls.echanges = await uploadField('echanges')
+        filePaths.miseEnDemeure = await uploadField('miseEnDemeure')
+        filePaths.photo = await uploadField('photo')
+        filePaths.echanges = await uploadField('echanges')
       } catch (e) {
         // Non bloquant : un souci de stockage ne doit jamais casser le paiement.
-        uploadError = String((e && e.message) || e)
         console.error('[checkout] upload Blob échoué', e)
       }
     }
 
-    // Debug temporaire : ?debug=1 renvoie l'état de l'upload sans créer de session.
+    // Debug temporaire : ?debug=1 teste upload privé + relecture, sans Stripe.
     if (new URL(req.url).searchParams.get('debug') === '1') {
-      return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, fileUrls, uploadError })
+      const { get } = await import('@vercel/blob')
+      const readback = []
+      try {
+        for (const p of [...filePaths.miseEnDemeure, ...filePaths.photo, ...filePaths.echanges]) {
+          const res = await get(p, { access: 'private' })
+          const buf = Buffer.from(await new Response(res.stream).arrayBuffer())
+          readback.push({ path: p, bytes: buf.length })
+        }
+      } catch (e) {
+        return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, filePaths, readErr: String((e && e.message) || e) })
+      }
+      return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, filePaths, readback })
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -95,9 +106,9 @@ export async function POST(req) {
         telephone: client.telephone, organisme: client.organisme,
         montant: client.montant, delai: client.delai,
         signature_nom: client.signature, signature_date: new Date().toISOString(),
-        piece_mise_en_demeure: fileUrls.miseEnDemeure.join(' | ').slice(0, 480),
-        piece_photo: fileUrls.photo.join(' | ').slice(0, 480),
-        piece_echanges: fileUrls.echanges.join(' | ').slice(0, 480),
+        piece_mise_en_demeure: filePaths.miseEnDemeure.join(' | ').slice(0, 480),
+        piece_photo: filePaths.photo.join(' | ').slice(0, 480),
+        piece_echanges: filePaths.echanges.join(' | ').slice(0, 480),
       },
     })
 

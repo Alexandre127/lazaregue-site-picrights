@@ -16,6 +16,7 @@
 
 import Stripe from 'stripe'
 import { Resend } from 'resend'
+import { get } from '@vercel/blob'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -31,13 +32,12 @@ async function fetchAttachments(m) {
   ]
   const atts = []
   for (const [key, base] of fields) {
-    const urls = (m[key] || '').split(' | ').filter(Boolean)
-    for (let i = 0; i < urls.length; i++) {
+    const paths = (m[key] || '').split(' | ').filter(Boolean)
+    for (let i = 0; i < paths.length; i++) {
       try {
-        const r = await fetch(urls[i])
-        if (!r.ok) continue
-        const buf = Buffer.from(await r.arrayBuffer())
-        const ext = (urls[i].split('?')[0].split('.').pop() || 'pdf').slice(0, 5)
+        const res = await get(paths[i], { access: 'private' })
+        const buf = Buffer.from(await new Response(res.stream).arrayBuffer())
+        const ext = (paths[i].split('.').pop() || 'pdf').slice(0, 5)
         atts.push({ filename: `${base}-${i + 1}.${ext}`, content: buf })
       } catch (e) {
         console.error('[webhook] pièce jointe échouée', e)
@@ -61,9 +61,8 @@ function clientEmailHtml(m) {
 }
 
 function cabinetEmailHtml(m, s) {
-  const piece = (label, urls) => urls
-    ? `<li>${label} : ${urls.split(' | ').map((u) => `<a href="${esc(u)}">${esc(u)}</a>`).join(', ')}</li>`
-    : ''
+  const count = (v) => (v ? v.split(' | ').filter(Boolean).length : 0)
+  const line = (label, v) => (count(v) ? `<li>${label} : ${count(v)} fichier(s)</li>` : '')
   return `
     <div style="font-family:Arial,sans-serif;color:#1a1a1a;max-width:640px">
       <h2 style="color:#1a2744">Nouveau dossier — ${esc(m.prenom)} ${esc(m.nom)}</h2>
@@ -77,11 +76,11 @@ function cabinetEmailHtml(m, s) {
         <li><strong>Signature :</strong> ${esc(m.signature_nom)} (${esc(m.signature_date)})</li>
         <li><strong>Paiement :</strong> ${(s.amount_total || 0) / 100} € — ${esc(s.payment_status)}</li>
       </ul>
-      <h3>Pièces déposées</h3>
+      <h3>Pièces déposées (jointes à cet e-mail)</h3>
       <ul>
-        ${piece('Mise en demeure', m.piece_mise_en_demeure)}
-        ${piece('Photographie', m.piece_photo)}
-        ${piece('Échanges', m.piece_echanges)}
+        ${line('Mise en demeure', m.piece_mise_en_demeure)}
+        ${line('Photographie', m.piece_photo)}
+        ${line('Échanges', m.piece_echanges)}
       </ul>
     </div>`
 }
