@@ -112,6 +112,7 @@ export default function Home() {
                 controls
                 playsInline
                 preload="metadata"
+                poster="/dossiers/interview-poster.jpg"
                 style={{ width: '100%', maxWidth: 264, aspectRatio: '202 / 360', objectFit: 'cover', borderRadius: 8, background: '#000', display: 'block', boxShadow: '0 8px 22px rgba(0,0,0,0.35)' }}
               >
                 <source src="/dossiers/interview-avocat.mp4" type="video/mp4" />
