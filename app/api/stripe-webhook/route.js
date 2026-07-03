@@ -22,6 +22,31 @@ export const dynamic = 'force-dynamic'
 
 const esc = (s) => String(s || '').replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]))
 
+// Récupère les pièces déposées (stockées sur Blob) pour les joindre à l'e-mail.
+async function fetchAttachments(m) {
+  const fields = [
+    ['piece_mise_en_demeure', 'mise-en-demeure'],
+    ['piece_photo', 'photographie'],
+    ['piece_echanges', 'echanges'],
+  ]
+  const atts = []
+  for (const [key, base] of fields) {
+    const urls = (m[key] || '').split(' | ').filter(Boolean)
+    for (let i = 0; i < urls.length; i++) {
+      try {
+        const r = await fetch(urls[i])
+        if (!r.ok) continue
+        const buf = Buffer.from(await r.arrayBuffer())
+        const ext = (urls[i].split('?')[0].split('.').pop() || 'pdf').slice(0, 5)
+        atts.push({ filename: `${base}-${i + 1}.${ext}`, content: buf })
+      } catch (e) {
+        console.error('[webhook] pièce jointe échouée', e)
+      }
+    }
+  }
+  return atts
+}
+
 function clientEmailHtml(m) {
   return `
     <div style="font-family:Arial,sans-serif;color:#1a1a1a;max-width:560px">
@@ -89,7 +114,8 @@ export async function POST(req) {
           await resend.emails.send({ from, to: clientEmail, subject: 'Votre dossier est enregistré — Lazarègue Avocats', html: clientEmailHtml(m) })
         }
         if (process.env.CABINET_EMAIL) {
-          await resend.emails.send({ from, to: process.env.CABINET_EMAIL, subject: `Nouveau dossier — ${m.prenom || ''} ${m.nom || ''} (${m.organisme || ''})`, html: cabinetEmailHtml(m, s) })
+          const attachments = await fetchAttachments(m)
+          await resend.emails.send({ from, to: process.env.CABINET_EMAIL, subject: `Nouveau dossier — ${m.prenom || ''} ${m.nom || ''} (${m.organisme || ''})`, html: cabinetEmailHtml(m, s), attachments })
         }
       }
     } catch (e) {

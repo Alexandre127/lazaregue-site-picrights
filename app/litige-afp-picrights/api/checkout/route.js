@@ -59,9 +59,14 @@ export async function POST(req) {
         }
         return out
       }
-      fileUrls.miseEnDemeure = await uploadField('miseEnDemeure')
-      fileUrls.photo = await uploadField('photo')
-      fileUrls.echanges = await uploadField('echanges')
+      try {
+        fileUrls.miseEnDemeure = await uploadField('miseEnDemeure')
+        fileUrls.photo = await uploadField('photo')
+        fileUrls.echanges = await uploadField('echanges')
+      } catch (e) {
+        // Non bloquant : un souci de stockage ne doit jamais casser le paiement.
+        console.error('[checkout] upload Blob échoué', e)
+      }
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
