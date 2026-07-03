@@ -46,6 +46,7 @@ export async function POST(req) {
 
     // Upload des pièces sur Vercel Blob (URLs non devinables).
     const fileUrls = { miseEnDemeure: [], photo: [], echanges: [] }
+    let uploadError = null
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       const slug = (client.email || 'client').replace(/[^\w.@-]/g, '_')
       const uploadField = async (field) => {
@@ -65,8 +66,14 @@ export async function POST(req) {
         fileUrls.echanges = await uploadField('echanges')
       } catch (e) {
         // Non bloquant : un souci de stockage ne doit jamais casser le paiement.
+        uploadError = String((e && e.message) || e)
         console.error('[checkout] upload Blob échoué', e)
       }
+    }
+
+    // Debug temporaire : ?debug=1 renvoie l'état de l'upload sans créer de session.
+    if (new URL(req.url).searchParams.get('debug') === '1') {
+      return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, fileUrls, uploadError })
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
