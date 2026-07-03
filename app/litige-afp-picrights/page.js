@@ -3,8 +3,8 @@ import Link from 'next/link'
 import HeroDocs from '../components/HeroDocs'
 
 export const metadata = {
-  title: 'Mise en demeure PicRights, Copytrack, Getty Images — Prise en charge par un avocat',
-  description: 'Vous avez reçu une mise en demeure de PicRights, Copytrack, Rights Control ou Getty Images ? Avocat spécialisé. Examen complet et réponse sous 48h — forfait 200 € HT.',
+  title: 'Mise en demeure PicRights, AFP, Reuters, AP — Prise en charge par un avocat',
+  description: 'Vous avez reçu une mise en demeure de PicRights, AFP, PA Images, Reuters, AP, MaxPPP, Paris Match ou Rights Control ? Avocat spécialisé. Examen complet et réponse sous 48h — forfait 200 € HT.',
   alternates: { canonical: 'https://www.lazaregue-avocats.fr/litige-afp-picrights/' },
 }
 
@@ -31,14 +31,14 @@ export default function Home() {
       <div style={{ background: 'var(--navy)' }}>
         <div style={{ ...s.page, padding: '40px 24px 32px' }}>
           <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: 12 }}>
-            PicRights · Copytrack · Rights Control · Getty Images · AFP
+            PicRights · AFP · Reuters · AP · PA Images · MaxPPP · Paris Match · Rights Control
           </div>
           <h1 style={{ fontSize: 22, fontWeight: 500, color: 'white', lineHeight: 1.35, marginBottom: 10 }}>
             Une réponse maladroite peut vous coûter{' '}
             <em style={{ fontStyle: 'normal', color: '#7ec8e3' }}>plusieurs milliers d'euros.</em>
           </h1>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 8 }}>
-            Vous avez reçu une mise en demeure de PicRights, Copytrack, Getty Images, Rights Control ou d'une agence photographique ? Nous prenons immédiatement votre dossier en charge.
+            Vous avez reçu une mise en demeure de PicRights, AFP, PA Images, Reuters, AP, MaxPPP, Paris Match, Rights Control ou d'une autre agence de presse ? Nous prenons immédiatement votre dossier en charge.
           </p>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', fontWeight: 500, marginBottom: 20 }}>
             À ce stade, vous n'avez plus besoin de décider si cette réclamation est fondée. C'est précisément notre travail.
@@ -50,7 +50,7 @@ export default function Home() {
 
           {/* Pile de vraies pièces reçues, anonymisées, qui défilent */}
           <HeroDocs />
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>Pièces réelles reçues par nos clients — informations d'identification masquées</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 18 }}>Pièces réelles reçues par nos clients — informations d'identification masquées</div>
         </div>
       </div>
 
@@ -96,7 +96,7 @@ export default function Home() {
             </div>
             <div style={{ fontSize: 11, color: 'var(--secondary)', marginBottom: 8 }}>Nous intervenons régulièrement contre :</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {['PicRights', 'Copytrack', 'Getty Images', 'AFP', 'Rights Control', 'Cabinets mandataires'].map(t => (
+              {['PicRights', 'AFP', 'PA Images', 'Reuters', 'AP', 'MaxPPP', 'Paris Match', 'Rights Control'].map(t => (
                 <span key={t} style={{ fontSize: 11, fontWeight: 500, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '4px 10px', borderRadius: 20 }}>{t}</span>
               ))}
             </div>
@@ -207,9 +207,9 @@ export default function Home() {
         {/* CAS PRATIQUES */}
         <div style={s.block}>
           <div style={s.label}>Cas pratiques — dossiers traités par le cabinet</div>
-          {[['PicRights', 'PicRights réclamait 980 € pour une photographie de produit utilisée sur un site e-commerce.', 'Photographie de catalogue · 2023', '/cas-pratiques/picrights-photo-produit-980'],
-            ['Copytrack', 'Copytrack réclamait 1 400 € pour une photographie immobilière publiée sur un portail d\'annonces.', 'Photo immobilière · 2023', '/cas-pratiques/copytrack-photo-immobiliere-1400'],
-            ['Getty Images', 'Getty Images réclamait 2 200 € pour une photographie de ville illustrant un article de blog.', 'Photo touristique · 2024', '/cas-pratiques/getty-images-photo-ville-2200']].map(([tag, title, detail, href]) => (
+          {[['PicRights', 'PicRights réclamait 980 € pour une photographie de produit utilisée sur un site e-commerce.', 'Photographie de catalogue · 2023', '/cas-pratiques/'],
+            ['AFP', 'L\'AFP réclamait 1 400 € pour une photographie de presse reprise sur un site d\'actualité.', 'Photo de presse · 2023', '/cas-pratiques/'],
+            ['Reuters', 'Reuters réclamait 2 200 € pour une photographie d\'agence illustrant un article de blog.', 'Photo d\'agence · 2024', '/cas-pratiques/']].map(([tag, title, detail, href]) => (
             <Link key={tag} href={href} style={{ display: 'block', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '14px 16px', marginBottom: 10, textDecoration: 'none' }}>
               <div style={{ display: 'inline-block', fontSize: 10, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '2px 8px', borderRadius: 10, marginBottom: 7 }}>{tag}</div>
               <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)', marginBottom: 4, lineHeight: 1.4 }}>{title}</div>
@@ -246,7 +246,7 @@ export default function Home() {
         <div style={{ borderTop: '0.5px solid var(--border)', padding: '20px 0' }}>
           <div style={s.label}>Pour aller plus loin</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {[['Guide : mise en demeure PicRights', '/picrights'], ['Guide : mise en demeure Copytrack', '/copytrack'], ['Guide : mise en demeure Getty Images', '/getty-images'], ['Jurisprudence commentée', '/jurisprudence'], ['Tous les cas pratiques', '/cas-pratiques'], ['Notre méthode', '/notre-methode']].map(([label, href]) => (
+            {[['Guide : mise en demeure PicRights', '/picrights/'], ['Guide : mise en demeure AFP', '/afp/'], ['Guide : mise en demeure Reuters', '/reuters/'], ['Toutes les agences', '/agences/'], ['Jurisprudence commentée', '/jurisprudence/'], ['Tous les cas pratiques', '/cas-pratiques/'], ['Notre méthode', '/notre-methode/']].map(([label, href]) => (
               <Link key={href} href={href} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>{label}</Link>
             ))}
           </div>

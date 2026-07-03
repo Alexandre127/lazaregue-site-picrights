@@ -4,9 +4,7 @@ import { useState } from 'react'
 
 const links = [
   { href: '/litige-afp-picrights/', label: 'Accueil' },
-  { href: '/picrights/', label: 'PicRights' },
-  { href: '/copytrack/', label: 'Copytrack' },
-  { href: '/getty-images/', label: 'Getty Images' },
+  { href: '/agences/', label: 'Agences' },
   { href: '/jurisprudence/', label: 'Jurisprudence' },
   { href: '/cas-pratiques/', label: 'Cas pratiques' },
   { href: '/notre-methode/', label: 'Notre méthode' },

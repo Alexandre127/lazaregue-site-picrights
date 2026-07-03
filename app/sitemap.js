@@ -3,7 +3,14 @@ export default function sitemap() {
   const now = new Date()
   const urls = [
     { url: `${base}/litige-afp-picrights/`, lastModified: now, priority: 1.0 },
+    { url: `${base}/agences/`, lastModified: now, priority: 0.9 },
     { url: `${base}/picrights/`, lastModified: now, priority: 0.9 },
+    { url: `${base}/afp/`, lastModified: now, priority: 0.9 },
+    { url: `${base}/reuters/`, lastModified: now, priority: 0.85 },
+    { url: `${base}/ap/`, lastModified: now, priority: 0.85 },
+    { url: `${base}/pa-images/`, lastModified: now, priority: 0.8 },
+    { url: `${base}/maxppp/`, lastModified: now, priority: 0.8 },
+    { url: `${base}/paris-match/`, lastModified: now, priority: 0.8 },
     { url: `${base}/picrights/faut-il-payer/`, lastModified: now, priority: 0.8 },
     { url: `${base}/picrights/comment-reagir/`, lastModified: now, priority: 0.8 },
     { url: `${base}/picrights/jurisprudence/`, lastModified: now, priority: 0.7 },
