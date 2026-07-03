@@ -71,22 +71,6 @@ export async function POST(req) {
       }
     }
 
-    // Debug temporaire : ?debug=1 teste upload privé + relecture, sans Stripe.
-    if (new URL(req.url).searchParams.get('debug') === '1') {
-      const { get } = await import('@vercel/blob')
-      const readback = []
-      try {
-        for (const p of [...filePaths.miseEnDemeure, ...filePaths.photo, ...filePaths.echanges]) {
-          const res = await get(p, { access: 'private' })
-          const buf = Buffer.from(await new Response(res.stream).arrayBuffer())
-          readback.push({ path: p, bytes: buf.length })
-        }
-      } catch (e) {
-        return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, filePaths, readErr: String((e && e.message) || e) })
-      }
-      return Response.json({ hasToken: !!process.env.BLOB_READ_WRITE_TOKEN, filePaths, readback })
-    }
-
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
     const taxRate = process.env.STRIPE_TAX_RATE_ID
     const lineItem = taxRate
