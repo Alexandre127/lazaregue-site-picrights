@@ -37,6 +37,7 @@ export default function MentionsLegales() {
         <p style={s.p}>Le site est édité par <strong>Maître Alexandre Lazarègue</strong>, avocat inscrit au Barreau de Paris, exerçant à titre individuel (entrepreneur individuel).</p>
         {dt('Nom commercial', 'Lazarègue Avocats')}
         {dt('Adresse professionnelle', '18 rue de Tilsitt, 75017 Paris, France')}
+        {dt('Barreau', 'Barreau de Paris — toque n° 1798')}
         {dt('SIREN', '823 894 142')}
         {dt('SIRET (siège)', '823 894 142 00038')}
         {dt('Code APE', '6910Z — Activités juridiques')}
@@ -64,7 +65,7 @@ export default function MentionsLegales() {
 
       <div style={s.block}>
         <div style={s.label}>Profession réglementée</div>
-        <p style={s.p}>Maître Alexandre Lazarègue exerce la profession d'avocat, réglementée, sous le titre d'<strong>avocat</strong> délivré en France. Il est inscrit au <strong>Barreau de Paris</strong>.</p>
+        <p style={s.p}>Maître Alexandre Lazarègue exerce la profession d'avocat, réglementée, sous le titre d'<strong>avocat</strong> délivré en France. Il est inscrit au <strong>Barreau de Paris</strong> (toque n° 1798).</p>
         <p style={s.p}>Il est soumis aux règles professionnelles de la profession, notamment au Règlement Intérieur National (RIN) et au Règlement Intérieur du Barreau de Paris (RIBP), consultables sur <span style={{ color: 'var(--text)' }}>cnb.avocat.fr</span> et <span style={{ color: 'var(--text)' }}>avocatparis.org</span>.</p>
         <p style={{ ...s.p, marginBottom: 0 }}>Autorité de surveillance : Ordre des avocats au Barreau de Paris — 11 place Dauphine, 75001 Paris.</p>
       </div>
