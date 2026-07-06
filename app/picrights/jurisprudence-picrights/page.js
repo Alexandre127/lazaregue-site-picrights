@@ -1,24 +1,31 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'Les décisions de justice concernant PicRights et les photos de presse',
-  description: 'Que disent les tribunaux dans les litiges photographiques ? Originalité tantôt retenue tantôt refusée, valeur des captures d’écran, montants revus à la baisse : une jurisprudence marquée par la diversité des issues.',
+  title: 'Jurisprudence PicRights : ce que disent réellement les tribunaux',
+  description: 'Existe-t-il une jurisprudence PicRights ? Découvrez comment les tribunaux analysent les réclamations photographiques : originalité, titularité des droits, preuve et évaluation du préjudice.',
   alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/jurisprudence-picrights/' },
 }
 
-const lead = 'Il n’existe pas de réponse unique : la jurisprudence relative aux réclamations photographiques illustre surtout la diversité des issues. Comprendre ces grandes lignes aide à mesurer ce qui se joue réellement dans un dossier.'
+const lead = 'Lorsqu’on reçoit une réclamation PicRights, une question revient : existe-t-il une jurisprudence PicRights ? La réponse est contre-intuitive.'
 
 const blocks = [
-  ['h2', 'L’originalité : tantôt retenue, tantôt refusée'],
-  ['p', 'Le débat central porte souvent sur l’originalité. Les décisions montrent que la protection est accordée lorsque des choix créatifs sont démontrés (mise en scène, éclairage, composition documentés), et refusée lorsque la photographie apparaît essentiellement technique ou documentaire. Aucune catégorie d’images n’est protégée « par principe ».'],
-  ['h2', 'La preuve : la valeur des captures d’écran'],
-  ['p', 'Les juridictions rappellent régulièrement qu’une capture d’écran réalisée par une partie elle-même n’offre pas les mêmes garanties qu’un constat effectué dans des conditions techniques contrôlées. Sa force probante dépend des circonstances et des éléments complémentaires produits — elle n’est ni systématiquement écartée, ni systématiquement suffisante.'],
-  ['h2', 'Le montant : des condamnations souvent éloignées des demandes'],
-  ['p', 'Les décisions révèlent des écarts importants entre les sommes initialement réclamées et les montants effectivement accordés. Le juge apprécie le préjudice réellement démontré, ce qui laisse une marge de discussion sur le quantum.'],
-  ['note', 'Chaque affaire s’apprécie individuellement. Une décision favorable dans un dossier ne préjuge pas de l’issue d’un autre : les faits, les preuves et la photographie changent tout.'],
-  ['h2', 'Consulter la bibliothèque'],
-  ['p', 'Nous tenons une bibliothèque de jurisprudence commentée, classée par thème (originalité, mandat, préjudice, procédure), pour illustrer la diversité des solutions.'],
-  ['link', ['/jurisprudence/', 'Consulter toute la jurisprudence commentée']],
+  ['key', 'Il n’existe pas de « jurisprudence PicRights ». Les tribunaux ne jugent jamais PicRights en tant que telle : ils appliquent les règles classiques du droit d’auteur. Ils ne se demandent pas si PicRights avait raison d’écrire, mais si les conditions du droit d’auteur sont réunies.'],
+  ['p', 'Lorsqu’une affaire est portée devant un tribunal, les juges répondent toujours aux mêmes questions :'],
+  ['ul', ['la photographie est-elle protégée par le droit d’auteur ?', 'le demandeur démontre-t-il qu’il est titulaire des droits invoqués ?', 'la reproduction est-elle effectivement établie ?', 'le préjudice est-il démontré ?', 'le montant réclamé est-il justifié ?']],
+  ['p', 'Une mise en demeure PicRights est une **position amiable**. Une décision judiciaire résulte, elle, d’un examen contradictoire des preuves produites par chacune des parties. Les juges procèdent toujours à une analyse individualisée : ils ne condamnent jamais automatiquement le destinataire d’une réclamation.'],
+  ['h2', 'Comment les tribunaux raisonnent réellement'],
+  ['p', 'Une erreur fréquente consiste à croire que le juge vérifie uniquement si une photographie a été utilisée sans autorisation. Son raisonnement est plus complet : existe-t-il une œuvre protégée ? qui détient les droits ? les faits sont-ils établis ? quelles preuves sont produites ? quel est le préjudice réellement démontré ? Si l’une de ces conditions fait défaut, la demande peut être rejetée, totalement ou partiellement.'],
+  ['h2', '1. Toutes les photographies ne sont pas automatiquement protégées'],
+  ['p', 'Avant tout, le juge vérifie si la photographie peut bénéficier de la protection du droit d’auteur, ce qui suppose de véritables choix créatifs. Selon les affaires, il examine le choix du sujet, le cadrage, l’angle, la lumière, la profondeur de champ, la composition et le moment du déclenchement. Il ne suffit jamais d’affirmer qu’une photographie est « originale » : encore faut-il expliquer pourquoi.'],
+  ['h2', '2. Le demandeur doit démontrer qu’il détient réellement les droits'],
+  ['p', 'Une photographie peut être protégée sans que celui qui agit dispose des droits pour réclamer une indemnisation. Les tribunaux vérifient qui est l’auteur, qui est titulaire des droits patrimoniaux, quelles cessions sont intervenues et quels mandats existent. La charge de la preuve repose sur le demandeur : la simple production d’une réclamation amiable n’est jamais suffisante.'],
+  ['h2', '3. La preuve occupe une place centrale'],
+  ['p', 'Une procédure en contrefaçon est avant tout une procédure de preuve. Le juge ne présume pas les faits : il examine les constats de commissaire de justice, les captures d’écran, les URL, les dates, les métadonnées, les échanges et les contrats. Chaque élément est discuté contradictoirement, et l’appréciation dépend largement de la qualité des preuves apportées.'],
+  ['h2', '4. Les demandes ne sont pas toujours accueillies'],
+  ['p', 'Contrairement à une idée reçue, les demandeurs n’obtiennent pas systématiquement gain de cause. Selon les affaires, les juridictions accueillent les demandes en totalité, ne les accueillent que partiellement, ou déboutent intégralement le demandeur. Cette diversité des solutions rappelle qu’aucune réclamation ne peut être analysée de manière automatique : tout dépend des droits invoqués, de la photographie, des preuves, du contexte d’utilisation et des arguments des parties.'],
+  ['note', 'Nous tenons une bibliothèque de jurisprudence commentée, classée par thème (originalité, titularité, préjudice, procédure). Chaque décision y est présentée individuellement, à partir de ses motifs — jamais résumée de mémoire.'],
+  ['key', 'Les juridictions ne raisonnent jamais en fonction de l’auteur du courrier reçu, mais en fonction des règles du droit d’auteur. La vraie question est toujours : le demandeur serait-il en mesure de démontrer, devant un tribunal, l’ensemble des conditions nécessaires au succès de son action ?'],
+  ['link', ['/jurisprudence/', 'Consulter la bibliothèque de jurisprudence commentée']],
 ]
 
 export default function Page() {

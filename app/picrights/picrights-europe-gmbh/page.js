@@ -1,34 +1,35 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'PicRights Europe GmbH : qui est cette société et comment elle fonctionne',
-  description: 'PicRights Europe GmbH détecte les utilisations non autorisées de photographies pour le compte d’agences et de photographes. Qui est cette société, comment fonctionne sa détection, et pourquoi elle n’est pas titulaire des droits.',
+  title: 'PicRights Europe GmbH : quel est son rôle dans les réclamations photographiques ?',
+  description: 'Vous avez reçu un courrier mentionnant PicRights Europe GmbH ? Découvrez le rôle de cette société, pourquoi elle vous contacte et ce qu’il convient de vérifier avant toute réponse.',
   alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/picrights-europe-gmbh/' },
 }
 
-const lead = 'PicRights Europe GmbH détecte les utilisations supposées non autorisées de photographies et adresse des demandes de régularisation pour le compte de titulaires de droits. Voici concrètement qui elle est et comment son système fonctionne.'
+const lead = 'De nombreuses personnes découvrent le nom PicRights Europe GmbH en recevant une première demande de paiement concernant une photographie publiée sur leur site. Qui est cette société, pourquoi vous contacte-t-elle, et détient-elle réellement les droits ?'
 
 const blocks = [
-  ['h2', 'Une société de détection, pas un titulaire de droits'],
-  ['p', 'PicRights est une société spécialisée dans la détection des utilisations supposées non autorisées de photographies sur Internet. Elle agit pour le compte de nombreux titulaires de droits : agences de presse, banques d’images, photographes professionnels et éditeurs.'],
-  ['p', 'Contrairement à une idée répandue, PicRights n’est généralement **pas titulaire** des droits d’auteur. Elle intervient comme prestataire chargé de détecter et de gérer les réclamations pour le compte de ses clients.'],
-  ['p', 'Son rôle consiste principalement à :'],
-  ['ul', ['analyser automatiquement le web', 'identifier des images ressemblant à celles présentes dans les bases de données de ses clients', 'envoyer des demandes amiables de régularisation', 'transmettre certains dossiers à des cabinets d’avocats lorsqu’aucun accord n’est trouvé']],
-  ['h2', 'Comment fonctionne la détection ?'],
-  ['p', 'Le processus suit généralement quatre étapes.'],
-  ['steps', [
-    ['Constitution d’une base de données', 'Les titulaires de droits déposent leurs photographies. Chaque image reçoit une empreinte numérique qui permet d’identifier des ressemblances sur Internet.'],
-    ['Analyse automatique du web', 'Des robots explorent en permanence les sites, blogs et pages accessibles publiquement à la recherche de correspondances avec les photographies enregistrées.'],
-    ['Ouverture automatique d’un dossier', 'Lorsqu’une image est détectée, un dossier est créé, suivi de l’envoi de courriers-types puis, en l’absence d’accord, d’une transmission éventuelle à un cabinet d’avocats.'],
-    ['Demande d’indemnisation', 'Vous recevez un e-mail, parfois plusieurs relances, puis éventuellement une mise en demeure. L’objectif est d’obtenir le retrait de l’image et le paiement d’une indemnité.'],
-  ]],
-  ['note', 'Une correspondance visuelle n’est pas une preuve de contrefaçon. Le système repose sur une comparaison automatisée d’empreintes numériques — un rapprochement technique, non une démonstration juridique.'],
-  ['key', 'Puisque PicRights agit pour le compte d’un tiers, identifier l’agence réellement mandante et vérifier l’étendue de son mandat fait partie des toutes premières questions d’un dossier.'],
+  ['h2', 'Quel est le rôle de PicRights Europe GmbH ?'],
+  ['p', 'PicRights Europe GmbH intervient dans la détection d’utilisations supposées non autorisées de photographies sur Internet. Lorsqu’une photographie est repérée sur un site, un dossier peut être ouvert puis une réclamation amiable adressée au propriétaire du site.'],
+  ['p', 'Dans de nombreux dossiers, elle agit **pour le compte d’un titulaire de droits** : une agence de presse, une banque d’images ou un photographe. Le courrier mentionne généralement le titulaire concerné ainsi que la photographie faisant l’objet de la réclamation.'],
+  ['h2', 'PicRights Europe GmbH est-elle titulaire des droits ?'],
+  ['p', 'Pas nécessairement. Dans de nombreux dossiers, elle intervient comme **intermédiaire** chargé de la détection et de la gestion des premières démarches amiables. La question essentielle n’est donc pas seulement de savoir qui vous écrit, mais :'],
+  ['ul', ['qui revendique les droits sur la photographie ?', 'quels sont exactement ces droits ?', 'sur quels éléments cette revendication repose-t-elle ?']],
+  ['p', 'Cette vérification fait partie des premières étapes de l’analyse d’un dossier.'],
+  ['h2', 'Pourquoi recevez-vous une demande de paiement ?'],
+  ['p', 'Une réclamation est généralement adressée lorsqu’une photographie est présentée comme utilisée sans autorisation. Le courrier demande le plus souvent le retrait de la photographie, le paiement d’une indemnité, ou les deux. Recevoir une telle demande ne signifie pas que la somme réclamée est automatiquement due.'],
+  ['h2', 'PicRights Europe GmbH peut-elle engager une procédure judiciaire ?'],
+  ['p', 'Une réclamation amiable constitue la première étape. Si aucun accord n’intervient, le dossier peut, selon les circonstances, être transmis à un cabinet d’avocats. Une éventuelle procédure judiciaire relève ensuite du titulaire des droits ou de la personne ayant qualité pour agir. Le courrier de PicRights Europe GmbH ne constitue donc pas, à lui seul, une assignation.'],
+  ['h2', 'Que faut-il vérifier avant de répondre ?'],
+  ['ul', ['la photographie concernée', 'le titulaire des droits mentionné', 'les preuves produites', 'le contexte d’utilisation', 'le montant réclamé']],
+  ['p', 'Chaque dossier présente des caractéristiques propres : aucune réponse standard ne convient à toutes les situations.'],
+  ['note', 'Payer immédiatement, ignorer totalement le courrier ou répondre sans avoir analysé le dossier figurent parmi les réactions les plus fréquentes — et les plus risquées.'],
 ]
 
 const faq = [
-  ['PicRights est-elle une société sérieuse ?', 'Oui. PicRights intervient pour le compte de nombreux titulaires de droits. Ce n’est pas une arnaque au sens juridique — mais chaque réclamation qu’elle adresse reste contestable au cas par cas.'],
-  ['PicRights est-elle titulaire des photographies ?', 'En principe non : elle agit comme prestataire de détection et de recouvrement pour le compte des titulaires (agences, photographes). La titularité et le mandat doivent être vérifiés.'],
+  ['PicRights Europe GmbH est-elle une société réelle ?', 'Oui. Elle intervient dans le traitement de réclamations portant sur des utilisations supposées non autorisées de photographies.'],
+  ['Dois-je payer parce que PicRights Europe GmbH me l’a demandé ?', 'Pas automatiquement. Une demande amiable n’est pas une décision de justice : il convient d’examiner d’abord si la réclamation est fondée.'],
+  ['Détient-elle les droits sur les photographies ?', 'Pas nécessairement. Dans de nombreux dossiers, elle agit pour le compte d’un titulaire de droits mentionné dans la réclamation.'],
 ]
 
 export default function Page() {

@@ -7,7 +7,7 @@ import { ARTICLES, bySlug, href } from './picrightsArticles'
 // Rappelle toujours la page pilier (« Consulter le guide complet »).
 export default function ArticleLayout({ slug, lead, blocks, faq }) {
   const meta = bySlug(slug)
-  const others = ARTICLES.filter((a) => a.slug !== slug).slice(0, 4)
+  const others = ARTICLES.filter((a) => a.slug !== slug).slice(0, 6)
   const s = { page: { maxWidth: 720, margin: '0 auto', padding: '0 24px' } }
 
   return (
@@ -40,13 +40,22 @@ export default function ArticleLayout({ slug, lead, blocks, faq }) {
         </div>
       )}
 
+      {/* Encadré analyse — porte d'entrée vers l'outil interactif */}
+      <div style={{ background: '#F8FBFE', border: '1px solid var(--blue)', borderRadius: 12, padding: '18px 20px', margin: '20px 0' }}>
+        <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--navy)', marginBottom: 6 }}>Vous avez reçu un courrier PicRights ?</div>
+        <p style={{ fontSize: 13.5, color: 'var(--secondary)', lineHeight: 1.6, margin: '0 0 12px' }}>Déposez la photographie et la réclamation : notre analyseur réalise une première lecture juridique de votre dossier avant toute décision.</p>
+        <Link href="/litige-afp-picrights/#analyseur" style={{ display: 'inline-block', background: 'var(--navy)', color: 'white', fontWeight: 600, fontSize: 13, padding: '9px 18px', borderRadius: 8, textDecoration: 'none' }}>
+          Analyser mon dossier gratuitement →
+        </Link>
+      </div>
+
       {/* Renvoi vers la page pilier */}
-      <div style={{ background: 'var(--navy)', borderRadius: 12, padding: '24px 26px', margin: '20px 0 28px' }}>
+      <div style={{ background: 'var(--navy)', borderRadius: 12, padding: '24px 26px', margin: '0 0 28px' }}>
         <div style={{ fontSize: 15, fontWeight: 500, color: 'white', marginBottom: 8, lineHeight: 1.5 }}>Vous souhaitez comprendre l’ensemble du fonctionnement de PicRights ?</div>
         <Link href="/picrights/" style={{ color: '#7ec8e3', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>→ Consulter le guide complet PicRights</Link>
       </div>
 
-      <CtaBanner title="Vous avez reçu un courrier PicRights ?" subtitle="Nous examinons votre dossier et répondons à votre place — forfait 200 € HT." />
+      <CtaBanner title="Faire examiner votre réclamation par un avocat" subtitle="Chaque dossier examiné personnellement — forfait 200 € HT, prise en charge sous 48h." />
 
       <div style={{ padding: '4px 0 24px' }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 10 }}>Poursuivre le guide</div>

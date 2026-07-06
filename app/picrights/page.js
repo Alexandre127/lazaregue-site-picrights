@@ -82,6 +82,24 @@ const sections = [
       ['p', 'Les arguments juridiques applicables restent les mêmes quelle que soit l’agence : titularité et mandat, originalité de la photographie, suffisance des preuves et justification du montant.'],
     ],
   },
+  {
+    id: 'avis', kicker: 'Réputation', title: 'Peut-on se fier à une réclamation PicRights ?', slug: 'avis-sur-picrights', cta: 'Lire notre avis complet',
+    summary: [
+      ['p', 'Beaucoup cherchent un « avis sur PicRights » après une première réclamation. La vraie question n’est pas « PicRights est-elle sérieuse ? » — la société est bien réelle — mais **« ma réclamation est-elle juridiquement fondée ? »**. Un avis trouvé sur un forum ne permet jamais de le savoir : chaque dossier dépend de la photographie, des droits, des preuves et du montant.'],
+    ],
+  },
+  {
+    id: 'proces', kicker: 'Le risque judiciaire', title: 'Risquez-vous réellement un procès ?', slug: 'picrights-proces',
+    summary: [
+      ['p', 'Recevoir une réclamation ne signifie pas qu’un procès est engagé, ni qu’il est inévitable. PicRights intervient d’abord en phase amiable ; une assignation n’intervient qu’à défaut d’accord — et ne garantit pas le succès du demandeur, qui devra tout démontrer devant le juge.'],
+    ],
+  },
+  {
+    id: 'arnaque', kicker: 'La question qui inquiète', title: 'PicRights est-elle une arnaque ?', slug: 'picrights-arnaque',
+    summary: [
+      ['p', 'La question revient souvent, mais elle n’appelle ni « oui » ni « non ». Une réclamation PicRights n’est pas automatiquement infondée — mais elle ne signifie pas non plus que vous devez payer. Seul l’examen du bien-fondé juridique (photographie protégée, droits, preuves, montant) permet de trancher.'],
+    ],
+  },
 ]
 
 const faq = [
