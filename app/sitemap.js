@@ -1,3 +1,5 @@
+import { ARTICLES } from './components/guide/picrightsArticles'
+
 export default function sitemap() {
   const base = 'https://www.lazaregue-avocats.fr'
   const now = new Date()
@@ -11,10 +13,7 @@ export default function sitemap() {
     { url: `${base}/pa-images/`, lastModified: now, priority: 0.8 },
     { url: `${base}/maxppp/`, lastModified: now, priority: 0.8 },
     { url: `${base}/paris-match/`, lastModified: now, priority: 0.8 },
-    { url: `${base}/picrights/faut-il-payer/`, lastModified: now, priority: 0.8 },
-    { url: `${base}/picrights/comment-reagir/`, lastModified: now, priority: 0.8 },
-    { url: `${base}/picrights/jurisprudence/`, lastModified: now, priority: 0.7 },
-    { url: `${base}/picrights/cas-pratiques/`, lastModified: now, priority: 0.7 },
+    ...ARTICLES.map((a) => ({ url: `${base}/picrights/${a.slug}/`, lastModified: now, priority: 0.75 })),
     { url: `${base}/copytrack/`, lastModified: now, priority: 0.9 },
     { url: `${base}/getty-images/`, lastModified: now, priority: 0.8 },
     { url: `${base}/rights-control/`, lastModified: now, priority: 0.7 },

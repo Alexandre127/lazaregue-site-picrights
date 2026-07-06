@@ -1,103 +1,182 @@
 import Link from 'next/link'
 import CtaBanner from '../components/CtaBanner'
+import Blocks from '../components/guide/Blocks'
+import { href } from '../components/guide/picrightsArticles'
 
 export const metadata = {
-  title: 'PicRights : mise en demeure, faut-il payer ? Guide complet',
-  description: 'Vous avez reçu un courrier PicRights ? Découvrez qui est PicRights, pourquoi ils vous écrivent, si vous devez payer, et comment réagir. Avocat spécialisé.',
+  title: 'Réclamation PicRights : le guide juridique complet pour comprendre, contester et se défendre',
+  description: 'Vous avez reçu une réclamation PicRights ? Guide complet : qui est PicRights, faut-il payer, comment vérifier si la demande est fondée, moyens de défense, montant, jurisprudence. Avocat spécialisé en droit d’auteur photographique.',
   alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/' },
 }
 
-export default function PicRights() {
-  const s = { page: { maxWidth: 720, margin: '0 auto', padding: '0 24px' }, block: { padding: '20px 0', borderBottom: '0.5px solid var(--border)' }, label: { fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 10 } }
+const sections = [
+  {
+    id: 'qui', kicker: 'La société', title: 'Qu’est-ce que PicRights ?', slug: 'picrights-europe-gmbh',
+    summary: [
+      ['p', 'PicRights Europe GmbH est une société spécialisée dans la détection des utilisations supposées non autorisées de photographies sur Internet. Elle agit **pour le compte** de nombreux titulaires de droits — agences de presse, banques d’images, photographes, éditeurs — mais n’est généralement **pas elle-même titulaire** des droits qu’elle invoque.'],
+      ['p', 'Son rôle consiste à analyser automatiquement le web, identifier des images ressemblant à celles de ses clients, envoyer des demandes amiables de régularisation, puis transmettre certains dossiers à des cabinets d’avocats lorsqu’aucun accord n’est trouvé.'],
+      ['key', 'Recevoir un courrier PicRights ne signifie pas que vous êtes condamné : il s’agit d’une demande amiable, ni d’une décision de justice, ni de la preuve définitive d’une contrefaçon.'],
+    ],
+  },
+  {
+    id: 'courrier', kicker: 'Le courrier', title: 'Pourquoi avez-vous reçu cette réclamation ?', slug: 'courrier-picrights-que-faire',
+    summary: [
+      ['p', 'Dans la majorité des dossiers, quelques situations reviennent : une licence insuffisante ou expirée, un site conçu par une agence web ayant inséré une image sans autorisation suffisante, une ancienne version du site toujours invoquée, ou une simple erreur de détection.'],
+      ['ul', ['Licence limitée, mauvais usage commercial ou licence expirée', 'Site créé par un prestataire, à votre insu', 'Photographie retirée depuis longtemps mais encore invoquée', 'Correspondance visuelle qui n’est pas nécessairement la même image']],
+      ['p', 'Aucune technologie n’est infaillible : une correspondance algorithmique ne démontre pas, à elle seule, l’existence d’une contrefaçon. C’est pourquoi une analyse juridique reste indispensable avant toute décision.'],
+    ],
+  },
+  {
+    id: 'payer', kicker: 'La première question', title: 'Faut-il payer immédiatement ?', slug: 'faut-il-payer-picrights',
+    summary: [
+      ['p', 'Non. Une réclamation PicRights ne doit jamais conduire à un paiement automatique. Cela ne signifie pas que toute demande est infondée — mais payer sans analyse revient à **reconnaître une créance dont le bien-fondé n’a pas été vérifié**.'],
+      ['p', 'À ce stade, aucun juge n’a été saisi et aucune condamnation n’existe. En matière civile, c’est à celui qui réclame une indemnisation de démontrer qu’il est titulaire des droits, que la photographie est protégeable, qu’elle a été reproduite et qu’un préjudice existe. La charge de la preuve ne repose pas sur vous.'],
+    ],
+  },
+  {
+    id: 'contester', kicker: 'La défense', title: 'Comment vérifier si la demande est fondée ?', slug: 'contester-picrights',
+    summary: [
+      ['p', 'Chaque dossier mérite un audit. Quatre vérifications structurent l’analyse : qui est réellement titulaire des droits ? la photographie litigieuse est-elle bien celle utilisée sur votre site ? les preuves produites — souvent de simples captures d’écran — sont-elles suffisantes ? la photographie est-elle originale ?'],
+      ['p', 'Une réclamation peut parfaitement être contestée, sans que cela signifie qu’elle soit nécessairement infondée. Le rôle de l’avocat consiste précisément à identifier les éventuelles faiblesses du dossier — sur la preuve, la titularité, l’originalité, le montant et le contexte d’utilisation.'],
+    ],
+  },
+  {
+    id: 'originalite', kicker: 'Droit d’auteur', title: 'Toutes les photographies sont-elles protégées ?', slug: 'originalite-photographie',
+    summary: [
+      ['p', 'Non — et c’est le point le plus mal compris. Le droit d’auteur ne protège que les photographies **originales**, celles qui révèlent l’empreinte de la personnalité de leur auteur : choix de cadrage, de lumière, de composition, de mise en scène, du moment.'],
+      ['p', 'Une photographie purement documentaire ou réalisée dans un contexte très contraint peut ne pas atteindre ce seuil. Il n’existe aucune présomption selon laquelle une photographie de presse serait automatiquement originale : chaque cliché s’apprécie individuellement.'],
+    ],
+  },
+  {
+    id: 'montant', kicker: 'L’indemnisation', title: 'Comment est calculé le montant réclamé ?', slug: 'montant-reclame-picrights',
+    summary: [
+      ['p', 'Les montants demandés varient fortement. Plusieurs éléments sont généralement invoqués : valeur de licence, durée d’utilisation, absence d’autorisation, frais de gestion, préjudice économique et moral.'],
+      ['p', 'Mais ces montants ne sont pas automatiquement retenus par un tribunal. Les juridictions procèdent à leur propre appréciation, et il existe des écarts importants entre les sommes initialement réclamées et les condamnations effectivement prononcées.'],
+    ],
+  },
+  {
+    id: 'ignorer', kicker: 'Les suites', title: 'Que se passe-t-il si vous ne répondez pas ?', slug: 'peut-on-ignorer-picrights',
+    summary: [
+      ['p', 'Ignorer une réclamation n’entraîne pas automatiquement une procédure judiciaire. En pratique, trois scénarios sont possibles : le dossier s’arrête, de nouvelles relances interviennent (parfois une mise en demeure d’avocat), ou, faute d’accord, une assignation est délivrée.'],
+      ['p', 'C’est uniquement à ce dernier stade qu’un juge examinerait la titularité, l’originalité, la réalité de l’utilisation, les preuves et le préjudice. L’absence totale de réponse n’est cependant pas la stratégie la plus prudente.'],
+    ],
+  },
+  {
+    id: 'negocier', kicker: 'La sortie amiable', title: 'Peut-on négocier avec PicRights ?', slug: 'negocier-picrights',
+    summary: [
+      ['p', 'Oui. En pratique, de nombreux dossiers se terminent sans procès. Selon les circonstances, plusieurs stratégies sont envisageables : contester totalement la demande, demander des justificatifs complémentaires, proposer une régularisation, négocier le montant ou rechercher une solution transactionnelle.'],
+      ['p', 'La bonne stratégie dépend toujours des preuves disponibles, de la photographie concernée, de l’agence représentée, de la jurisprudence applicable et du profil du destinataire. Il n’existe pas de réponse universelle.'],
+    ],
+  },
+  {
+    id: 'jurisprudence', kicker: 'Les décisions', title: 'Que disent les tribunaux ?', slug: 'jurisprudence-picrights', cta: 'Voir toute la jurisprudence',
+    summary: [
+      ['p', 'La jurisprudence sur l’originalité photographique, le mandat, la preuve et le préjudice illustre une **diversité d’issues** : l’originalité est tantôt retenue, tantôt refusée ; les montants sont fréquemment revus par le juge.'],
+      ['p', 'Cette diversité confirme qu’aucun dossier ne peut être préjugé à partir du seul courrier reçu — chaque photographie et chaque preuve doivent être examinées individuellement.'],
+    ],
+  },
+  {
+    id: 'afp', kicker: 'Les agences', title: 'PicRights et l’AFP', slug: 'picrights-afp',
+    summary: [
+      ['p', 'PicRights agit fréquemment au nom de l’AFP, mais aussi de Reuters, Associated Press, Paris Match ou d’autres partenaires. Le courrier mentionne généralement l’agence mandante.'],
+      ['p', 'Les arguments juridiques applicables restent les mêmes quelle que soit l’agence : titularité et mandat, originalité de la photographie, suffisance des preuves et justification du montant.'],
+    ],
+  },
+]
+
+const faq = [
+  ['PicRights est-elle une société sérieuse ?', 'Oui. PicRights intervient pour le compte de nombreux titulaires de droits afin de détecter des utilisations supposées non autorisées de photographies. Ce n’est pas une arnaque au sens juridique — mais ses réclamations restent contestables au cas par cas.'],
+  ['Dois-je payer immédiatement ?', 'Pas nécessairement. Chaque dossier doit être analysé individuellement avant toute décision de paiement.'],
+  ['PicRights peut-elle saisir directement mon compte bancaire ?', 'Non. Une condamnation judiciaire est nécessaire pour obtenir une exécution forcée, sauf accord volontaire de paiement de votre part.'],
+  ['Puis-je ignorer totalement le courrier ?', 'Ce n’est généralement pas la stratégie la plus prudente. Une analyse préalable permet de déterminer la réponse la plus adaptée.'],
+  ['Supprimer la photographie suffit-il ?', 'Pas toujours. Le retrait de l’image ne met pas automatiquement fin au litige : une demande d’indemnisation peut être maintenue pour une utilisation passée.'],
+  ['Une photographie trouvée sur Google est-elle libre de droits ?', 'Non. Google est un moteur de recherche : il ne délivre aucune autorisation d’utilisation.'],
+  ['Mon agence web est responsable, puis-je me retourner contre elle ?', 'Cela dépend du contrat signé, de la mission confiée, des garanties données et des circonstances du dossier.'],
+]
+
+export default function PicRightsPillar() {
+  const s = {
+    page: { maxWidth: 720, margin: '0 auto', padding: '0 24px' },
+    block: { padding: '22px 0', borderBottom: '0.5px solid var(--border)' },
+    kicker: { fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8 },
+  }
 
   return (
     <div style={s.page}>
       <div style={{ padding: '32px 0 0' }}>
         <nav style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 20 }}>
-          <Link href="/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link> → PicRights
+          <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}
+          <Link href="/agences/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Guides</Link>{' → PicRights'}
         </nav>
-        <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 12 }}>Guide complet</div>
-        <h1 style={{ fontSize: 26, fontWeight: 500, color: 'var(--text)', lineHeight: 1.35, marginBottom: 12 }}>PicRights : vous avez reçu un courrier.<br />Que faire ?</h1>
-        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.65, marginBottom: 24 }}>PicRights Europe GmbH envoie chaque année des milliers de mises en demeure en France au nom de l'AFP et d'autres agences photographiques. Voici ce que vous devez savoir avant de répondre.</p>
-        <CtaBanner title="Vous avez reçu un courrier PicRights ?" subtitle="Nous examinons votre dossier et répondons à votre place — forfait 200 € HT." />
+        <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 14 }}>Guide complet</div>
+        <h1 style={{ fontSize: 28, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 16 }}>Réclamation PicRights : le guide juridique complet pour comprendre, contester et se défendre</h1>
+        <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Recevoir un courrier ou un e-mail de PicRights est souvent déstabilisant. La société affirme avoir détecté sur votre site une photographie appartenant à une agence de presse ou à un photographe, et vous demande de la retirer et de régler plusieurs centaines, voire plusieurs milliers d’euros.</p>
+        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Beaucoup de destinataires pensent immédiatement qu’ils sont condamnés d’avance. Ce n’est pourtant pas le cas : une réclamation PicRights ne constitue ni une condamnation, ni une décision de justice, ni même la preuve définitive qu’une contrefaçon est caractérisée.</p>
+        <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 10 }}>Avant tout paiement, plusieurs questions essentielles doivent être analysées :</p>
+        <ul style={{ margin: '0 0 22px', padding: 0, listStyle: 'none' }}>
+          {['PicRights agit-elle réellement pour le titulaire des droits ?', 'La photographie est-elle effectivement protégée par le droit d’auteur ?', 'Les preuves produites sont-elles juridiquement suffisantes ?', 'Le montant réclamé est-il justifié ?', 'Existe-t-il des moyens de défense ?'].map((t, i) => (
+            <li key={i} style={{ display: 'flex', gap: 10, fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.55, marginBottom: 8 }}>
+              <span style={{ color: 'var(--blue)', flexShrink: 0 }}>→</span>{t}
+            </li>
+          ))}
+        </ul>
+        <CtaBanner title="Vous avez reçu une réclamation PicRights ?" subtitle="Nous examinons votre dossier et répondons à votre place — forfait 200 € HT." />
       </div>
 
-      <div style={s.block}>
-        <div style={s.label}>Qui est PicRights ?</div>
-        <h2 style={{ fontSize: 17, fontWeight: 500, color: 'var(--text)', marginBottom: 10 }}>PicRights Europe GmbH : une société de recouvrement de droits</h2>
-        <p style={{ fontSize: 14, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 12 }}>PicRights est une société basée en Suisse, spécialisée dans la détection et le recouvrement de droits photographiques pour le compte d'agences comme l'AFP, AP, Reuters et d'autres partenaires. Elle utilise des logiciels de reconnaissance d'images pour scanner les sites internet et identifier les utilisations non autorisées.</p>
-        <p style={{ fontSize: 14, color: 'var(--secondary)', lineHeight: 1.7 }}>Lorsqu'elle détecte une utilisation, elle adresse une mise en demeure au propriétaire du site avec une demande d'indemnisation. Ces demandes peuvent aller de quelques centaines à plusieurs milliers d'euros.</p>
+      {/* Sommaire */}
+      <div style={{ padding: '20px 0', borderBottom: '0.5px solid var(--border)' }}>
+        <div style={s.kicker}>Sommaire</div>
+        <ol style={{ margin: 0, paddingLeft: 18, columns: 2, columnGap: 24 }}>
+          {sections.map((sec) => (
+            <li key={sec.id} style={{ fontSize: 13.5, lineHeight: 1.5, marginBottom: 6, breakInside: 'avoid' }}>
+              <a href={`#${sec.id}`} style={{ color: 'var(--secondary)', textDecoration: 'none' }}>{sec.title}</a>
+            </li>
+          ))}
+        </ol>
       </div>
 
-      <div style={s.block}>
-        <div style={s.label}>Faut-il payer PicRights ?</div>
-        <h2 style={{ fontSize: 17, fontWeight: 500, color: 'var(--text)', marginBottom: 10 }}>Non, pas sans vérification préalable</h2>
-        <p style={{ fontSize: 14, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 12 }}>Payer sans analyse juridique revient à reconnaître une créance dont le bien-fondé n'a pas été vérifié. Or, plusieurs éléments peuvent remettre en cause le fondement de la réclamation :</p>
-        {['L\'originalité de la photographie en cause (toutes les photos ne sont pas automatiquement protégées)', 'La réalité des droits invoqués par PicRights sur cette photographie', 'Le mandat donné par l\'agence à PicRights pour agir en son nom', 'La cohérence du montant réclamé avec les grilles tarifaires usuelles'].map((t, i) => (
-          <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--secondary)', marginBottom: 8 }}>
-            <span style={{ color: 'var(--blue)', flexShrink: 0 }}>→</span>{t}
-          </div>
-        ))}
-      </div>
-
-      <div style={s.block}>
-        <div style={s.label}>PicRights : arnaque ou réclamation légitime ?</div>
-        <h2 style={{ fontSize: 17, fontWeight: 500, color: 'var(--text)', marginBottom: 10 }}>Une pratique légale, mais des réclamations souvent contestables</h2>
-        <p style={{ fontSize: 14, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 12 }}>PicRights n'est pas une arnaque au sens juridique du terme : la société agit légalement dans le cadre du droit d'auteur. En revanche, les réclamations qu'elle adresse sont souvent discutables car :</p>
-        {['Les photographies concernées sont fréquemment des images techniques ou documentaires dont l\'originalité est discutable', 'Les montants réclamés peuvent excéder ce que les tribunaux accordent habituellement', 'Le mandat de PicRights pour agir au nom de l\'AFP ou d\'autres agences peut être contesté'].map((t, i) => (
-          <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--secondary)', marginBottom: 8 }}>
-            <span style={{ color: 'var(--blue)', flexShrink: 0 }}>•</span>{t}
-          </div>
-        ))}
-        <div style={{ background: 'var(--amber-soft)', border: '0.5px solid #EF9F27', borderRadius: 8, padding: '12px 14px', marginTop: 12, fontSize: 13, color: 'var(--amber)' }}>
-          ⚠ Chaque dossier est différent. Seule une analyse juridique personnalisée permet de déterminer si et comment contester la réclamation.
+      {/* Sections — chacune résume puis renvoie vers l'article approfondi */}
+      {sections.map((sec) => (
+        <div key={sec.id} id={sec.id} style={{ ...s.block, scrollMarginTop: 66 }}>
+          <div style={s.kicker}>{sec.kicker}</div>
+          <h2 style={{ fontSize: 21, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 12 }}>{sec.title}</h2>
+          <Blocks items={sec.summary} />
+          <Link href={href(sec.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
+            {sec.cta || 'Lire l’article complet'} →
+          </Link>
         </div>
-      </div>
+      ))}
 
+      {/* FAQ */}
       <div style={s.block}>
-        <div style={s.label}>Erreurs à ne pas commettre</div>
-        {['Payer immédiatement sans vérification', 'Répondre seul sans connaître les arguments juridiques', 'Ignorer la mise en demeure', 'Admettre avoir utilisé la photo sans y être obligé'].map((t, i) => (
-          <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: '#5e2424', background: '#FCEBEB', borderRadius: 8, padding: '8px 12px', marginBottom: 8 }}>
-            <span style={{ color: '#A32D2D' }}>✕</span>{t}
-          </div>
-        ))}
-      </div>
-
-      <CtaBanner title="Nous connaissons PicRights et ses méthodes" subtitle="Plus de 300 dossiers traités. Chaque dossier examiné personnellement par un avocat." />
-
-      <div style={s.block}>
-        <div style={s.label}>Questions fréquentes sur PicRights</div>
-        {[
-          ['PicRights peut-il me poursuivre en justice ?', 'Oui, c\'est possible si la phase amiable échoue. Cependant, la procédure judiciaire reste l\'issue la moins fréquente, surtout face à une réponse juridique argumentée.'],
-          ['Que se passe-t-il si je ne réponds pas ?', 'L\'absence de réponse peut faciliter une procédure judiciaire et être interprétée comme une reconnaissance implicite. Il est impératif de répondre.'],
-          ['PicRights AFP : est-ce la même chose ?', 'PicRights agit souvent au nom de l\'AFP. Le courrier mentionne généralement l\'agence mandante. Les arguments juridiques applicables sont les mêmes.'],
-        ].map(([q, a], i) => (
+        <div style={s.kicker}>Foire aux questions</div>
+        {faq.map(([q, a], i) => (
           <details key={i} style={{ borderBottom: '0.5px solid var(--border)' }}>
-            <summary style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)', padding: '12px 0', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between' }}>
+            <summary style={{ fontSize: 13.5, fontWeight: 500, color: 'var(--text)', padding: '12px 0', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', gap: 12 }}>
               {q}<span style={{ color: 'var(--muted)' }}>↓</span>
             </summary>
-            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.65, paddingBottom: 14 }}>{a}</p>
+            <p style={{ fontSize: 13.5, color: 'var(--secondary)', lineHeight: 1.7, paddingBottom: 14 }}>{a}</p>
           </details>
         ))}
       </div>
 
+      {/* Conclusion */}
       <div style={s.block}>
-        <div style={s.label}>Jurisprudence PicRights</div>
-        <Link href="/picrights/jurisprudence" style={{ display: 'block', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '12px 14px', textDecoration: 'none', marginBottom: 8 }}>
-          <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)' }}>Décisions de justice impliquant PicRights</div>
-          <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 4 }}>CA Paris · TJ Paris · Cass. 1re civ. — originalité, mandat, montant →</div>
-        </Link>
-        <Link href="/picrights/cas-pratiques" style={{ display: 'block', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '12px 14px', textDecoration: 'none' }}>
-          <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)' }}>Cas pratiques PicRights</div>
-          <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 4 }}>Dossiers réels traités par le cabinet →</div>
-        </Link>
+        <div style={s.kicker}>En résumé</div>
+        <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.75, marginBottom: 12 }}>Recevoir une réclamation PicRights ne signifie pas que vous êtes automatiquement responsable, ni que le montant demandé est justifié. Chaque dossier soulève des questions propres : qualité du titulaire des droits, originalité de la photographie, preuves disponibles, contexte d’utilisation et évaluation du préjudice.</p>
+        <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.75 }}>Une analyse juridique rigoureuse permet de déterminer si la demande est fondée, si elle peut être contestée, ou si une solution amiable est préférable.</p>
       </div>
 
-      <div style={{ padding: '24px 0', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        <Link href="/copytrack" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Guide Copytrack</Link>
-        <Link href="/getty-images" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Guide Getty Images</Link>
-        <Link href="/jurisprudence" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Jurisprudence</Link>
-        <Link href="/notre-methode" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Notre méthode</Link>
+      <CtaBanner title="Faites examiner votre réclamation PicRights" subtitle="Plus de 300 dossiers traités. Chaque dossier examiné personnellement par un avocat — forfait 200 € HT." />
+
+      {/* Autres guides */}
+      <div style={{ padding: '20px 0 32px' }}>
+        <div style={s.kicker}>Nos autres guides</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          {[['Guide AFP', '/afp/'], ['Guide Reuters', '/reuters/'], ['Guide Getty Images', '/getty-images/'], ['Guide Copytrack', '/copytrack/'], ['Toutes les agences', '/agences/'], ['Jurisprudence', '/jurisprudence/'], ['Notre méthode', '/notre-methode/']].map(([label, url]) => (
+            <Link key={url} href={url} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>{label}</Link>
+          ))}
+        </div>
       </div>
     </div>
   )

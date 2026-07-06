@@ -53,7 +53,7 @@ export default function Jurisprudence() {
       <CtaBanner />
 
       <div style={{ padding: '16px 0', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        <Link href="/picrights/jurisprudence" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Jurisprudence PicRights</Link>
+        <Link href="/picrights/jurisprudence-picrights/" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Jurisprudence PicRights</Link>
         <Link href="/cas-pratiques" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Cas pratiques</Link>
         <Link href="/notre-methode" style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>Notre méthode</Link>
       </div>
