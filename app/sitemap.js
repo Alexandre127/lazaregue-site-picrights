@@ -21,6 +21,7 @@ export default function sitemap() {
     { url: `${base}/jurisprudence/`, lastModified: now, priority: 0.8 },
     { url: `${base}/cas-pratiques/`, lastModified: now, priority: 0.8 },
     { url: `${base}/notre-methode/`, lastModified: now, priority: 0.7 },
+    { url: `${base}/confidentialite/`, lastModified: now, priority: 0.4 },
   ]
   return urls
 }

@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div>
           <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--text)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 10 }}>Légal</div>
-          {[['Mentions légales', '/mentions-legales'], ['Confidentialité', '/confidentialite'], ['Contact', '/contact']].map(([l, h]) => (
+          {[['Confidentialité & RGPD', '/confidentialite/'], ['Contact', 'mailto:contact@lazaregue-avocats.fr']].map(([l, h]) => (
             <Link key={h} href={h} style={{ display: 'block', fontSize: 12, color: 'var(--muted)', marginBottom: 6, textDecoration: 'none' }}>{l}</Link>
           ))}
         </div>

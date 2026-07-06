@@ -3,6 +3,7 @@
 // Ne restitue aucune donnée personnelle du destinataire (voir prompt).
 
 import Anthropic from '@anthropic-ai/sdk'
+import { rateLimit, getIp } from '../_lib'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -31,6 +32,9 @@ Réponds UNIQUEMENT avec ce JSON, sans balises markdown :
 ou : {"erreur": "explication courte"}`
 
 export async function POST(req) {
+  if (!rateLimit(getIp(req), { limit: 15 })) {
+    return Response.json({ error: 'Trop de requêtes — réessayez dans un moment.' }, { status: 429 })
+  }
   if (!process.env.ANTHROPIC_API_KEY) {
     return Response.json({ error: 'not_configured' }, { status: 503 })
   }

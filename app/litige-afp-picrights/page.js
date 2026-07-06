@@ -43,6 +43,10 @@ export default function Home() {
 
           <HeroModules />
 
+          <div style={{ marginTop: 14, fontSize: 11.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>
+            Images et documents analysés en mémoire par notre sous-traitant technique (Anthropic / Claude), puis non conservés. <Link href="/confidentialite/" style={{ color: 'rgba(255,255,255,0.72)', textDecoration: 'underline' }}>Confidentialité & RGPD</Link>
+          </div>
+
           {/* Bandeau pièces réelles */}
           <div style={{ marginTop: 22, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             {['Mise en demeure PicRights (AFP)', 'Assignation AFP — TJ Paris', 'Accord transactionnel AFP', 'Attestation de titularité'].map((p, i) => (

@@ -3,6 +3,7 @@
 // Document transmis en pièce jointe, non stocké.
 
 import { Resend } from 'resend'
+import { rateLimit, getIp } from '../_lib'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -10,6 +11,9 @@ export const dynamic = 'force-dynamic'
 const esc = (s) => String(s || '').replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]))
 
 export async function POST(req) {
+  if (!rateLimit(getIp(req), { limit: 5 })) {
+    return Response.json({ error: 'Trop de requêtes — réessayez dans un moment.' }, { status: 429 })
+  }
   try {
     const form = await req.formData()
     // Honeypot anti-spam : champ caché qui doit rester vide.
