@@ -71,11 +71,18 @@ export async function POST(req) {
       }
     }
 
+    // Tarif dynamique recalculé CÔTÉ SERVEUR (jamais un montant venant du client) :
+    // 200 € HT jusqu'à 2 photographies, +90 € HT par photographie au-delà.
+    const nbPhotos = Math.max(1, Math.min(200, parseInt(get('nb_photographies'), 10) || 1))
+    const forfaitHT = 200 + (nbPhotos > 2 ? (nbPhotos - 2) * 90 : 0)
+    const htCents = forfaitHT * 100
+    const ttcCents = forfaitHT * 120 // TVA 20 %
+
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
     const taxRate = process.env.STRIPE_TAX_RATE_ID
     const lineItem = taxRate
-      ? { price_data: { currency: 'eur', product_data: { name: 'Forfait phase amiable — mise en demeure photographique' }, unit_amount: 20000 }, quantity: 1, tax_rates: [taxRate] }
-      : { price_data: { currency: 'eur', product_data: { name: 'Forfait phase amiable — mise en demeure photographique (200 € HT + TVA 20 %)' }, unit_amount: 24000 }, quantity: 1 }
+      ? { price_data: { currency: 'eur', product_data: { name: `Forfait phase amiable — ${nbPhotos} photographie(s)` }, unit_amount: htCents }, quantity: 1, tax_rates: [taxRate] }
+      : { price_data: { currency: 'eur', product_data: { name: `Forfait phase amiable — ${nbPhotos} photographie(s) (${forfaitHT} € HT + TVA 20 %)` }, unit_amount: ttcCents }, quantity: 1 }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',

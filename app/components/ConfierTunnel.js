@@ -115,6 +115,7 @@ export default function ConfierTunnel() {
   const [signature, setSignature] = useState('')
   const [consent, setConsent] = useState(false)
   const [execNow, setExecNow] = useState(false)
+  const [nbPhotos, setNbPhotos] = useState(1)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
@@ -124,9 +125,15 @@ export default function ConfierTunnel() {
   // directement la bonne étape.
   useEffect(() => {
     const p = new URLSearchParams(window.location.search)
+    const nb = parseInt(p.get('nb'), 10)
+    if (nb && nb > 1) setNbPhotos(Math.min(200, nb))
     if (p.get('paid') === '1') setStep(4)
     else if (p.get('canceled') === '1') { setStep(3); setError('Paiement annulé — vous pouvez réessayer.') }
   }, [])
+
+  // Tarif recalculé aussi côté serveur : 200 € HT jusqu'à 2 photos, +90 €/photo au-delà.
+  const forfaitHT = 200 + (nbPhotos > 2 ? (nbPhotos - 2) * 90 : 0)
+  const forfaitTTC = forfaitHT * 1.2
 
   function validateStep1() {
     const need = ['prenom', 'nom', 'societe', 'email', 'telephone', 'organisme', 'montant']
@@ -155,6 +162,7 @@ export default function ConfierTunnel() {
       const fd = new FormData()
       Object.entries(data).forEach(([k, v]) => fd.append(k, v))
       fd.append('signature', signature)
+      fd.append('nb_photographies', String(nbPhotos))
       const addFiles = (field, fl) => { if (fl) Array.from(fl).forEach((f) => fd.append(field, f)) }
       addFiles('miseEnDemeure', miseEnDemeure)
       addFiles('photo', photo)
@@ -345,11 +353,11 @@ export default function ConfierTunnel() {
               <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)' }}>Phase amiable — prise en charge complète</div>
               <div style={{ fontSize: 11, color: 'var(--muted)' }}>Convention et facture incluses</div>
             </div>
-            <div style={{ fontSize: 22, fontWeight: 600, color: NAVY, whiteSpace: 'nowrap' }}>200 € <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)' }}>HT</span></div>
+            <div style={{ fontSize: 22, fontWeight: 600, color: NAVY, whiteSpace: 'nowrap' }}>{forfaitHT} € <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)' }}>HT</span></div>
           </div>
 
           <button style={{ ...primaryBtn, opacity: submitting ? 0.7 : 1 }} onClick={pay} disabled={submitting}>
-            {submitting ? 'Redirection vers le paiement…' : 'Payer 200 € HT →'}
+            {submitting ? 'Redirection vers le paiement…' : `Payer ${forfaitHT} € HT →`}
           </button>
           <p style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'center', marginTop: 10 }}>
             Paiement traité par <strong>Stripe</strong> · Carte bancaire sécurisée · Aucune donnée bancaire conservée par le cabinet.

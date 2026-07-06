@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
-import HeroDocs from '../components/HeroDocs'
+import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
 
 export const metadata = {
   title: 'Mise en demeure PicRights, AFP, Reuters, AP — Prise en charge par un avocat',
@@ -27,48 +27,60 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO — deux modules interactifs (analyseur + devis) */}
       <div style={{ background: 'var(--navy)' }}>
-        <div style={{ ...s.page, padding: '40px 24px 32px' }}>
-          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: 12 }}>
+        <div style={{ maxWidth: 1080, margin: '0 auto', padding: '48px 24px 56px' }}>
+          <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'rgba(255,255,255,0.42)', marginBottom: 14 }}>
             PicRights · AFP · Reuters · AP · PA Images · MaxPPP · Paris Match · Rights Control
           </div>
-          <h1 style={{ fontSize: 22, fontWeight: 500, color: 'white', lineHeight: 1.35, marginBottom: 10 }}>
-            Une réponse maladroite peut vous coûter{' '}
-            <em style={{ fontStyle: 'normal', color: '#7ec8e3' }}>plusieurs milliers d'euros.</em>
+          <h1 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 500, color: 'white', lineHeight: 1.25, marginBottom: 10, maxWidth: 820 }}>
+            Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d'une autre agence de presse ?<br />
+            <span style={{ color: '#7ec8e3' }}>Avant de payer, vérifiez si la photographie est réellement protégée.</span>
           </h1>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 8 }}>
-            Vous avez reçu une mise en demeure de PicRights, AFP, PA Images, Reuters, AP, MaxPPP, Paris Match, Rights Control ou d'une autre agence de presse ? Nous prenons immédiatement votre dossier en charge.
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.68)', lineHeight: 1.6, maxWidth: 640, marginBottom: 32 }}>
+            Une réponse maladroite peut vous coûter plusieurs milliers d'euros. Deux façons d'agir, dès maintenant.
           </p>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', fontWeight: 500, marginBottom: 20 }}>
-            À ce stade, vous n'avez plus besoin de décider si cette réclamation est fondée. C'est précisément notre travail.
-          </p>
-          <Link href="/litige-afp-picrights/confier/" style={{ display: 'inline-block', background: 'white', color: 'var(--navy)', fontWeight: 600, fontSize: 14, padding: '11px 22px', borderRadius: 8, textDecoration: 'none' }}>
-            Confier mon dossier au cabinet →
-          </Link>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>200 € HT · Convention incluse · Prise en charge sous 48h</div>
 
-          {/* Pile de vraies pièces reçues, anonymisées, qui défilent */}
-          <HeroDocs />
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 18 }}>Pièces réelles reçues par nos clients — informations d'identification masquées</div>
+          <HeroModules />
+
+          {/* Bandeau pièces réelles */}
+          <div style={{ marginTop: 22, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            {['Mise en demeure PicRights (AFP)', 'Assignation AFP — TJ Paris', 'Accord transactionnel AFP', 'Attestation de titularité'].map((p, i) => (
+              <span key={i} style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.55)', background: 'rgba(255,255,255,0.05)', border: '0.5px solid rgba(255,255,255,0.12)', borderRadius: 3, padding: '5px 10px' }}>📄 {p}</span>
+            ))}
+            <span style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.42)', fontStyle: 'italic' }}>Pièces réelles reçues par nos clients — informations d'identification masquées</span>
+          </div>
         </div>
       </div>
 
       <div style={s.page}>
 
-        {/* 3 QUESTIONS */}
+        {/* 2 QUESTIONS — ce que l'analyse automatique ne peut pas trancher */}
         <div style={s.block}>
-          <div style={s.label}>Avant de payer, posez-vous ces trois questions</div>
+          <div style={s.label}>Ce que l'analyse automatique ne peut pas trancher</div>
           <div style={{ background: '#F8F7F3', borderRadius: 10, padding: 16 }}>
-            {['La photographie est-elle réellement protégée par le droit d\'auteur ?', 'Le montant réclamé est-il juridiquement justifié ?', 'Votre réponse risque-t-elle d\'aggraver votre situation ?'].map((q, i) => (
-              <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--secondary)', marginBottom: i < 2 ? 10 : 14, lineHeight: 1.5 }}>
+            {['Le montant réclamé est-il juridiquement justifié ?', 'Votre réponse risque-t-elle d\'aggraver votre situation ?'].map((q, i) => (
+              <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--secondary)', marginBottom: i < 1 ? 10 : 14, lineHeight: 1.5 }}>
                 <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--navy)', color: 'white', fontSize: 10, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>{i + 1}</div>
                 {q}
               </div>
             ))}
             <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)', borderTop: '0.5px solid var(--border)', paddingTop: 12 }}>
-              Si vous ne pouvez répondre avec certitude, faites examiner votre dossier. Nous pourrons contester, demander des justificatifs, négocier — selon ce que révèle l'examen.
+              Ces questions relèvent de l'examen juridique du dossier — c'est précisément l'objet du forfait.
             </div>
+          </div>
+        </div>
+
+        {/* MINI-FAQ — à quel stade nous saisir */}
+        <div style={s.block}>
+          <div style={s.label}>À quel stade pouvez-vous nous saisir ?</div>
+          <div style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '14px 16px', marginBottom: 10 }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 5 }}>Un cabinet d'avocats a déjà pris le relais de PicRights ou de l'AFP — est-ce trop tard ?</div>
+            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.6, margin: 0 }}>Non — c'est même l'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire fait partie du déroulement normal de la phase amiable : cela ne change ni notre intervention, ni notre tarif. Déposez le courrier reçu : le devis est identique.</p>
+          </div>
+          <div style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '14px 16px' }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 5 }}>J'ai reçu une assignation devant le tribunal judiciaire — que faire ?</div>
+            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.6, margin: 0 }}>Ne laissez pas passer les délais : une assignation impose de constituer avocat avant l'audience. Votre dossier ne passe pas par le forfait en ligne : transmettez votre assignation dans la section dédiée en bas de page — elle est adressée directement à un avocat, qui vous répond avec un devis personnalisé sous 24h, sans engagement.</p>
           </div>
         </div>
 
@@ -259,6 +271,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* SECTION ASSIGNATION — hors circuit de paiement, avant le footer */}
+      <SectionAssignation />
     </>
   )
 }
