@@ -19,7 +19,7 @@ export default function NotreMethode() {
         <p style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 24 }}>Chaque dossier est traité personnellement par un avocat. Aucun courrier standard n'est envoyé.</p>
       </div>
 
-      <div style={s.block}>
+      <div id="grille" style={{ ...s.block, scrollMarginTop: 70 }}>
         <div style={s.label}>Ce que nous vérifions systématiquement</div>
         {[
           ['1. L\'originalité de la photographie', 'Toutes les photographies ne sont pas automatiquement protégées par le droit d\'auteur. Nous examinons si la photographie en cause révèle des choix créatifs personnels identifiables de son auteur — ou si elle est essentiellement technique et documentaire.'],

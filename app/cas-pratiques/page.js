@@ -23,7 +23,7 @@ export default function CasPratiques() {
         <h1 style={{ fontSize: 26, fontWeight: 500, color: 'var(--text)', marginBottom: 10 }}>Cas pratiques</h1>
         <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.65, marginBottom: 24 }}>Dossiers anonymisés traités par le cabinet. Chaque cas présente le contexte, la réclamation reçue, les questions juridiques et la stratégie retenue.</p>
         {cas.map((c, i) => (
-          <Link key={i} href={c.href} style={{ display: 'block', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '16px 18px', marginBottom: 12, textDecoration: 'none' }}>
+          <Link key={i} id={c.tag.toLowerCase().replace(/ /g, '-')} href={c.href} style={{ display: 'block', scrollMarginTop: 70, background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '16px 18px', marginBottom: 12, textDecoration: 'none' }}>
             <span style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '2px 8px', borderRadius: 10, marginBottom: 8 }}>{c.tag}</span>
             <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text)', marginBottom: 6, lineHeight: 1.4 }}>{c.titre}</div>
             <div style={{ fontSize: 12, color: 'var(--muted)', display: 'flex', justifyContent: 'space-between' }}>

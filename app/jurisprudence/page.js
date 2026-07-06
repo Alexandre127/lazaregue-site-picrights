@@ -24,7 +24,7 @@ export default function Jurisprudence() {
         <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.65 }}>Bibliothèque de décisions de justice sur l'originalité photographique, le mandat, le préjudice et la prescription. Classées par thème.</p>
       </div>
 
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+      <div id="originalite" style={{ scrollMarginTop: 70, display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
         {['Originalité retenue', 'Originalité refusée', 'Mandat', 'Préjudice', 'Montant', 'Prescription'].map(t => (
           <span key={t} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 20, padding: '5px 12px', cursor: 'pointer' }}>{t}</span>
         ))}

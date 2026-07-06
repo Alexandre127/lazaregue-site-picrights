@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       {/* HERO — deux modules interactifs (analyseur + devis) */}
-      <div style={{ background: 'var(--navy)' }}>
+      <div id="analyseur" style={{ background: 'var(--navy)', scrollMarginTop: 56 }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', padding: '48px 24px 56px' }}>
           <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'rgba(255,255,255,0.42)', marginBottom: 14 }}>
             PicRights · AFP · Reuters · AP · PA Images · MaxPPP · Paris Match · Rights Control
@@ -153,7 +153,7 @@ export default function Home() {
         </div>
 
         {/* FAQ */}
-        <div style={s.block}>
+        <div id="faq" style={{ ...s.block, scrollMarginTop: 56 }}>
           <div style={s.label}>Ce que vous vous demandez</div>
           {faqItems.map((item, i) => (
             <details key={i} style={{ borderBottom: '0.5px solid var(--border)' }}>
