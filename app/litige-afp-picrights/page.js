@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
 import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
 
@@ -9,12 +8,12 @@ export const metadata = {
 }
 
 const faqItems = [
-  { q: 'Est-ce que je dois payer maintenant ?', a: 'Payer sans vérification préalable revient à reconnaître une créance dont le bien-fondé n\'a pas été examiné. Notre intervention consiste d\'abord à vérifier si la réclamation est juridiquement fondée avant de définir la réponse la plus favorable à vos intérêts.' },
-  { q: 'Vais-je devoir payer d\'autres honoraires ?', a: 'Non, pour toute la phase amiable. Si une procédure judiciaire devait devenir nécessaire, aucune intervention supplémentaire ne sera engagée sans une nouvelle convention d\'honoraires et votre accord préalable.' },
-  { q: 'Est-ce que je risque un procès ?', a: 'La procédure judiciaire reste l\'issue la moins fréquente. Notre intervention dès la phase amiable vise précisément à éviter d\'en arriver là. La chronologie est : mise en demeure → relances → négociation → assignation éventuelle.' },
-  { q: 'Qu\'est-ce qu\'une photographie « originale » en droit ?', a: 'Le droit d\'auteur protège uniquement les œuvres portant l\'empreinte de la personnalité de leur auteur. Une photographie purement technique ou documentaire — photo de produit, façade, illustration — ne remplit généralement pas ce critère. C\'est précisément ce que nous vérifions.' },
-  { q: 'Et si, après examen, la réclamation est fondée ?', a: 'C\'est précisément l\'intérêt de consulter un avocat avant de répondre. Si l\'analyse montre que la réclamation est fondée, nous négocierons le montant ou proposerons la régularisation la plus avantageuse pour limiter le risque financier.' },
-  { q: 'Un cabinet d\'avocats a déjà pris le relais de PicRights ou de l\'AFP — est-ce trop tard ?', a: 'Non — c\'est même l\'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire fait partie du déroulement normal de la phase amiable : cela ne change ni notre intervention, ni notre tarif. Déposez le courrier reçu, le devis est identique.' },
+  { q: 'Est-ce que je dois payer maintenant ?', a: 'Payer avant toute vérification revient à reconnaître une créance dont le bien-fondé n\'a jamais été examiné. Avant toute discussion financière, nous vérifions d\'abord si la photographie est réellement protégée, si le demandeur détient les droits qu\'il invoque et si le montant est juridiquement dû. Dans de nombreux dossiers, ces conditions ne sont pas réunies.' },
+  { q: 'Vais-je devoir payer d\'autres honoraires ?', a: 'Non, pour toute la phase amiable — laquelle commence toujours par la vérification du bien-fondé de la réclamation, jamais par une négociation. Si une procédure judiciaire devait devenir nécessaire, aucune intervention supplémentaire ne sera engagée sans une nouvelle convention d\'honoraires et votre accord préalable.' },
+  { q: 'Est-ce que je risque un procès ?', a: 'La procédure judiciaire reste l\'issue la moins fréquente. Avant toute discussion financière, notre premier réflexe n\'est pas de négocier mais de vérifier si la réclamation est juridiquement fondée : lorsqu\'elle ne l\'est pas, l\'objectif est d\'obtenir son abandon, pas de discuter un montant. La logique est : mise en demeure → vérification juridique → contestation → et, seulement à défaut, discussion amiable.' },
+  { q: 'Qu\'est-ce qu\'une photographie « originale » en droit ?', a: 'Le droit d\'auteur protège uniquement les œuvres portant l\'empreinte de la personnalité de leur auteur. Une photographie purement technique ou documentaire — photo de produit, façade, illustration — ne remplit généralement pas ce critère. C\'est précisément ce que nous vérifions en premier, avant toute question de montant : sans œuvre protégée, il n\'y a rien à devoir.' },
+  { q: 'Et si, après examen, la réclamation est fondée ?', a: 'Nous commençons toujours par contrôler le bien-fondé de la réclamation. Ce n\'est que si cet examen la confirme — photographie protégée, droits démontrés, montant justifié — que nous recherchons la solution la moins coûteuse pour vous, régularisation ou discussion amiable. Aucune somme n\'est proposée à l\'adversaire tant que nous n\'avons pas établi qu\'elle est réellement due.' },
+  { q: 'Un cabinet d\'avocats a déjà pris le relais de PicRights ou de l\'AFP — est-ce trop tard ?', a: 'Non — c\'est même l\'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire ne change ni notre démarche — vérifier d\'abord si la réclamation est juridiquement fondée — ni notre tarif. Déposez le courrier reçu, le devis est identique.' },
   { q: 'J\'ai reçu une assignation devant le tribunal judiciaire — que faire ?', a: 'Ne laissez pas passer les délais : une assignation impose de constituer avocat avant l\'audience. Votre dossier ne passe pas par le forfait en ligne — transmettez votre assignation dans la section dédiée en bas de page : elle est adressée directement à un avocat, qui vous répond avec un devis personnalisé sous 24h, sans engagement.' },
 ]
 
@@ -111,8 +110,8 @@ export default function Home() {
           <div style={s.label}>Votre dossier est pris en charge sous 48 heures</div>
           <div style={{ background: '#F8FBFE', border: '1.5px solid var(--blue)', borderRadius: 10, padding: '16px 18px' }}>
             <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--navy)', marginBottom: 4 }}>⏱ Ce que le cabinet fait pour vous dès réception</div>
-            <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 14, fontStyle: 'italic' }}>Chaque dossier est traité personnellement par un avocat. Aucun courrier standard n'est envoyé.</div>
-            {[['Examen juridique complet', 'originalité de la photographie, droits invoqués, mandat du demandeur.'], ['Vérification du montant réclamé', 'cohérence juridique de la somme demandée.'], ['Détermination de la réponse', 'contestation, demande de justificatifs, négociation selon l\'examen.'], ['Rédaction et envoi du courrier', 'directement à la partie adverse, en votre nom.'], ['Suivi complet', 'échanges pendant toute la phase amiable, accès à votre espace client.']].map(([title, desc], i) => (
+            <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 14, fontStyle: 'italic' }}>Chaque dossier est traité personnellement par un avocat. Notre démarche commence toujours par la vérification, jamais par la négociation.</div>
+            {[['Vérification de la protection de la photographie', 'porte-t-elle réellement l\'empreinte d\'une création originale — seule condition d\'une protection par le droit d\'auteur ?'], ['Vérification des droits invoqués', 'le demandeur démontre-t-il qu\'il détient effectivement les droits qu\'il fait valoir, et le mandat pour les réclamer ?'], ['Vérification du bien-fondé du montant', 'la somme réclamée repose-t-elle sur une base juridique, ou sur un simple barème commercial ?'], ['Contestation juridique', 'lorsque ces conditions ne sont pas réunies, nous contestons la réclamation et demandons son abandon — courrier rédigé et envoyé en votre nom.'], ['Solution amiable, à défaut seulement', 'ce n\'est que si l\'examen confirme le bien-fondé de la demande qu\'une discussion sur le montant est engagée.']].map(([title, desc], i) => (
               <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
                 <div style={{ width: 18, fontSize: 10, fontWeight: 600, color: 'var(--blue)', flexShrink: 0, paddingTop: 2 }}>{i + 1}</div>
                 <div style={{ fontSize: 12, color: 'var(--secondary)', lineHeight: 1.5 }}><strong style={{ color: 'var(--text)', fontWeight: 500 }}>{title}</strong> — {desc}</div>
@@ -124,23 +123,32 @@ export default function Home() {
           </div>
         </div>
 
-        {/* RISQUE RÉEL */}
+        {/* SCHÉMA — de la mise en demeure à l'abandon */}
         <div style={s.block}>
-          <div style={s.label}>Que risquez-vous réellement ?</div>
-          <div style={{ display: 'flex', alignItems: 'center', margin: '14px 0 12px' }}>
-            {[['Mise en demeure', 'Vous êtes ici', true, false], ['Relances', 'Courriers', false, false], ['Négociation', 'Notre intervention', false, true], ['Assignation', 'Éventuelle', false, false], ['Procédure', 'Judiciaire', false, false]].map(([name, desc, isRed, isBlue], i) => (
-              <Fragment key={name}>
-                <div style={{ flex: 1, textAlign: 'center', minWidth: 0 }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: isRed ? '#E24B4A' : isBlue ? 'var(--blue)' : '#c7c5ba', margin: '0 auto 6px' }} />
-                  <div style={{ fontSize: 10, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3 }}>{name}</div>
-                  <div style={{ fontSize: 9, color: 'var(--muted)' }}>{desc}</div>
+          <div style={s.label}>De la mise en demeure à l&apos;abandon de la réclamation</div>
+          <div style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '16px 16px 14px' }}>
+            {[['1', 'Mise en demeure reçue', 'le point de départ — vous êtes ici.'], ['2', 'Vérification juridique', 'photographie réellement protégée ? droits du demandeur démontrés ? montant justifié ?'], ['3', 'Contestation', 'lorsque ces conditions ne sont pas réunies, nous contestons la réclamation en votre nom.']].map(([n, t, d]) => (
+              <div key={n}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                  <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--navy)', color: '#fff', fontSize: 11, fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{n}</div>
+                  <div>
+                    <div style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text)' }}>{t}</div>
+                    <div style={{ fontSize: 12, color: 'var(--secondary)', lineHeight: 1.5, marginTop: 2 }}>{d}</div>
+                  </div>
                 </div>
-                {i < 4 && <div style={{ flex: '0 0 10px', height: 1, background: '#c7c5ba', marginBottom: 14 }} />}
-              </Fragment>
+                <div style={{ width: 1, height: 14, background: '#c7c5ba', margin: '2px 0 2px 11px' }} />
+              </div>
             ))}
+            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--green)', color: '#fff', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>✓</div>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--green)' }}>Abandon de la réclamation</div>
+                <div style={{ fontSize: 12, color: 'var(--secondary)', lineHeight: 1.5, marginTop: 2 }}>l&apos;issue recherchée en priorité lorsque la demande n&apos;est pas juridiquement fondée.</div>
+              </div>
+            </div>
           </div>
-          <div style={{ fontSize: 12, color: 'var(--green)', background: 'var(--green-soft)', border: '0.5px solid #97C459', borderRadius: 8, padding: '10px 14px', display: 'flex', gap: 8 }}>
-            <span>✓</span>Notre intervention dès la première étape permet fréquemment d'obtenir l'abandon ou la réduction significative de la réclamation.
+          <div style={{ marginTop: 10, fontSize: 12, color: 'var(--muted)', background: '#fff', border: '0.5px dashed var(--border)', borderRadius: 8, padding: '10px 14px', lineHeight: 1.55 }}>
+            <strong style={{ color: 'var(--secondary)', fontWeight: 600 }}>Branche secondaire —</strong> uniquement si la vérification confirme que la réclamation est fondée : discussion amiable pour en limiter le coût, puis assignation éventuelle. C&apos;est l&apos;issue la moins fréquente.
           </div>
         </div>
 
@@ -157,6 +165,17 @@ export default function Home() {
           ))}
         </div>
 
+        {/* CE QUE VOUS ACHETEZ RÉELLEMENT */}
+        <div style={s.block}>
+          <div style={s.label}>Ce que vous achetez réellement</div>
+          <div style={{ background: 'var(--navy)', borderRadius: 10, padding: '18px 20px' }}>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: '0 0 10px' }}>Vous ne payez pas un avocat pour négocier automatiquement une indemnité avec PicRights ou l&apos;AFP.</p>
+            <p style={{ fontSize: 14, color: 'white', fontWeight: 500, lineHeight: 1.6, margin: '0 0 10px' }}>Vous payez un avocat pour déterminer si cette réclamation est juridiquement fondée — et, lorsqu&apos;elle ne l&apos;est pas, pour obtenir son abandon.</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, margin: 0 }}>Notre objectif premier n&apos;est pas de vous faire payer moins, mais de démontrer que vous ne devez rien lorsque les conditions juridiques ne sont pas réunies.</p>
+            <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.5)', marginTop: 14, paddingTop: 12, borderTop: '0.5px solid rgba(255,255,255,0.14)', lineHeight: 1.5 }}>Aucune promesse de résultat, aucun pourcentage, aucune garantie — chaque dossier dépend de son examen juridique.</div>
+          </div>
+        </div>
+
         {/* FORFAIT */}
         <div id="forfait" style={s.block}>
           <div style={s.label}>Ce que comprend le forfait</div>
@@ -165,15 +184,15 @@ export default function Home() {
               <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)' }}>Phase amiable — prise en charge complète</div>
               <div style={{ fontSize: 24, fontWeight: 500, color: 'var(--navy)' }}>200 € <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)' }}>HT</span></div>
             </div>
-            <div style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 14 }}>À comparer avec une réclamation de <strong style={{ color: '#A32D2D' }}>800 € à 5 000 €</strong> — forfait indépendant du montant réclamé.</div>
-            <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)', marginBottom: 8 }}>Ce que vous achetez</div>
-            {['Un avocat prend votre dossier en charge sous 48h', 'Examen juridique complet, personnalisé', 'Rédaction et envoi du courrier adapté', 'Suivi jusqu\'à clôture de la phase amiable', 'Convention d\'honoraires et facture incluses'].map((item, i) => (
+            <div style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 14 }}>Forfait unique, <strong>indépendant du montant réclamé</strong> : que l&apos;on vous demande 800 € ou 5 000 €, notre intervention coûte le même prix — et vise d&apos;abord à établir si vous devez réellement cette somme.</div>
+            <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)', marginBottom: 8 }}>Ce qui est inclus</div>
+            {['Un avocat prend votre dossier en charge sous 48h', 'Vérification complète du bien-fondé de la réclamation', 'Contestation et envoi du courrier en votre nom', 'Suivi jusqu\'à clôture de la phase amiable', 'Convention d\'honoraires et facture incluses'].map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 8, fontSize: 13, color: 'var(--secondary)', marginBottom: 7 }}>
                 <span style={{ color: 'var(--blue)', flexShrink: 0 }}>✓</span>{item}
               </div>
             ))}
             <div style={{ fontSize: 12, color: 'var(--blue-mid)', background: 'var(--blue-light)', borderRadius: 8, padding: '10px 14px', margin: '12px 0', lineHeight: 1.55 }}>
-              Le forfait couvre l'examen complet et la rédaction du courrier le plus favorable — contestation, demande de justificatifs, négociation, selon ce que révèle l'examen.
+              Le forfait couvre la vérification complète du bien-fondé de la réclamation et la contestation lorsqu'elle n'est pas démontrée. Une discussion amiable n'intervient qu'à défaut, si l'examen confirme que la demande est fondée.
             </div>
             <div style={{ fontSize: 12, color: 'var(--muted)', background: '#F8F7F3', borderRadius: 8, padding: '8px 12px', marginBottom: 16 }}>
               Que la demande porte sur 900 € ou 4 500 €, vous connaissez dès le départ le coût de notre intervention.
