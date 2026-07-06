@@ -18,6 +18,7 @@ const cols = [
       ['Jurisprudence', '/jurisprudence/'],
       ['Cas pratiques', '/cas-pratiques/'],
       ['Notre méthode', '/notre-methode/'],
+      ['À propos', '/a-propos/'],
       ['Confier mon dossier', '/litige-afp-picrights/confier/'],
     ],
   },
@@ -38,7 +39,8 @@ export default function Footer() {
         <div>
           <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>Lazarègue Avocats</div>
           <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.55, marginBottom: 10 }}>Maître Alexandre Lazarègue<br />Avocat au Barreau de Paris</div>
-          <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.55 }}>18 rue de Tilsitt, 75017 Paris<br />Défense contre les réclamations photographiques</div>
+          <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.55, marginBottom: 10 }}>18 rue de Tilsitt, 75017 Paris<br />Défense contre les réclamations photographiques</div>
+          <a href="tel:+33181706200" style={{ fontSize: 11, color: 'var(--muted)', textDecoration: 'none' }}>01 81 70 62 00</a>
         </div>
         {cols.map((col) => (
           <div key={col.titre}>

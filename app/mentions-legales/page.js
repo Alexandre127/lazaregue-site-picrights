@@ -42,6 +42,7 @@ export default function MentionsLegales() {
         {dt('SIRET (siège)', '823 894 142 00038')}
         {dt('Code APE', '6910Z — Activités juridiques')}
         {dt('TVA intracommunautaire', 'FR24 823 894 142')}
+        {dt('Téléphone', '01 81 70 62 00')}
         {dt('Courriel', 'contact@lazaregue-avocats.fr')}
       </div>
 

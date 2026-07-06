@@ -12,8 +12,10 @@ const legalService = {
   serviceType: 'Droit de la propriété intellectuelle — photographies',
   priceRange: 'À partir de 200 € HT',
   address: { '@type': 'PostalAddress', streetAddress: '18 rue de Tilsitt', postalCode: '75017', addressLocality: 'Paris', addressCountry: 'FR' },
-  founder: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris' },
+  founder: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris', url: 'https://lazaregue-avocats.fr/a-propos/' },
   email: 'contact@lazaregue-avocats.fr',
+  telephone: '+33 1 81 70 62 00',
+  openingHours: 'Mo-Fr 09:00-18:00',
 }
 
 export const metadata = {
