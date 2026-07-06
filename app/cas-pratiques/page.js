@@ -4,6 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Cas pratiques — mises en demeure photographiques traitées',
   description: 'Dossiers réels traités par Lazarègue Avocats : PicRights, Copytrack, Getty Images. Contexte, réclamation, arguments, suivi.',
+  alternates: { canonical: 'https://lazaregue-avocats.fr/cas-pratiques/' },
 }
 
 const cas = [

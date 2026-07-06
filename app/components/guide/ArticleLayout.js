@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import CtaBanner from '../CtaBanner'
 import BreadcrumbJsonLd from '../BreadcrumbJsonLd'
+import JsonLd, { faqPage } from '../JsonLd'
 import Blocks from './Blocks'
 import { ARTICLES, bySlug, href, relatedOf } from './picrightsArticles'
 
 const BASE = 'https://lazaregue-avocats.fr'
+const MAJ = 'juillet 2026'
 
 // Gabarit d'un article approfondi du guide PicRights.
 // Rappelle toujours la page pilier (« Consulter le guide complet »).
@@ -22,13 +24,26 @@ export default function ArticleLayout({ slug, lead, blocks, faq }) {
         { name: 'Guide PicRights', url: `${BASE}/picrights/` },
         { name: meta?.crumb || meta?.title, url: `${BASE}/picrights/${slug}/` },
       ]} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: meta?.title,
+        description: lead,
+        author: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris' },
+        publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', url: BASE },
+        datePublished: '2026-07-06',
+        dateModified: '2026-07-06',
+        mainEntityOfPage: `${BASE}/picrights/${slug}/`,
+      }} />
+      {faq && faq.length > 0 && <JsonLd data={faqPage(faq)} />}
       <div style={{ padding: '32px 0 0' }}>
         <nav style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 20 }}>
           <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}
           <Link href="/picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Guide PicRights</Link>{' → '}{meta?.crumb}
         </nav>
         <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 12 }}>Article du guide PicRights</div>
-        <h1 style={{ fontSize: 25, fontWeight: 500, color: 'var(--text)', lineHeight: 1.35, marginBottom: 14 }}>{meta?.title}</h1>
+        <h1 style={{ fontSize: 25, fontWeight: 500, color: 'var(--text)', lineHeight: 1.35, marginBottom: 12 }}>{meta?.title}</h1>
+        <div style={{ fontSize: 12.5, color: 'var(--muted)', lineHeight: 1.5, marginBottom: 14 }}>Par <strong style={{ color: 'var(--secondary)', fontWeight: 600 }}>Maître Alexandre Lazarègue</strong>, avocat au Barreau de Paris · Mis à jour en {MAJ}</div>
         {lead && <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 8 }}>{lead}</p>}
       </div>
 

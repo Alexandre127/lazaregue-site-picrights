@@ -11,6 +11,9 @@ export const metadata = {
     locale: 'fr_FR',
     siteName: 'Lazarègue Avocats',
   },
+  twitter: {
+    card: 'summary_large_image',
+  },
   robots: { index: true, follow: true },
 }
 

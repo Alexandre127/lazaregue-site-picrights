@@ -4,6 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Jurisprudence — originalité photographique, droit d\'auteur',
   description: 'Bibliothèque de jurisprudence commentée sur l\'originalité photographique, le mandat, le préjudice. Décisions CA Paris, Cass. 1re civ., TJ Paris.',
+  alternates: { canonical: 'https://lazaregue-avocats.fr/jurisprudence/' },
 }
 
 const decisions = [

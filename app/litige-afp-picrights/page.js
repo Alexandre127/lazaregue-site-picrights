@@ -1,5 +1,20 @@
 import Link from 'next/link'
 import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
+import JsonLd, { faqPage } from '../components/JsonLd'
+
+const legalService = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Lazarègue Avocats',
+  url: 'https://lazaregue-avocats.fr/litige-afp-picrights/',
+  description: 'Cabinet d\'avocats spécialisé dans la défense contre les réclamations photographiques (PicRights, AFP, Reuters, Getty Images, Copytrack, Rights Control).',
+  areaServed: 'FR',
+  serviceType: 'Droit de la propriété intellectuelle — photographies',
+  priceRange: 'À partir de 200 € HT',
+  address: { '@type': 'PostalAddress', streetAddress: '18 rue de Tilsitt', postalCode: '75017', addressLocality: 'Paris', addressCountry: 'FR' },
+  founder: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris' },
+  email: 'contact@lazaregue-avocats.fr',
+}
 
 export const metadata = {
   title: 'Mise en demeure PicRights, AFP, Reuters, AP — Prise en charge par un avocat',
@@ -28,6 +43,8 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={legalService} />
+      <JsonLd data={faqPage(faqItems.map((f) => [f.q, f.a]))} />
       {/* HERO — deux modules interactifs (analyseur + devis) */}
       <div id="analyseur" style={{ background: 'var(--navy)', scrollMarginTop: 56 }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', padding: '48px 24px 56px' }}>

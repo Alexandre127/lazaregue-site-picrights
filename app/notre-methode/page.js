@@ -4,6 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Notre méthode — comment nous traitons une mise en demeure photographique',
   description: 'Découvrez comment Lazarègue Avocats analyse et traite les mises en demeure de PicRights, Copytrack et Getty Images. Méthode exclusive, traitement personnalisé.',
+  alternates: { canonical: 'https://lazaregue-avocats.fr/notre-methode/' },
 }
 
 export default function NotreMethode() {

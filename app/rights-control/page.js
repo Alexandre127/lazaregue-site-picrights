@@ -4,6 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Rights Control : mise en demeure — guide et conseils',
   description: 'Vous avez reçu un courrier Rights Control ? Avocat spécialisé en contentieux photographiques. Forfait 200 € HT — prise en charge sous 48h.',
+  alternates: { canonical: 'https://lazaregue-avocats.fr/rights-control/' },
 }
 
 export default function RightsControl() {
