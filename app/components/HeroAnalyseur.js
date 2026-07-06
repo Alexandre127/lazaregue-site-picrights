@@ -308,7 +308,12 @@ function DevisInstantane() {
       {etat === 'idle' && (
         <>
           <h2 style={{ fontFamily: serif, fontSize: 21, fontWeight: 500, lineHeight: 1.3, margin: '0 0 6px' }}>Déposez votre courrier, obtenez votre tarif exact</h2>
-          <p style={{ fontFamily: sans, fontSize: 14, color: '#c4cddc', lineHeight: 1.55, margin: '0 0 16px' }}>Mise en demeure, relance d&apos;avocat ou assignation — notre tarif dépend du nombre de photographies de votre dossier, jamais du montant que l&apos;on vous réclame.</p>
+          <p style={{ fontFamily: sans, fontSize: 14, color: '#c4cddc', lineHeight: 1.55, margin: '0 0 12px' }}>Notre tarif dépend uniquement du <strong>nombre de photographies</strong> visées par votre dossier — jamais du montant qu&apos;on vous réclame.</p>
+          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6, padding: '10px 14px', marginBottom: 14 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: sans, fontSize: 13.5, padding: '2px 0' }}><span style={{ color: '#c4cddc' }}>Jusqu&apos;à 2 photographies</span><span style={{ fontWeight: 700 }}>200 € HT</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: sans, fontSize: 13.5, padding: '2px 0' }}><span style={{ color: '#c4cddc' }}>Chaque photographie en plus</span><span style={{ fontWeight: 700 }}>+ 90 € HT</span></div>
+            <div style={{ fontFamily: sans, fontSize: 11.5, color: '#93a1ba', marginTop: 7, lineHeight: 1.5 }}>Déposez votre courrier : nous comptons les photographies et affichons votre <strong style={{ color: '#c4cddc' }}>tarif exact</strong>, connu d&apos;avance.</div>
+          </div>
           <div
             onClick={() => inputRef.current?.click()}
             onDragOver={(e) => { e.preventDefault(); setSurvol(true) }}
@@ -321,12 +326,7 @@ function DevisInstantane() {
             <div style={{ fontFamily: sans, fontSize: 12.5, color: '#93a1ba', marginTop: 4 }}>Mise en demeure, courrier d&apos;avocat ou assignation — PDF ou photo</div>
           </div>
           <input ref={inputRef} type="file" accept="application/pdf,image/*" style={{ display: 'none' }} onChange={(e) => lancer(e.target.files?.[0])} />
-          <p style={{ fontFamily: sans, fontSize: 11.5, color: '#93a1ba', textAlign: 'center', margin: '10px 0 14px' }}>Document chiffré, analysé puis supprimé · Secret professionnel</p>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.14)', paddingTop: 14 }}>
-            <p style={{ fontFamily: sans, fontSize: 12.5, color: '#93a1ba', margin: '0 0 8px', textAlign: 'center' }}>Ou sans dépôt — forfait de base :</p>
-            {btnConfier('Confier mon dossier au cabinet → dès 200 € HT')}
-            <p style={{ fontFamily: sans, fontSize: 12, color: '#93a1ba', textAlign: 'center', margin: '8px 0 0' }}>Convention incluse · Prise en charge sous 48h</p>
-          </div>
+          <p style={{ fontFamily: sans, fontSize: 11.5, color: '#93a1ba', textAlign: 'center', margin: '10px 0 0', lineHeight: 1.5 }}>Document chiffré, analysé puis supprimé · Secret professionnel · Convention incluse · Prise en charge sous 48h</p>
         </>
       )}
 
