@@ -86,6 +86,7 @@ export async function POST(req) {
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      payment_method_types: ['card'], // carte uniquement — pas de Stripe Link
       customer_email: client.email,
       line_items: [lineItem],
       invoice_creation: { enabled: true },
