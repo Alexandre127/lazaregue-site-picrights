@@ -14,6 +14,8 @@ const faqItems = [
   { q: 'Est-ce que je risque un procès ?', a: 'La procédure judiciaire reste l\'issue la moins fréquente. Notre intervention dès la phase amiable vise précisément à éviter d\'en arriver là. La chronologie est : mise en demeure → relances → négociation → assignation éventuelle.' },
   { q: 'Qu\'est-ce qu\'une photographie « originale » en droit ?', a: 'Le droit d\'auteur protège uniquement les œuvres portant l\'empreinte de la personnalité de leur auteur. Une photographie purement technique ou documentaire — photo de produit, façade, illustration — ne remplit généralement pas ce critère. C\'est précisément ce que nous vérifions.' },
   { q: 'Et si, après examen, la réclamation est fondée ?', a: 'C\'est précisément l\'intérêt de consulter un avocat avant de répondre. Si l\'analyse montre que la réclamation est fondée, nous négocierons le montant ou proposerons la régularisation la plus avantageuse pour limiter le risque financier.' },
+  { q: 'Un cabinet d\'avocats a déjà pris le relais de PicRights ou de l\'AFP — est-ce trop tard ?', a: 'Non — c\'est même l\'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire fait partie du déroulement normal de la phase amiable : cela ne change ni notre intervention, ni notre tarif. Déposez le courrier reçu, le devis est identique.' },
+  { q: 'J\'ai reçu une assignation devant le tribunal judiciaire — que faire ?', a: 'Ne laissez pas passer les délais : une assignation impose de constituer avocat avant l\'audience. Votre dossier ne passe pas par le forfait en ligne — transmettez votre assignation dans la section dédiée en bas de page : elle est adressée directement à un avocat, qui vous répond avec un devis personnalisé sous 24h, sans engagement.' },
 ]
 
 export default function Home() {
@@ -46,47 +48,10 @@ export default function Home() {
           <div style={{ marginTop: 14, fontSize: 11.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>
             Images et documents analysés en mémoire par notre sous-traitant technique (Anthropic / Claude), puis non conservés. <Link href="/confidentialite/" style={{ color: 'rgba(255,255,255,0.72)', textDecoration: 'underline' }}>Confidentialité & RGPD</Link>
           </div>
-
-          {/* Bandeau pièces réelles */}
-          <div style={{ marginTop: 22, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-            {['Mise en demeure PicRights (AFP)', 'Assignation AFP — TJ Paris', 'Accord transactionnel AFP', 'Attestation de titularité'].map((p, i) => (
-              <span key={i} style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.55)', background: 'rgba(255,255,255,0.05)', border: '0.5px solid rgba(255,255,255,0.12)', borderRadius: 3, padding: '5px 10px' }}>📄 {p}</span>
-            ))}
-            <span style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.42)', fontStyle: 'italic' }}>Pièces réelles reçues par nos clients — informations d'identification masquées</span>
-          </div>
         </div>
       </div>
 
       <div style={s.page}>
-
-        {/* 2 QUESTIONS — ce que l'analyse automatique ne peut pas trancher */}
-        <div style={s.block}>
-          <div style={s.label}>Ce que l'analyse automatique ne peut pas trancher</div>
-          <div style={{ background: '#F8F7F3', borderRadius: 10, padding: 16 }}>
-            {['Le montant réclamé est-il juridiquement justifié ?', 'Votre réponse risque-t-elle d\'aggraver votre situation ?'].map((q, i) => (
-              <div key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--secondary)', marginBottom: i < 1 ? 10 : 14, lineHeight: 1.5 }}>
-                <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--navy)', color: 'white', fontSize: 10, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>{i + 1}</div>
-                {q}
-              </div>
-            ))}
-            <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)', borderTop: '0.5px solid var(--border)', paddingTop: 12 }}>
-              Ces questions relèvent de l'examen juridique du dossier — c'est précisément l'objet du forfait.
-            </div>
-          </div>
-        </div>
-
-        {/* MINI-FAQ — à quel stade nous saisir */}
-        <div style={s.block}>
-          <div style={s.label}>À quel stade pouvez-vous nous saisir ?</div>
-          <div style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '14px 16px', marginBottom: 10 }}>
-            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 5 }}>Un cabinet d'avocats a déjà pris le relais de PicRights ou de l'AFP — est-ce trop tard ?</div>
-            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.6, margin: 0 }}>Non — c'est même l'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire fait partie du déroulement normal de la phase amiable : cela ne change ni notre intervention, ni notre tarif. Déposez le courrier reçu : le devis est identique.</p>
-          </div>
-          <div style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '14px 16px' }}>
-            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 5 }}>J'ai reçu une assignation devant le tribunal judiciaire — que faire ?</div>
-            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.6, margin: 0 }}>Ne laissez pas passer les délais : une assignation impose de constituer avocat avant l'audience. Votre dossier ne passe pas par le forfait en ligne : transmettez votre assignation dans la section dédiée en bas de page — elle est adressée directement à un avocat, qui vous répond avec un devis personnalisé sous 24h, sans engagement.</p>
-          </div>
-        </div>
 
         {/* COÛT INACTION */}
         <div style={s.block}>
