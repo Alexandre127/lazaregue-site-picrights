@@ -107,7 +107,7 @@ export async function POST(req) {
     try {
       if (process.env.RESEND_API_KEY) {
         const resend = new Resend(process.env.RESEND_API_KEY)
-        const from = process.env.EMAIL_FROM || 'Lazarègue Avocats <dossier@lazaregue-avocats.fr>'
+        const from = process.env.EMAIL_FROM || 'Lazarègue Avocats <alexandre@lazaregue-avocats.fr>'
         const clientEmail = s.customer_details?.email || s.customer_email
         if (clientEmail) {
           await resend.emails.send({ from, to: clientEmail, subject: 'Votre dossier est enregistré — Lazarègue Avocats', html: clientEmailHtml(m) })

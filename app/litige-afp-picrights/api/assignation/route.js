@@ -40,7 +40,7 @@ export async function POST(req) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const from = process.env.EMAIL_FROM || 'Lazarègue Avocats <dossier@lazaregue-avocats.fr>'
+    const from = process.env.EMAIL_FROM || 'Lazarègue Avocats <alexandre@lazaregue-avocats.fr>'
     const buf = Buffer.from(await file.arrayBuffer())
     const filename = (file.name || 'assignation').replace(/[^\w.\-]/g, '_')
 
