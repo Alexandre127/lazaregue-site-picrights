@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CtaBanner from '../components/CtaBanner'
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd'
 import Blocks from '../components/guide/Blocks'
 import { href } from '../components/guide/picrightsArticles'
 
@@ -121,6 +122,11 @@ export default function PicRightsPillar() {
 
   return (
     <div style={s.page}>
+      <BreadcrumbJsonLd items={[
+        { name: 'Accueil', url: 'https://lazaregue-avocats.fr/litige-afp-picrights/' },
+        { name: 'Guides', url: 'https://lazaregue-avocats.fr/agences/' },
+        { name: 'PicRights', url: 'https://lazaregue-avocats.fr/picrights/' },
+      ]} />
       <div style={{ padding: '32px 0 0' }}>
         <nav style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 20 }}>
           <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}

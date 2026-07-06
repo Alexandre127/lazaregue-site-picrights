@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import CtaBanner from '../CtaBanner'
+import BreadcrumbJsonLd from '../BreadcrumbJsonLd'
 import Blocks from './Blocks'
 import { ARTICLES, bySlug, href, relatedOf } from './picrightsArticles'
+
+const BASE = 'https://lazaregue-avocats.fr'
 
 // Gabarit d'un article approfondi du guide PicRights.
 // Rappelle toujours la page pilier (« Consulter le guide complet »).
@@ -14,6 +17,11 @@ export default function ArticleLayout({ slug, lead, blocks, faq }) {
 
   return (
     <div style={s.page}>
+      <BreadcrumbJsonLd items={[
+        { name: 'Accueil', url: `${BASE}/litige-afp-picrights/` },
+        { name: 'Guide PicRights', url: `${BASE}/picrights/` },
+        { name: meta?.crumb || meta?.title, url: `${BASE}/picrights/${slug}/` },
+      ]} />
       <div style={{ padding: '32px 0 0' }}>
         <nav style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 20 }}>
           <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}
