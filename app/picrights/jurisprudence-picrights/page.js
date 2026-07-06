@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Jurisprudence PicRights : ce que disent réellement les tribunaux',
   description: 'Existe-t-il une jurisprudence PicRights ? Découvrez comment les tribunaux analysent les réclamations photographiques : originalité, titularité des droits, preuve et évaluation du préjudice.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/jurisprudence-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/jurisprudence-picrights/' },
 }
 
 const lead = 'Lorsqu’on reçoit une réclamation PicRights, une question revient : existe-t-il une jurisprudence PicRights ? La réponse est contre-intuitive.'

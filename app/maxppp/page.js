@@ -3,7 +3,7 @@ import AgencyPage from '../components/AgencyPage'
 export const metadata = {
   title: 'Mise en demeure MaxPPP : faut-il payer ? Guide complet',
   description: 'Vous avez reçu une réclamation MaxPPP pour une photographie ? Découvrez qui réclame, si vous devez payer et comment réagir. Avocat spécialisé — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/maxppp/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/maxppp/' },
 }
 
 export default function Maxppp() {

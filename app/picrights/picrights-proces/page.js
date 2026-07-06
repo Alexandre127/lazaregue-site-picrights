@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'PicRights procès : risquez-vous réellement une procédure judiciaire ?',
   description: 'Vous craignez un procès après une réclamation PicRights ? Découvrez dans quels cas une procédure peut être engagée, ce que doit démontrer le demandeur devant le tribunal et pourquoi toutes les réclamations n’aboutissent pas à une action en justice.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/picrights-proces/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-proces/' },
 }
 
 const lead = 'Après une réclamation PicRights, beaucoup effectuent la même recherche : « PicRights va-t-elle vraiment engager un procès ? » Les courriers évoquent parfois une mise en demeure, un cabinet d’avocats, une procédure, des dommages et intérêts. La réponse est plus nuancée qu’il n’y paraît.'

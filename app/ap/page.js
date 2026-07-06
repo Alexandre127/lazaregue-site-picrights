@@ -3,7 +3,7 @@ import AgencyPage from '../components/AgencyPage'
 export const metadata = {
   title: 'Mise en demeure Associated Press (AP) : faut-il payer ? Guide',
   description: 'Vous avez reçu une réclamation d\'Associated Press (AP) pour une photographie ? Découvrez qui réclame, si vous devez payer et comment réagir. Avocat spécialisé — 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/ap/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/ap/' },
 }
 
 export default function Ap() {

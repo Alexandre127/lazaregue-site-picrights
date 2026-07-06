@@ -3,7 +3,7 @@ import AgencyPage from '../components/AgencyPage'
 export const metadata = {
   title: 'Mise en demeure PA Images : faut-il payer ? Guide complet',
   description: 'Vous avez reçu une réclamation PA Images pour une photographie ? Découvrez qui réclame, si vous devez payer et comment réagir. Avocat spécialisé — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/pa-images/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/pa-images/' },
 }
 
 export default function PaImages() {

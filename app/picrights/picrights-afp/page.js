@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'PicRights AFP : pourquoi avez-vous reçu une réclamation au nom de l’AFP ?',
   description: 'Vous avez reçu une réclamation PicRights concernant une photographie AFP ? Découvrez pourquoi vous êtes contacté, ce que cela signifie réellement et ce qu’il faut vérifier avant toute décision.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/picrights-afp/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-afp/' },
 }
 
 const lead = 'Vous venez de recevoir un courrier de PicRights mentionnant l’Agence France-Presse (AFP) et vous réclamant plusieurs centaines, parfois plusieurs milliers d’euros. Pourquoi l’AFP est-elle mentionnée, et que faut-il en conclure ?'

@@ -6,7 +6,7 @@ import { href } from '../components/guide/picrightsArticles'
 export const metadata = {
   title: 'Réclamation PicRights : le guide juridique complet pour comprendre, contester et se défendre',
   description: 'Vous avez reçu une réclamation PicRights ? Guide complet : qui est PicRights, faut-il payer, comment vérifier si la demande est fondée, moyens de défense, montant, jurisprudence. Avocat spécialisé en droit d’auteur photographique.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/' },
 }
 
 const sections = [

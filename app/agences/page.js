@@ -4,7 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Agences et sociétés de recouvrement photographique — Guides',
   description: 'PicRights, AFP, PA Images, Reuters, Associated Press, MaxPPP, Paris Match, Rights Control : qui réclame, faut-il payer, comment réagir. Avocat spécialisé — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/agences/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/agences/' },
 }
 
 const agences = [

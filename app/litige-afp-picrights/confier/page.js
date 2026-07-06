@@ -4,7 +4,7 @@ import ConfierTunnel from '../../components/ConfierTunnel'
 export const metadata = {
   title: 'Confier mon dossier — Prise en charge de votre mise en demeure',
   description: 'Déposez votre mise en demeure PicRights, Copytrack ou Getty Images, signez la convention et réglez le forfait 200 € HT. Prise en charge par un avocat sous 48h.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/litige-afp-picrights/confier/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/litige-afp-picrights/confier/' },
   robots: { index: false, follow: true },
 }
 

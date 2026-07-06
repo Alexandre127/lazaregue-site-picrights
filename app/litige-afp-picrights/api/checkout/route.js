@@ -13,7 +13,7 @@
 //   STRIPE_TAX_RATE_ID       (optionnel : id d'un taux de TVA 20 % créé dans
 //                             Stripe → facture détaillée HT / TVA / TTC)
 //   BLOB_READ_WRITE_TOKEN    (optionnel : upload des pièces sur Vercel Blob)
-//   NEXT_PUBLIC_SITE_URL     (défaut : https://www.lazaregue-avocats.fr)
+//   NEXT_PUBLIC_SITE_URL     (défaut : https://lazaregue-avocats.fr)
 
 import Stripe from 'stripe'
 import { put } from '@vercel/blob'
@@ -21,7 +21,7 @@ import { put } from '@vercel/blob'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.lazaregue-avocats.fr'
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://lazaregue-avocats.fr'
 const CONFIER = `${SITE}/litige-afp-picrights/confier/`
 
 export async function POST(req) {

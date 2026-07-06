@@ -1,7 +1,7 @@
 import { ARTICLES } from './components/guide/picrightsArticles'
 
 export default function sitemap() {
-  const base = 'https://www.lazaregue-avocats.fr'
+  const base = 'https://lazaregue-avocats.fr'
   const now = new Date()
   const urls = [
     { url: `${base}/litige-afp-picrights/`, lastModified: now, priority: 1.0 },

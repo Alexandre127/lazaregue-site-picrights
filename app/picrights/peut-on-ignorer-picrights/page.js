@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Peut-on ignorer une réclamation PicRights ? Ce qui se passe vraiment',
   description: 'Que se passe-t-il si vous ne répondez pas à PicRights ? Ignorer n’entraîne pas automatiquement un procès. Les trois scénarios possibles, faut-il supprimer la photo, et pourquoi une réponse mesurée est préférable.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/peut-on-ignorer-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/peut-on-ignorer-picrights/' },
 }
 
 const lead = 'C’est l’une des questions les plus recherchées après « faut-il payer ? ». La réponse est nuancée : ignorer une réclamation n’entraîne pas automatiquement une procédure judiciaire, mais ce n’est pas pour autant la stratégie la plus prudente.'

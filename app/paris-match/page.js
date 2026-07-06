@@ -3,7 +3,7 @@ import AgencyPage from '../components/AgencyPage'
 export const metadata = {
   title: 'Mise en demeure Paris Match : faut-il payer ? Guide complet',
   description: 'Vous avez reçu une réclamation Paris Match pour une photographie ? Découvrez qui réclame, si vous devez payer et comment réagir. Avocat spécialisé — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/paris-match/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/paris-match/' },
 }
 
 export default function ParisMatch() {

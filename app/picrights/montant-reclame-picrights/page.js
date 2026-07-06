@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Comment est calculé le montant réclamé par PicRights ?',
   description: 'Les montants réclamés par PicRights varient fortement : valeur de licence, durée, frais de gestion, préjudice. Mais ces montants ne s’imposent pas au juge, qui procède à sa propre appréciation.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/montant-reclame-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/montant-reclame-picrights/' },
 }
 
 const lead = 'Beaucoup de destinataires s’étonnent des sommes demandées, qui peuvent varier fortement d’un dossier à l’autre. Comprendre comment ces montants sont construits — et pourquoi ils ne s’imposent pas au juge — change la manière d’y répondre.'

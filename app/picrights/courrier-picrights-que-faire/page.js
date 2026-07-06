@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'J’ai reçu un courrier PicRights : que faire ? Les bons réflexes',
   description: 'Vous venez de recevoir un courrier ou un e-mail PicRights ? Pourquoi vous l’avez reçu, les bons réflexes à adopter, les erreurs à éviter et les documents à conserver avant toute réponse.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/courrier-picrights-que-faire/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/courrier-picrights-que-faire/' },
 }
 
 const lead = 'Un courrier PicRights vient d’arriver et vous ne savez pas comment réagir. Avant toute réponse, voici pourquoi vous l’avez probablement reçu et les réflexes qui protègent vos intérêts.'

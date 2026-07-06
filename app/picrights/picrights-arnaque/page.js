@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'PicRights arnaque ? Ce qu’il faut réellement vérifier avant de payer',
   description: 'Vous recherchez « PicRights arnaque » ? Découvrez pourquoi cette question revient souvent, ce qu’il faut vérifier avant toute réponse et pourquoi une réclamation ne signifie pas automatiquement que vous devez payer.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/picrights-arnaque/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-arnaque/' },
 }
 
 const lead = 'Après avoir reçu une réclamation PicRights, beaucoup effectuent immédiatement la même recherche : « PicRights est-elle une arnaque ? » Vous découvrez soudain une société inconnue, une photographie parfois oubliée, et une demande de plusieurs centaines ou milliers d’euros. La réponse est plus nuancée que la question.'

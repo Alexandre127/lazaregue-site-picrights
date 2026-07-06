@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Avis sur PicRights : faut-il s’inquiéter après une réclamation ?',
   description: 'Vous recherchez un avis sur PicRights ? Découvrez qui est cette société, pourquoi elle vous contacte et pourquoi une réclamation ne signifie pas automatiquement que vous devez payer.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/avis-sur-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/avis-sur-picrights/' },
 }
 
 const lead = 'Si vous recherchez un avis sur PicRights, c’est probablement parce que vous venez de recevoir un courrier vous réclamant plusieurs centaines, voire plusieurs milliers d’euros pour une photographie. Est-ce sérieux ? Dois-je payer ? Vais-je être poursuivi ?'

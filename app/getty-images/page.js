@@ -4,7 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Getty Images : mise en demeure, faut-il payer ? Guide complet',
   description: 'Vous avez reçu un courrier Getty Images ? Que faire, doit-on payer ? Avocat spécialisé en contentieux photographiques — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/getty-images/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/getty-images/' },
 }
 
 export default function GettyImages() {

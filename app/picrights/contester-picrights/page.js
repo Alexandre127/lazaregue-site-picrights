@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Comment contester une réclamation PicRights : les moyens de défense',
   description: 'Une réclamation PicRights peut être contestée : preuve, titularité des droits, originalité de la photographie, montant réclamé, contexte d’utilisation. Les cinq grands moyens de défense expliqués.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/contester-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/contester-picrights/' },
 }
 
 const lead = 'Une réclamation PicRights peut parfaitement être contestée — sans que cela signifie qu’elle soit nécessairement infondée. Le rôle de l’avocat consiste à identifier les éventuelles faiblesses du dossier. Voici les cinq grands moyens de défense.'

@@ -4,7 +4,7 @@ import CtaBanner from '../components/CtaBanner'
 export const metadata = {
   title: 'Copytrack : mise en demeure, faut-il payer ? Guide complet',
   description: 'Vous avez reçu un courrier Copytrack ? Découvrez qui est Copytrack, si vous devez payer et comment réagir. Avocat spécialisé — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/copytrack/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/copytrack/' },
 }
 
 export default function Copytrack() {

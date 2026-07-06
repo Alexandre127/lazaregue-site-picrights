@@ -4,7 +4,7 @@ import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
 export const metadata = {
   title: 'Mise en demeure PicRights, AFP, Reuters, AP — Prise en charge par un avocat',
   description: 'Vous avez reçu une mise en demeure de PicRights, AFP, PA Images, Reuters, AP, MaxPPP, Paris Match ou Rights Control ? Avocat spécialisé. Examen complet et réponse sous 48h — forfait 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/litige-afp-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/litige-afp-picrights/' },
 }
 
 const faqItems = [

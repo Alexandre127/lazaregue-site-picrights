@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Comment négocier avec PicRights ? Stratégies et solution amiable',
   description: 'Peut-on négocier avec PicRights ? Oui : de nombreux dossiers se terminent sans procès. Contestation, demande de justificatifs, régularisation, négociation du montant, transaction : les stratégies possibles.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/negocier-picrights/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/negocier-picrights/' },
 }
 
 const lead = 'Oui, on peut négocier avec PicRights. En pratique, de nombreux dossiers se terminent sans procès. Encore faut-il choisir la bonne stratégie, au bon moment, sur la base de la bonne analyse.'

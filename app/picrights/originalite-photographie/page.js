@@ -3,7 +3,7 @@ import ArticleLayout from '../../components/guide/ArticleLayout'
 export const metadata = {
   title: 'Quand une photographie est-elle réellement protégée par le droit d’auteur ?',
   description: 'Toutes les photographies ne sont pas protégées : seules les photographies originales le sont. Critères d’originalité, cas des photos de presse et de la captation d’événements, appréciation du juge.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/picrights/originalite-photographie/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/originalite-photographie/' },
 }
 
 const lead = 'Beaucoup pensent qu’une photographie est automatiquement protégée. En réalité, le droit d’auteur ne protège que les photographies originales. C’est souvent le cœur du débat dans une réclamation PicRights.'

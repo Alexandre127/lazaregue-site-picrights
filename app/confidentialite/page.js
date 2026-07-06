@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Politique de confidentialité (RGPD)',
   description: 'Politique de confidentialité RGPD du cabinet Lazarègue Avocats : responsable, finalités et bases légales par traitement, sous-traitants et transferts hors UE, durées de conservation, droits, données de tiers, secret professionnel, cookies, sécurité.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/confidentialite/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/confidentialite/' },
   robots: { index: true, follow: true },
 }
 

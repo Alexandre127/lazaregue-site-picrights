@@ -3,7 +3,7 @@ import AgencyPage from '../components/AgencyPage'
 export const metadata = {
   title: 'Mise en demeure AFP : faut-il payer ? Guide complet',
   description: 'Vous avez reçu une réclamation de l\'AFP (Agence France-Presse) pour une photographie ? Découvrez qui réclame, si vous devez payer et comment réagir. Avocat spécialisé — 200 € HT.',
-  alternates: { canonical: 'https://www.lazaregue-avocats.fr/afp/' },
+  alternates: { canonical: 'https://lazaregue-avocats.fr/afp/' },
 }
 
 export default function Afp() {
