@@ -78,10 +78,10 @@ const sections = [
     ],
   },
   {
-    id: 'afp', kicker: 'Les agences', title: 'PicRights et l’AFP', slug: 'picrights-afp',
+    id: 'afp', kicker: 'Les agences', title: 'PicRights et l’AFP', customHref: '/picrights-afp/', cta: 'Consulter le guide complet PicRights AFP',
     summary: [
       ['p', 'PicRights agit fréquemment au nom de l’AFP, mais aussi de Reuters, Associated Press, Paris Match ou d’autres partenaires. Le courrier mentionne généralement l’agence mandante.'],
-      ['p', 'Les arguments juridiques applicables restent les mêmes quelle que soit l’agence : titularité et mandat, originalité de la photographie, suffisance des preuves et justification du montant.'],
+      ['p', 'Lorsque la réclamation est formée au nom de l’AFP, nous avons dédié un guide complet à ce cas de figure — mêmes principes (titularité, mandat, originalité, montant), appliqués aux photographies de presse.'],
     ],
   },
   {
@@ -167,7 +167,7 @@ export default function PicRightsPillar() {
           <div style={s.kicker}>{sec.kicker}</div>
           <h2 style={{ fontSize: 21, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 12 }}>{sec.title}</h2>
           <Blocks items={sec.summary} />
-          <Link href={href(sec.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
+          <Link href={sec.customHref || href(sec.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
             {sec.cta || 'Lire l’article complet'} →
           </Link>
         </div>
@@ -199,7 +199,7 @@ export default function PicRightsPillar() {
       <div style={{ padding: '20px 0 32px' }}>
         <div style={s.kicker}>Nos autres guides</div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {[['Guide AFP', '/afp/'], ['Guide Reuters', '/reuters/'], ['Guide Getty Images', '/getty-images/'], ['Guide Copytrack', '/copytrack/'], ['Toutes les agences', '/agences/'], ['Jurisprudence', '/jurisprudence/'], ['Notre méthode', '/notre-methode/']].map(([label, url]) => (
+          {[['Guide PicRights AFP', '/picrights-afp/'], ['Guide Reuters', '/reuters/'], ['Guide Getty Images', '/getty-images/'], ['Guide Copytrack', '/copytrack/'], ['Toutes les agences', '/agences/'], ['Jurisprudence', '/jurisprudence/'], ['Notre méthode', '/notre-methode/']].map(([label, url]) => (
             <Link key={url} href={url} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>{label}</Link>
           ))}
         </div>

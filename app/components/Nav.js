@@ -12,7 +12,7 @@ const menu = [
     label: 'Guides',
     children: [
       { label: 'PicRights', href: '/picrights/' },
-      { label: 'AFP', href: '/afp/' },
+      { label: 'AFP', href: '/picrights-afp/' },
       { label: 'Reuters', href: '/reuters/' },
       { label: 'Getty Images', href: '/getty-images/' },
       { label: 'Copytrack', href: '/copytrack/' },

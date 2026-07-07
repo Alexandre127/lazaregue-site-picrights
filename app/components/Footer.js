@@ -5,7 +5,7 @@ const cols = [
     titre: 'Guides',
     liens: [
       ['PicRights', '/picrights/'],
-      ['AFP', '/afp/'],
+      ['AFP', '/picrights-afp/'],
       ['Reuters', '/reuters/'],
       ['Getty Images', '/getty-images/'],
       ['Copytrack', '/copytrack/'],

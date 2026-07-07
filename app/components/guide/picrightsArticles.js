@@ -5,7 +5,6 @@ export const PILLAR = { href: '/picrights/', title: 'Guide complet PicRights' }
 export const ARTICLES = [
   { slug: 'faut-il-payer-picrights', crumb: 'Faut-il payer', title: 'Faut-il payer PicRights ? Les 6 vérifications indispensables avant toute décision' },
   { slug: 'avis-sur-picrights', crumb: 'Avis', title: 'Avis sur PicRights : faut-il s’inquiéter après une réclamation ?' },
-  { slug: 'picrights-afp', crumb: 'PicRights & AFP', title: 'PicRights AFP : pourquoi avez-vous reçu une réclamation au nom de l’AFP ?' },
   { slug: 'picrights-europe-gmbh', crumb: 'Qui est PicRights', title: 'PicRights Europe GmbH : pourquoi cette société apparaît-elle sur votre réclamation ?' },
   { slug: 'jurisprudence-picrights', crumb: 'Jurisprudence', title: 'Jurisprudence PicRights : ce que disent réellement les tribunaux' },
   { slug: 'picrights-proces', crumb: 'Procès', title: 'PicRights procès : risquez-vous réellement une procédure judiciaire ?' },
@@ -27,8 +26,7 @@ export const href = (slug) => `/picrights/${slug}/`
 export const RELATED = {
   'faut-il-payer-picrights': ['originalite-photographie', 'montant-reclame-picrights', 'contester-picrights'],
   'avis-sur-picrights': ['picrights-arnaque', 'faut-il-payer-picrights', 'picrights-europe-gmbh'],
-  'picrights-afp': ['picrights-europe-gmbh', 'originalite-photographie', 'jurisprudence-picrights'],
-  'picrights-europe-gmbh': ['courrier-picrights-que-faire', 'avis-sur-picrights', 'picrights-afp'],
+  'picrights-europe-gmbh': ['courrier-picrights-que-faire', 'avis-sur-picrights', 'faut-il-payer-picrights'],
   'jurisprudence-picrights': ['originalite-photographie', 'montant-reclame-picrights', 'contester-picrights'],
   'picrights-proces': ['peut-on-ignorer-picrights', 'negocier-picrights', 'jurisprudence-picrights'],
   'peut-on-ignorer-picrights': ['picrights-proces', 'faut-il-payer-picrights', 'negocier-picrights'],

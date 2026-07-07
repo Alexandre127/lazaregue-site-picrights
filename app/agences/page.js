@@ -10,7 +10,7 @@ export const metadata = {
 const agences = [
   { name: 'PicRights', kind: 'Société de recouvrement', href: '/picrights/', desc: 'Détection par IA et recouvrement pour le compte d\'agences (AFP, AP, Reuters…).' },
   { name: 'Rights Control', kind: 'Société de recouvrement', href: '/rights-control/', desc: 'Recouvrement de droits photographiques pour le compte de titulaires.' },
-  { name: 'AFP', kind: 'Agence de presse', href: '/afp/', desc: 'Agence France-Presse — photographies de presse réclamées via mandataires.' },
+  { name: 'AFP', kind: 'Agence de presse', href: '/picrights-afp/', desc: 'Agence France-Presse — photographies de presse réclamées via mandataires.' },
   { name: 'Reuters', kind: 'Agence de presse', href: '/reuters/', desc: 'Agence internationale — images très diffusées et fréquemment réclamées.' },
   { name: 'Associated Press (AP)', kind: 'Agence de presse', href: '/ap/', desc: 'Agence de presse américaine de référence.' },
   { name: 'PA Images', kind: 'Banque d\'images de presse', href: '/pa-images/', desc: 'Banque d\'images de la Press Association (Royaume-Uni).' },

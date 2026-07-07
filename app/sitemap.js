@@ -1,4 +1,5 @@
 import { ARTICLES } from './components/guide/picrightsArticles'
+import { ARTICLES as AFP_ARTICLES } from './components/guide/afpArticles'
 
 export default function sitemap() {
   const base = 'https://lazaregue-avocats.fr'
@@ -7,7 +8,8 @@ export default function sitemap() {
     { url: `${base}/litige-afp-picrights/`, lastModified: now, priority: 1.0 },
     { url: `${base}/agences/`, lastModified: now, priority: 0.9 },
     { url: `${base}/picrights/`, lastModified: now, priority: 0.9 },
-    { url: `${base}/afp/`, lastModified: now, priority: 0.9 },
+    { url: `${base}/picrights-afp/`, lastModified: now, priority: 0.9 },
+    ...AFP_ARTICLES.map((a) => ({ url: `${base}/picrights-afp/${a.slug}/`, lastModified: now, priority: 0.75 })),
     { url: `${base}/reuters/`, lastModified: now, priority: 0.85 },
     { url: `${base}/ap/`, lastModified: now, priority: 0.85 },
     { url: `${base}/pa-images/`, lastModified: now, priority: 0.8 },
