@@ -58,6 +58,19 @@ export default function Blocks({ items }) {
             return <div key={i} style={{ background: '#F8FBFE', border: '1px solid var(--blue)', borderRadius: 8, padding: '14px 16px', margin: '4px 0 16px', fontSize: 14.5, color: 'var(--navy)', fontWeight: 500, lineHeight: 1.6 }}>{inline(val)}</div>
           case 'link':
             return <p key={i} style={{ margin: '2px 0 16px' }}><Link href={val[0]} style={{ color: 'var(--blue)', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>{val[1]} →</Link></p>
+          case 'video':
+            return (
+              <div key={i} style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, borderRadius: 10, overflow: 'hidden', margin: '4px 0 18px', background: '#000' }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${val}`}
+                  title="L’avocat explique"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                />
+              </div>
+            )
           default:
             return null
         }

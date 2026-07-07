@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CtaBanner from '../CtaBanner'
 import BreadcrumbJsonLd from '../BreadcrumbJsonLd'
 import JsonLd, { faqPage } from '../JsonLd'
+import CTAAnalyseur from '../CTAAnalyseur'
 import Blocks from './Blocks'
 import { ARTICLES, bySlug, href, relatedOf } from './afpArticles'
 
@@ -65,13 +66,7 @@ export default function AfpArticleLayout({ slug, lead, blocks, faq }) {
       )}
 
       {/* Encadré analyse — porte d'entrée vers l'outil interactif */}
-      <div style={{ background: '#F8FBFE', border: '1px solid var(--blue)', borderRadius: 12, padding: '18px 20px', margin: '20px 0' }}>
-        <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--navy)', marginBottom: 6 }}>Vous avez reçu un courrier PicRights AFP ?</div>
-        <p style={{ fontSize: 13.5, color: 'var(--secondary)', lineHeight: 1.6, margin: '0 0 12px' }}>Déposez la photographie et la réclamation : notre analyseur réalise une première lecture juridique de votre dossier avant toute décision.</p>
-        <Link href="/litige-afp-picrights/#analyseur" style={{ display: 'inline-block', background: 'var(--navy)', color: 'white', fontWeight: 600, fontSize: 13, padding: '9px 18px', borderRadius: 8, textDecoration: 'none' }}>
-          Analyser mon dossier gratuitement →
-        </Link>
-      </div>
+      <CTAAnalyseur agence="PicRights AFP" />
 
       {/* Renvoi vers la page pilier */}
       <div style={{ background: 'var(--navy)', borderRadius: 12, padding: '24px 26px', margin: '0 0 28px' }}>

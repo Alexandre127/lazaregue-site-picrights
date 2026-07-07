@@ -1,4 +1,16 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
+import JsonLd from '../../components/JsonLd'
+
+const video = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Faut-il payer PicRights ? L’avocat explique',
+  description: 'Maître Alexandre Lazarègue, avocat au Barreau de Paris, explique ce qu’il faut vérifier avant de payer une réclamation PicRights.',
+  thumbnailUrl: 'https://i.ytimg.com/vi/LJb86ncomeg/hqdefault.jpg',
+  uploadDate: '2026-07-07',
+  contentUrl: 'https://www.youtube.com/shorts/LJb86ncomeg',
+  embedUrl: 'https://www.youtube.com/embed/LJb86ncomeg',
+}
 
 export const metadata = {
   title: 'Faut-il payer PicRights ? Les 6 vérifications essentielles',
@@ -11,6 +23,8 @@ const lead = 'Vous avez reçu un courrier ou un e-mail de PicRights réclamant p
 const blocks = [
   ['p', 'La réponse est simple : **il n’existe aucune réponse universelle.** Dans certains dossiers, une indemnisation peut être justifiée. Dans d’autres, la demande peut être totalement ou partiellement contestée. Avant toute décision, il convient d’analyser juridiquement le dossier.'],
   ['key', 'Le courrier PicRights ne constitue ni une décision de justice, ni une condamnation, ni la preuve définitive d’une contrefaçon. C’est une réclamation amiable : celui qui réclame devra, en cas de contestation, démontrer devant le tribunal le bien-fondé de ses prétentions — la preuve incombe à celui qui réclame l’exécution d’une obligation.'],
+  ['h2', 'L’avocat explique'],
+  ['video', 'LJb86ncomeg'],
   ['h2', 'Pourquoi PicRights vous demande-t-elle de payer ?'],
   ['p', 'PicRights est une société spécialisée dans la détection des utilisations supposées non autorisées de photographies sur Internet. Les agences de presse et titulaires de droits lui confient la surveillance de leurs catalogues. Selon les éléments produits dans plusieurs procédures, le fonctionnement est généralement le suivant :'],
   ['ul', ['comparaison automatisée d’empreintes numériques', 'détection d’une correspondance sur un site internet', 'envoi d’une première demande amiable', 'relances successives', 'puis, en cas d’échec, transmission éventuelle du dossier à un cabinet d’avocats']],
@@ -44,5 +58,10 @@ const faq = [
 ]
 
 export default function Page() {
-  return <ArticleLayout slug="faut-il-payer-picrights" lead={lead} blocks={blocks} faq={faq} />
+  return (
+    <>
+      <JsonLd data={video} />
+      <ArticleLayout slug="faut-il-payer-picrights" lead={lead} blocks={blocks} faq={faq} />
+    </>
+  )
 }
