@@ -11,7 +11,7 @@ const menu = [
   {
     label: 'Guides',
     children: [
-      { label: 'PicRights', href: '/picrights/' },
+      { label: 'PicRights', href: '/litige-afp-picrights/' },
       { label: 'AFP', href: '/picrights-afp/' },
       { label: 'Reuters', href: '/reuters/' },
       { label: 'Getty Images', href: '/getty-images/' },

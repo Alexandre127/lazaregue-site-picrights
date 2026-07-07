@@ -265,7 +265,7 @@ export default function Home() {
         <div style={{ borderTop: '0.5px solid var(--border)', padding: '20px 0' }}>
           <div style={s.label}>Pour aller plus loin</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {[['Guide : mise en demeure PicRights', '/picrights/'], ['Guide : mise en demeure AFP', '/afp/'], ['Guide : mise en demeure Reuters', '/reuters/'], ['Toutes les agences', '/agences/'], ['Jurisprudence commentée', '/jurisprudence/'], ['Tous les cas pratiques', '/cas-pratiques/'], ['Notre méthode', '/notre-methode/']].map(([label, href]) => (
+            {[['Faut-il payer PicRights ?', '/picrights/faut-il-payer-picrights/'], ['Guide : mise en demeure AFP', '/picrights-afp/'], ['Guide : mise en demeure Reuters', '/reuters/'], ['Toutes les agences', '/agences/'], ['Jurisprudence commentée', '/jurisprudence/'], ['Tous les cas pratiques', '/cas-pratiques/'], ['Notre méthode', '/notre-methode/']].map(([label, href]) => (
               <Link key={href} href={href} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>{label}</Link>
             ))}
           </div>
