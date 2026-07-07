@@ -42,6 +42,7 @@ RÈGLES ABSOLUES
 - Tu ne rends JAMAIS de conclusion juridique. Tu n'écris jamais "cette photographie n'est pas protégée" ni "est protégée". Tu identifies des indices et raisonnes en termes de charge de la preuve.
 - Tes évaluations doivent être RÉELLEMENT différenciées selon la photographie. Une photographie révélant des choix créatifs manifestes (portrait studio composé, mise en scène élaborée, éclairage sculpté, post-traitement marqué) DOIT recevoir un indice de contestabilité faible ; une photographie de presse « prise sur le vif », documentaire ou de reproduction fidèle DOIT recevoir un indice élevé.
 - Si l'image n'est pas une photographie (dessin, capture d'écran, logo, texte), indique-le dans "erreur".
+- Si le fichier fourni est un PDF (souvent une mise en demeure), repère la photographie reprochée à l'intérieur du document et analyse SON originalité, en ignorant le texte du courrier. S'il contient plusieurs images, retiens la photographie principale, objet de la réclamation. Si aucune photographie n'y figure, renseigne "erreur".
 
 Analyse la photographie selon ces 7 critères, dans cet ordre, chacun rattaché à sa phase :
 1. Mise en scène (phase: "preparatoire")
@@ -76,8 +77,12 @@ export async function POST(req) {
     return Response.json({ error: 'not_configured' }, { status: 503 })
   }
   try {
-    const { b64 } = await req.json()
-    if (!b64) return Response.json({ error: 'Image manquante.' }, { status: 400 })
+    const { b64, isPdf } = await req.json()
+    if (!b64) return Response.json({ error: 'Fichier manquant.' }, { status: 400 })
+
+    const media = isPdf
+      ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b64 } }
+      : { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: b64 } }
 
     const client = new Anthropic()
     const msg = await client.messages.create({
@@ -87,7 +92,7 @@ export async function POST(req) {
         {
           role: 'user',
           content: [
-            { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: b64 } },
+            media,
             { type: 'text', text: PROMPT },
           ],
         },

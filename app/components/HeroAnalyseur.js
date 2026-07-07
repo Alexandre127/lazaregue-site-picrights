@@ -66,9 +66,9 @@ function redimensionner(file) {
   })
 }
 
-async function analyser(b64) {
+async function analyser(b64, isPdf = false) {
   const res = await fetch('/litige-afp-picrights/api/analyse-photo/', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ b64 }),
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ b64, isPdf }),
   })
   if (!res.ok) throw new Error('analyse indisponible')
   return res.json()
@@ -124,8 +124,12 @@ function Rapport({ resultat, preview, onReset }) {
   return (
     <div>
       <div style={{ display: 'flex', gap: 14, alignItems: 'center', marginBottom: 18 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={preview} alt="Photographie analysée" style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 4, border: `1px solid ${C.line}` }} />
+        {preview ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={preview} alt="Photographie analysée" style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 4, border: `1px solid ${C.line}` }} />
+        ) : (
+          <div style={{ width: 64, height: 64, borderRadius: 4, border: `1px solid ${C.line}`, background: C.cream, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, flexShrink: 0 }}>📄</div>
+        )}
         <div>
           <div style={{ fontFamily: sans, fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.slate }}>Analyse terminée</div>
           <div style={{ fontFamily: serif, fontSize: 18, color: C.ink }}>{resultat.photo_type}</div>
@@ -207,22 +211,26 @@ function Analyseur() {
   const inputRef = useRef(null)
 
   const lancer = useCallback(async (file) => {
-    if (!file || !file.type.startsWith('image/')) { setErreur('Veuillez déposer une image (JPEG, PNG, WebP).'); setEtat('erreur'); return }
+    const isImage = !!file && file.type.startsWith('image/')
+    const isPdf = !!file && file.type === 'application/pdf'
+    if (!file || (!isImage && !isPdf)) { setErreur('Veuillez déposer une photographie (JPEG, PNG, WebP) ou la mise en demeure au format PDF.'); setEtat('erreur'); return }
     setEtat('analyse'); setEtapesFaites(-1); setErreur('')
     let step = -1
     const timer = setInterval(() => { step += 1; setEtapesFaites(step); if (step >= ETAPES.length - 1) clearInterval(timer) }, 800)
     const debut = Date.now()
     try {
-      const { b64, preview: pv } = await redimensionner(file)
+      let b64, pv = null
+      if (isPdf) { b64 = await fichierEnBase64(file) }
+      else { const r = await redimensionner(file); b64 = r.b64; pv = r.preview }
       setPreview(pv)
-      const res = await analyser(b64)
+      const res = await analyser(b64, isPdf)
       await new Promise((r) => setTimeout(r, Math.max(0, 4800 - (Date.now() - debut))))
       clearInterval(timer)
       if (res.erreur) { setErreur(res.erreur); setEtat('erreur') }
       else { setResultat(res); setEtat('rapport') }
     } catch (err) {
       clearInterval(timer)
-      setErreur("L'analyse n'a pas pu aboutir. Vérifiez le format de l'image et réessayez.")
+      setErreur("L'analyse n'a pas pu aboutir. Vérifiez le fichier (image ou PDF) et réessayez.")
       setEtat('erreur')
     }
   }, [])
@@ -245,11 +253,11 @@ function Analyseur() {
             style={{ border: `2px dashed ${survol ? C.blueDark : '#c9c2b2'}`, background: survol ? '#eef4f9' : C.cream, borderRadius: 6, padding: '34px 20px', textAlign: 'center', cursor: 'pointer', transition: 'all 0.2s' }}
           >
             <div style={{ fontSize: 28, marginBottom: 8 }}>📷</div>
-            <div style={{ fontFamily: sans, fontSize: 15, fontWeight: 600, color: C.ink }}>Déposer la photographie</div>
+            <div style={{ fontFamily: sans, fontSize: 15, fontWeight: 600, color: C.ink }}>Déposer la photographie ou la mise en demeure (PDF)</div>
             <div style={{ fontFamily: sans, fontSize: 13, color: C.slate, marginTop: 4 }}>ou cliquer pour parcourir vos fichiers</div>
           </div>
-          <input ref={inputRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => lancer(e.target.files?.[0])} />
-          <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '12px 0 0' }}>Aucune inscription requise · Image analysée puis supprimée</p>
+          <input ref={inputRef} type="file" accept="application/pdf,image/*" style={{ display: 'none' }} onChange={(e) => lancer(e.target.files?.[0])} />
+          <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '12px 0 0' }}>Aucune inscription requise · Fichier analysé puis supprimé</p>
           <p style={{ fontFamily: sans, fontSize: 11.5, color: C.slate, textAlign: 'center', fontStyle: 'italic', margin: '6px 0 0' }}>Analyse préliminaire — ne constitue pas une consultation juridique.</p>
         </>
       )}
