@@ -22,8 +22,19 @@ const blocks = [
   ['p', 'Une décision récente fait figure d’exception : le tribunal a retenu une indemnisation spécifique en raison d’un comportement caractérisé de mauvaise foi, le défendeur étant resté totalement silencieux malgré de nombreuses démarches et n’ayant pas comparu. Cette décision ne signifie pas que toute absence de réponse constitue une résistance abusive — au contraire, la majorité des décisions rejettent ce chef de demande lorsque le seul grief réside dans l’absence de réponse.'],
   ['h2', 'Le risque principal reste la contrefaçon… ou le parasitisme'],
   ['p', 'Lorsque la photographie est jugée originale, les tribunaux peuvent retenir une contrefaçon. Lorsque cette originalité n’est pas démontrée, certaines juridictions condamnent néanmoins les utilisateurs sur le fondement du **parasitisme**, estimant qu’ils ont profité sans contrepartie des investissements réalisés par l’AFP. Ignorer une mise en demeure ne fait pas disparaître ces questions.'],
+  ['h2', 'Que se passe-t-il, concrètement, si vous ne répondez pas ?'],
+  ['p', 'Le silence n’a pas d’effet juridique automatique, mais il n’arrête pas le dossier. Trois évolutions sont possibles :'],
+  ['table', [
+    ['Scénario', 'Ce que cela implique'],
+    [
+      ['Le dossier s’arrête', 'Aucune suite : cela n’enlève rien au fait que la demande pouvait être infondée.'],
+      ['De nouvelles relances', 'Courriers successifs, parfois via un cabinet d’avocats — toujours en phase amiable.'],
+      ['Une assignation', 'Le juge examine alors le fond : originalité, droits, preuves, préjudice.'],
+    ],
+  ]],
   ['h2', 'Que faire, alors ?'],
   ['p', 'La bonne question n’est pas « dois-je répondre ? » mais « la réclamation PicRights AFP est-elle juridiquement fondée ? ». Avant toute décision, il faut vérifier si la photographie est protégée, si les droits invoqués sont démontrés, si les preuves sont suffisantes et si le montant est justifié. C’est seulement après cette analyse qu’il devient possible de définir la stratégie la plus adaptée.'],
+  ['link', ['/cas-pratiques/', 'Voir des cas pratiques de réclamations photographiques traités par le cabinet']],
 ]
 
 const faq = [
@@ -31,6 +42,7 @@ const faq = [
   ['Le silence vaut-il reconnaissance de responsabilité ?', 'Non. Le tribunal appréciera les éléments de preuve indépendamment de votre réponse aux courriers amiables.'],
   ['Vais-je être condamné parce que je n’ai pas répondu ?', 'Non. Le simple défaut de réponse ne suffit généralement pas à caractériser une résistance abusive.'],
   ['Puis-je attendre une assignation ?', 'C’est possible, mais une analyse réalisée dès la phase amiable permet souvent de définir une stratégie avant que le litige ne s’aggrave.'],
+  ['Ignorer le courrier réduit-il le montant réclamé ?', 'Non. Le silence n’a aucune incidence sur le montant : celui-ci ne sera de toute façon apprécié que par le juge, en cas de procédure, poste par poste.'],
 ]
 
 export default function Page() {

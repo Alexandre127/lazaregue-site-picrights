@@ -25,13 +25,28 @@ const blocks = [
   ['p', 'La jurisprudence n’est pas uniforme. Certaines photographies sont reconnues comme protégeables lorsque le photographe démontre précisément la mise en scène, le jeu de lumière, la composition, le cadrage, la perspective ou l’atmosphère recherchée. Dans une décision rendue par le tribunal judiciaire de Bordeaux, un cliché représentant un escalier monumental a ainsi été jugé original en raison des choix esthétiques précis réalisés par son auteur.'],
   ['h2', 'Pourquoi cette distinction est décisive'],
   ['p', 'Cette question détermine souvent la suite du dossier. Si la photographie bénéficie de la protection du droit d’auteur, une action en contrefaçon peut être envisagée. En revanche, si cette protection fait défaut, le litige peut se déplacer vers d’autres fondements, notamment le **parasitisme**, lorsque l’utilisation non autorisée permet de tirer profit des investissements réalisés par une agence de presse. L’originalité constitue donc souvent la première question que le tribunal devra trancher.'],
+  ['h2', 'Photographie protégée ou non : les critères en pratique'],
+  ['p', 'Le tableau suivant résume les indices qui, en pratique, orientent le juge vers — ou contre — la protection d’une photographie de presse.'],
+  ['table', [
+    ['Plutôt protégée', 'Plutôt non protégée'],
+    [
+      ['Mise en scène ou cadrage travaillés, angle recherché', 'Cadrage classique, imposé par l’événement'],
+      ['Jeu de lumière et composition maîtrisés', 'Lumière et décor imposés par les lieux'],
+      ['Moment du déclenchement choisi, intention visible', 'Captation « sur le vif » d’un fait d’actualité'],
+      ['Choix créatifs précisément décrits par l’auteur', 'Description générale, sans démonstration des choix'],
+    ],
+  ]],
+  ['p', 'Ces indices ne sont pas des règles absolues : ils s’apprécient **ensemble**, au cas par cas. Un seul élément ne suffit ni à protéger, ni à écarter la protection.'],
   ['key', 'Le simple fait qu’un cliché soit diffusé par PicRights AFP ne suffit plus. Chaque photographie est appréciée individuellement. La véritable question devient : cette photographie révèle-t-elle réellement des choix libres et créatifs traduisant la personnalité de son auteur ?'],
+  ['link', ['/cas-pratiques/', 'Voir des cas pratiques de contestation d’originalité']],
 ]
 
 const faq = [
   ['Toutes les photographies AFP sont-elles protégées ?', 'Non. La protection dépend toujours des caractéristiques propres à chaque photographie, indépendamment du nom de l’agence.'],
   ['Une photographie de presse est-elle automatiquement originale ?', 'Non. Les tribunaux apprécient chaque cliché individuellement et refusent fréquemment la protection à des photographies prises « sur le vif ».'],
   ['Une photographie non protégée signifie-t-elle qu’il n’existe aucun risque ?', 'Pas nécessairement. Selon les circonstances, d’autres fondements, notamment le parasitisme, peuvent être invoqués.'],
+  ['Qui doit prouver l’originalité de la photographie ?', 'C’est au demandeur qui invoque le droit d’auteur de démontrer, précisément, les choix créatifs qui rendent la photographie originale. Une affirmation générale ne suffit pas devant le juge.'],
+  ['Une photographie retouchée est-elle davantage protégée ?', 'Le traitement de l’image peut compter parmi les choix créatifs, mais il ne suffit pas à lui seul : c’est l’ensemble de la démarche du photographe qui est apprécié.'],
 ]
 
 export default function Page() {

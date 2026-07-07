@@ -24,15 +24,31 @@ const blocks = [
   ['p', 'Les tribunaux n’acceptent pas systématiquement les pourcentages appliqués de manière forfaitaire, les majorations automatiques ou les extrapolations non justifiées. Ils recherchent au contraire des éléments concrets permettant d’évaluer le préjudice réellement subi.'],
   ['h2', 'Et lorsque la contrefaçon n’est pas retenue ?'],
   ['p', 'Lorsque les photographies ne sont pas jugées suffisamment originales pour bénéficier du droit d’auteur, les tribunaux peuvent examiner le dossier sous l’angle du **parasitisme**. L’indemnisation repose alors davantage sur les investissements réalisés par l’AFP que sur la protection du droit d’auteur. L’échec d’une action en contrefaçon ne met donc pas toujours fin au débat.'],
+  ['h2', 'Les postes de préjudice et leur traitement par le juge'],
+  ['p', 'Voici les postes le plus souvent invoqués dans une réclamation PicRights AFP, et la façon dont les tribunaux les contrôlent en pratique :'],
+  ['table', [
+    ['Poste invoqué', 'Traitement habituel par le juge'],
+    [
+      ['Prix de la licence rétroactive', 'Retenu comme base s’il est justifié par un tarif comparable'],
+      ['Manque à gagner', 'Doit être concrètement démontré ; à défaut, écarté'],
+      ['Frais de recherche / détection', 'Contrôlés strictement ; rejetés si non justifiés'],
+      ['Majoration forfaitaire (× 2, pourcentage…)', 'Fréquemment refusée si elle n’est pas étayée'],
+      ['Préjudice moral', 'Accordé seulement s’il est réellement établi'],
+    ],
+  ]],
+  ['p', 'Ce contrôle poste par poste explique l’écart fréquent entre la somme réclamée et la somme finalement accordée.'],
   ['h2', 'Les montants accordés sont souvent différents'],
   ['p', 'Les sommes accordées par les tribunaux diffèrent fréquemment des montants initialement réclamés, parce que le juge vérifie les preuves, contrôle chaque poste de préjudice et apprécie souverainement les circonstances. Le montant figurant dans une mise en demeure PicRights AFP ne constitue donc jamais une référence intangible.'],
   ['key', 'Le prix de la licence est souvent le point de départ, d’autres postes sont ensuite ajoutés — mais les décisions récentes montrent que les tribunaux contrôlent chaque poste, exigent des justificatifs précis et réduisent régulièrement les montants insuffisamment démontrés. Le montant réclamé ne permet jamais, à lui seul, de préjuger de ce qu’un tribunal retiendrait.'],
+  ['link', ['/cas-pratiques/', 'Voir des cas pratiques : montants réclamés et issues obtenues']],
 ]
 
 const faq = [
   ['Le montant indiqué dans la mise en demeure PicRights AFP est-il définitif ?', 'Non. Il s’agit de la position du demandeur. En cas de procédure, le tribunal procède à sa propre évaluation.'],
   ['Les tribunaux reprennent-ils automatiquement les tarifs de l’AFP ?', 'Non. Ils examinent les éléments produits et apprécient eux-mêmes le préjudice, poste par poste.'],
   ['Pourquoi les montants varient-ils autant ?', 'Ils dépendent notamment de la durée d’utilisation, du nombre de photographies, du type de site, des justificatifs produits et des postes de préjudice invoqués.'],
+  ['Puis-je négocier le montant réclamé par PicRights AFP ?', 'Souvent oui. Lorsque des postes de préjudice sont insuffisamment justifiés, une discussion sur le montant est possible — après avoir vérifié le bien-fondé de la réclamation elle-même.'],
+  ['Le nombre de photographies change-t-il le montant ?', 'Oui : la redevance dépend notamment du nombre de clichés, de la durée et du type d’exploitation. Plus il y a de photographies, plus la base de calcul augmente.'],
 ]
 
 export default function Page() {

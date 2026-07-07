@@ -58,6 +58,23 @@ export default function Blocks({ items }) {
             return <div key={i} style={{ background: '#F8FBFE', border: '1px solid var(--blue)', borderRadius: 8, padding: '14px 16px', margin: '4px 0 16px', fontSize: 14.5, color: 'var(--navy)', fontWeight: 500, lineHeight: 1.6 }}>{inline(val)}</div>
           case 'link':
             return <p key={i} style={{ margin: '2px 0 16px' }}><Link href={val[0]} style={{ color: 'var(--blue)', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>{val[1]} →</Link></p>
+          case 'table': {
+            const [head, rows] = val
+            return (
+              <div key={i} style={{ overflowX: 'auto', margin: '4px 0 18px', border: '0.5px solid var(--border)', borderRadius: 8 }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, minWidth: 320 }}>
+                  <thead>
+                    <tr>{head.map((h, j) => <th key={j} style={{ textAlign: 'left', padding: '9px 11px', background: 'var(--navy)', color: '#fff', fontWeight: 600, fontSize: 12 }}>{h}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r, ri) => (
+                      <tr key={ri}>{r.map((c, ci) => <td key={ci} style={{ padding: '9px 11px', borderTop: '0.5px solid var(--border)', color: 'var(--secondary)', lineHeight: 1.5, verticalAlign: 'top' }}>{inline(c)}</td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+          }
           case 'video':
             return (
               <div key={i} style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, borderRadius: 10, overflow: 'hidden', margin: '4px 0 18px', background: '#000' }}>

@@ -25,15 +25,28 @@ const blocks = [
   ['p', 'Les preuves produites — souvent des captures d’écran — doivent permettre d’établir avec certitude la photographie concernée, son utilisation et la période visée. Une simple affirmation ne suffit jamais devant le juge.'],
   ['h2', '4. Le montant demandé est-il cohérent ?'],
   ['p', 'Les sommes figurant dans une réclamation PicRights AFP ne constituent pas un barème officiel. En cas de procédure, les juridictions apprécient elles-mêmes le préjudice, en tenant compte de la nature de l’utilisation, de la durée de diffusion et des justificatifs produits. Le montant indiqué ne préjuge jamais de ce qu’un tribunal retiendrait.'],
+  ['h2', 'Payer, négocier ou contester ? Le tableau de décision'],
+  ['p', 'Selon ce que révèle l’analyse, trois voies principales s’ouvrent. Aucune n’est un réflexe : elle découle du bien-fondé réel de la réclamation PicRights AFP.'],
+  ['table', [
+    ['Ce que révèle l’analyse', 'Voie généralement adaptée'],
+    [
+      ['Photo originale, droits et preuves solides, montant cohérent', 'Régularisation ou paiement négocié'],
+      ['Doute sérieux sur l’originalité, la titularité ou les preuves', 'Contestation argumentée'],
+      ['Atteinte plausible mais montant disproportionné', 'Négociation du montant, demande de justificatifs'],
+    ],
+  ]],
   ['h2', 'Les erreurs les plus fréquentes'],
   ['ul', ['**Payer immédiatement** : le montant impressionne, mais la décision intervient souvent avant toute vérification juridique', '**Ignorer totalement le courrier** : le silence peut conduire à la poursuite des échanges et, dans certains cas, à une procédure', '**Répondre dans la précipitation** : une réponse mal formulée peut reconnaître inutilement des faits et compliquer la défense']],
   ['key', 'Recevoir une réclamation PicRights AFP ne signifie pas que vous devez automatiquement payer. Ce n’est qu’après l’analyse de ces quatre points qu’il devient possible de déterminer la stratégie la plus adaptée : contestation argumentée, demande de justificatifs ou, lorsque cela apparaît fondé, discussion amiable.'],
+  ['link', ['/cas-pratiques/', 'Voir des cas pratiques de réclamations photographiques traités par le cabinet']],
 ]
 
 const faq = [
   ['Suis-je obligé de payer PicRights AFP immédiatement ?', 'Non. Un courrier PicRights AFP est une demande amiable sans force exécutoire. Aucun paiement ne peut être exigé sans décision de justice. Avant toute décision, il convient de vérifier si la réclamation est juridiquement fondée.'],
   ['Le fait que PicRights AFP m’écrive signifie-t-il que je suis responsable ?', 'Non. Une mise en demeure PicRights AFP n’est pas une décision de justice. Elle expose la position du demandeur mais ne préjuge en rien de ce qu’un tribunal retiendrait.'],
   ['Vais-je être poursuivi si je ne paie pas PicRights AFP ?', 'Une procédure judiciaire est toujours possible mais n’est jamais automatique. En cas d’action, le demandeur devra démontrer l’ensemble des conditions nécessaires : protection de la photographie, titularité des droits, preuve de l’utilisation et réalité du préjudice.'],
+  ['PicRights AFP peut-il saisir mon compte bancaire si je ne paie pas ?', 'Non. Une condamnation judiciaire est nécessaire pour une exécution forcée, sauf accord volontaire de paiement de votre part.'],
+  ['Payer met-il définitivement fin au dossier ?', 'Généralement oui, mais il vaut mieux s’assurer, avant de payer, que la réclamation était fondée et que le montant était justifié.'],
 ]
 
 export default function Page() {
