@@ -6,14 +6,14 @@ import Blocks from '../components/guide/Blocks'
 import { href } from '../components/guide/picrightsArticles'
 
 export const metadata = {
-  title: 'Réclamation PicRights : le guide juridique complet pour comprendre, contester et se défendre',
-  description: 'Vous avez reçu une réclamation PicRights ? Guide complet : qui est PicRights, faut-il payer, comment vérifier si la demande est fondée, moyens de défense, montant, jurisprudence. Avocat spécialisé en droit d’auteur photographique.',
+  title: 'PicRights : faut-il payer ? Guide juridique par un avocat',
+  description: 'PicRights vous réclame plusieurs centaines d’euros ? Découvrez pourquoi une réclamation ne signifie pas que vous devez payer — et les 4 vérifications indispensables avant toute décision.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/' },
 }
 
 const sections = [
   {
-    id: 'qui', kicker: 'La société', title: 'Qu’est-ce que PicRights ?', slug: 'picrights-europe-gmbh',
+    id: 'qui', kicker: 'La société', title: 'Qu’est-ce que PicRights ?', slug: 'picrights-europe-gmbh', cta: 'PicRights Europe GmbH : qui est cette société ?',
     summary: [
       ['p', 'PicRights Europe GmbH est une société spécialisée dans la détection des utilisations supposées non autorisées de photographies sur Internet. Elle agit **pour le compte** de nombreux titulaires de droits — agences de presse, banques d’images, photographes, éditeurs — mais n’est généralement **pas elle-même titulaire** des droits qu’elle invoque.'],
       ['p', 'Son rôle consiste à analyser automatiquement le web, identifier des images ressemblant à celles de ses clients, envoyer des demandes amiables de régularisation, puis transmettre certains dossiers à des cabinets d’avocats lorsqu’aucun accord n’est trouvé.'],
@@ -21,7 +21,7 @@ const sections = [
     ],
   },
   {
-    id: 'courrier', kicker: 'Le courrier', title: 'Pourquoi avez-vous reçu cette réclamation ?', slug: 'courrier-picrights-que-faire',
+    id: 'courrier', kicker: 'Le courrier', title: 'Pourquoi avez-vous reçu cette réclamation ?', slug: 'courrier-picrights-que-faire', cta: 'J’ai reçu un courrier PicRights : que faire ?',
     summary: [
       ['p', 'Dans la majorité des dossiers, quelques situations reviennent : une licence insuffisante ou expirée, un site conçu par une agence web ayant inséré une image sans autorisation suffisante, une ancienne version du site toujours invoquée, ou une simple erreur de détection.'],
       ['ul', ['Licence limitée, mauvais usage commercial ou licence expirée', 'Site créé par un prestataire, à votre insu', 'Photographie retirée depuis longtemps mais encore invoquée', 'Correspondance visuelle qui n’est pas nécessairement la même image']],
@@ -29,49 +29,49 @@ const sections = [
     ],
   },
   {
-    id: 'payer', kicker: 'La première question', title: 'Faut-il payer immédiatement ?', slug: 'faut-il-payer-picrights',
+    id: 'payer', kicker: 'La première question', title: 'Faut-il payer immédiatement ?', slug: 'faut-il-payer-picrights', cta: 'Faut-il payer PicRights ? Les 6 vérifications',
     summary: [
       ['p', 'Non. Une réclamation PicRights ne doit jamais conduire à un paiement automatique. Cela ne signifie pas que toute demande est infondée — mais payer sans analyse revient à **reconnaître une créance dont le bien-fondé n’a pas été vérifié**.'],
       ['p', 'À ce stade, aucun juge n’a été saisi et aucune condamnation n’existe. En matière civile, c’est à celui qui réclame une indemnisation de démontrer qu’il est titulaire des droits, que la photographie est protégeable, qu’elle a été reproduite et qu’un préjudice existe. La charge de la preuve ne repose pas sur vous.'],
     ],
   },
   {
-    id: 'contester', kicker: 'La défense', title: 'Comment vérifier si la demande est fondée ?', slug: 'contester-picrights',
+    id: 'contester', kicker: 'La défense', title: 'Comment vérifier si la demande est fondée ?', slug: 'contester-picrights', cta: 'Comment contester une réclamation PicRights',
     summary: [
       ['p', 'Chaque dossier mérite un audit. Quatre vérifications structurent l’analyse : qui est réellement titulaire des droits ? la photographie litigieuse est-elle bien celle utilisée sur votre site ? les preuves produites — souvent de simples captures d’écran — sont-elles suffisantes ? la photographie est-elle originale ?'],
       ['p', 'Une réclamation peut parfaitement être contestée, sans que cela signifie qu’elle soit nécessairement infondée. Le rôle de l’avocat consiste précisément à identifier les éventuelles faiblesses du dossier — sur la preuve, la titularité, l’originalité, le montant et le contexte d’utilisation.'],
     ],
   },
   {
-    id: 'originalite', kicker: 'Droit d’auteur', title: 'Toutes les photographies sont-elles protégées ?', slug: 'originalite-photographie',
+    id: 'originalite', kicker: 'Droit d’auteur', title: 'Toutes les photographies sont-elles protégées ?', slug: 'originalite-photographie', cta: 'Originalité des photographies PicRights : ce que disent les tribunaux',
     summary: [
       ['p', 'Non — et c’est le point le plus mal compris. Le droit d’auteur ne protège que les photographies **originales**, celles qui révèlent l’empreinte de la personnalité de leur auteur : choix de cadrage, de lumière, de composition, de mise en scène, du moment.'],
       ['p', 'Une photographie purement documentaire ou réalisée dans un contexte très contraint peut ne pas atteindre ce seuil. Il n’existe aucune présomption selon laquelle une photographie de presse serait automatiquement originale : chaque cliché s’apprécie individuellement.'],
     ],
   },
   {
-    id: 'montant', kicker: 'L’indemnisation', title: 'Comment est calculé le montant réclamé ?', slug: 'montant-reclame-picrights',
+    id: 'montant', kicker: 'L’indemnisation', title: 'Comment est calculé le montant réclamé ?', slug: 'montant-reclame-picrights', cta: 'Comment PicRights calcule-t-il les sommes réclamées ?',
     summary: [
       ['p', 'Les montants demandés varient fortement. Plusieurs éléments sont généralement invoqués : valeur de licence, durée d’utilisation, absence d’autorisation, frais de gestion, préjudice économique et moral.'],
       ['p', 'Mais ces montants ne sont pas automatiquement retenus par un tribunal. Les juridictions procèdent à leur propre appréciation, et il existe des écarts importants entre les sommes initialement réclamées et les condamnations effectivement prononcées.'],
     ],
   },
   {
-    id: 'ignorer', kicker: 'Les suites', title: 'Que se passe-t-il si vous ne répondez pas ?', slug: 'peut-on-ignorer-picrights',
+    id: 'ignorer', kicker: 'Les suites', title: 'Que se passe-t-il si vous ne répondez pas ?', slug: 'peut-on-ignorer-picrights', cta: 'Peut-on ignorer une réclamation PicRights ?',
     summary: [
       ['p', 'Ignorer une réclamation n’entraîne pas automatiquement une procédure judiciaire. En pratique, trois scénarios sont possibles : le dossier s’arrête, de nouvelles relances interviennent (parfois une mise en demeure d’avocat), ou, faute d’accord, une assignation est délivrée.'],
       ['p', 'C’est uniquement à ce dernier stade qu’un juge examinerait la titularité, l’originalité, la réalité de l’utilisation, les preuves et le préjudice. L’absence totale de réponse n’est cependant pas la stratégie la plus prudente.'],
     ],
   },
   {
-    id: 'negocier', kicker: 'La sortie amiable', title: 'Peut-on négocier avec PicRights ?', slug: 'negocier-picrights',
+    id: 'negocier', kicker: 'La sortie amiable', title: 'Peut-on négocier avec PicRights ?', slug: 'negocier-picrights', cta: 'Comment négocier avec PicRights ?',
     summary: [
       ['p', 'Oui. En pratique, de nombreux dossiers se terminent sans procès. Selon les circonstances, plusieurs stratégies sont envisageables : contester totalement la demande, demander des justificatifs complémentaires, proposer une régularisation, négocier le montant ou rechercher une solution transactionnelle.'],
       ['p', 'La bonne stratégie dépend toujours des preuves disponibles, de la photographie concernée, de l’agence représentée, de la jurisprudence applicable et du profil du destinataire. Il n’existe pas de réponse universelle.'],
     ],
   },
   {
-    id: 'jurisprudence', kicker: 'Les décisions', title: 'Que disent les tribunaux ?', slug: 'jurisprudence-picrights', cta: 'Voir toute la jurisprudence',
+    id: 'jurisprudence', kicker: 'Les décisions', title: 'Que disent les tribunaux ?', slug: 'jurisprudence-picrights', cta: 'Jurisprudence PicRights 2025-2026 : les décisions des tribunaux',
     summary: [
       ['p', 'La jurisprudence sur l’originalité photographique, le mandat, la preuve et le préjudice illustre une **diversité d’issues** : l’originalité est tantôt retenue, tantôt refusée ; les montants sont fréquemment revus par le juge.'],
       ['p', 'Cette diversité confirme qu’aucun dossier ne peut être préjugé à partir du seul courrier reçu — chaque photographie et chaque preuve doivent être examinées individuellement.'],
@@ -85,19 +85,19 @@ const sections = [
     ],
   },
   {
-    id: 'avis', kicker: 'Réputation', title: 'Peut-on se fier à une réclamation PicRights ?', slug: 'avis-sur-picrights', cta: 'Lire notre avis complet',
+    id: 'avis', kicker: 'Réputation', title: 'Peut-on se fier à une réclamation PicRights ?', slug: 'avis-sur-picrights', cta: 'Avis PicRights : notre analyse complète',
     summary: [
       ['p', 'Beaucoup cherchent un « avis sur PicRights » après une première réclamation. La vraie question n’est pas « PicRights est-elle sérieuse ? » — la société est bien réelle — mais **« ma réclamation est-elle juridiquement fondée ? »**. Un avis trouvé sur un forum ne permet jamais de le savoir : chaque dossier dépend de la photographie, des droits, des preuves et du montant.'],
     ],
   },
   {
-    id: 'proces', kicker: 'Le risque judiciaire', title: 'Risquez-vous réellement un procès ?', slug: 'picrights-proces',
+    id: 'proces', kicker: 'Le risque judiciaire', title: 'Risquez-vous réellement un procès ?', slug: 'picrights-proces', cta: 'PicRights procès : risquez-vous une assignation ?',
     summary: [
       ['p', 'Recevoir une réclamation ne signifie pas qu’un procès est engagé, ni qu’il est inévitable. PicRights intervient d’abord en phase amiable ; une assignation n’intervient qu’à défaut d’accord — et ne garantit pas le succès du demandeur, qui devra tout démontrer devant le juge.'],
     ],
   },
   {
-    id: 'arnaque', kicker: 'La question qui inquiète', title: 'PicRights est-elle une arnaque ?', slug: 'picrights-arnaque',
+    id: 'arnaque', kicker: 'La question qui inquiète', title: 'PicRights est-elle une arnaque ?', slug: 'picrights-arnaque', cta: 'PicRights arnaque ? Ce qu’il faut vérifier',
     summary: [
       ['p', 'La question revient souvent, mais elle n’appelle ni « oui » ni « non ». Une réclamation PicRights n’est pas automatiquement infondée — mais elle ne signifie pas non plus que vous devez payer. Seul l’examen du bien-fondé juridique (photographie protégée, droits, preuves, montant) permet de trancher.'],
     ],
@@ -105,14 +105,38 @@ const sections = [
 ]
 
 const faq = [
-  ['PicRights est-elle une société sérieuse ?', 'Oui. PicRights intervient pour le compte de nombreux titulaires de droits afin de détecter des utilisations supposées non autorisées de photographies. Ce n’est pas une arnaque au sens juridique — mais ses réclamations restent contestables au cas par cas.'],
-  ['Dois-je payer immédiatement ?', 'Pas nécessairement. Chaque dossier doit être analysé individuellement avant toute décision de paiement.'],
-  ['PicRights peut-elle saisir directement mon compte bancaire ?', 'Non. Une condamnation judiciaire est nécessaire pour obtenir une exécution forcée, sauf accord volontaire de paiement de votre part.'],
-  ['Puis-je ignorer totalement le courrier ?', 'Ce n’est généralement pas la stratégie la plus prudente. Une analyse préalable permet de déterminer la réponse la plus adaptée.'],
-  ['Supprimer la photographie suffit-il ?', 'Pas toujours. Le retrait de l’image ne met pas automatiquement fin au litige : une demande d’indemnisation peut être maintenue pour une utilisation passée.'],
-  ['Une photographie trouvée sur Google est-elle libre de droits ?', 'Non. Google est un moteur de recherche : il ne délivre aucune autorisation d’utilisation.'],
-  ['Mon agence web est responsable, puis-je me retourner contre elle ?', 'Cela dépend du contrat signé, de la mission confiée, des garanties données et des circonstances du dossier.'],
+  ['Faut-il payer PicRights immédiatement ?', 'Pas nécessairement. Une réclamation PicRights est une demande amiable, pas une décision de justice. Avant tout paiement, il convient de vérifier si la photographie est protégée par le droit d’auteur, si les droits invoqués sont démontrés, si les preuves produites sont suffisantes et si le montant réclamé est juridiquement justifié.'],
+  ['PicRights est-elle sérieuse ou une arnaque ?', 'PicRights est une société qui intervient légalement pour le compte de titulaires de droits photographiques. Ce n’est pas une arnaque au sens juridique. En revanche, ses réclamations sont contestables au cas par cas — notamment lorsque la photographie n’est pas originale au sens du droit d’auteur, ou que les droits invoqués ne sont pas suffisamment démontrés.'],
+  ['PicRights peut-elle saisir directement mon compte bancaire ?', 'Non. Une condamnation judiciaire définitive est nécessaire pour obtenir une exécution forcée. Aucun prélèvement ne peut intervenir sans votre accord ou sans décision de justice.'],
+  ['Peut-on ignorer un courrier PicRights ?', 'Ce n’est généralement pas la stratégie la plus prudente. Ignorer une réclamation n’entraîne pas automatiquement une procédure judiciaire, mais peut conduire à de nouvelles relances et, dans certains dossiers, à une assignation. Une analyse préalable permet de déterminer la réponse la plus adaptée à votre situation.'],
+  ['Supprimer la photographie suffit-il pour mettre fin au litige PicRights ?', 'Pas nécessairement. Le retrait de l’image met fin à son utilisation en cours, mais ne met pas automatiquement fin à la réclamation pour utilisation passée.'],
+  ['PicRights peut-elle engager un procès ?', 'Oui, mais ce n’est pas automatique. En cas de procédure judiciaire, le demandeur devra démontrer que la photographie est originale et protégée, qu’il détient les droits invoqués, que l’utilisation est établie et que le préjudice est réel. Les tribunaux français ont refusé la protection à de nombreuses photographies de presse en 2025-2026.'],
+  ['Une photographie trouvée sur Google est-elle libre de droits ?', 'Non. Google est un moteur de recherche et n’accorde aucune autorisation d’utilisation des images référencées. La présence d’une photographie dans les résultats Google ne signifie pas qu’elle est libre de droits.'],
+  ['Mon agence web a intégré la photo, puis-je me retourner contre elle ?', 'Cela dépend du contrat, de la mission confiée et des garanties données. Si votre agence a inséré une image sans autorisation suffisante, une action en garantie ou en responsabilité contractuelle peut être envisagée.'],
 ]
+
+const pillarArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'PicRights : faut-il payer la réclamation reçue ?',
+  author: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris', url: 'https://lazaregue-avocats.fr/a-propos/' },
+  publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', url: 'https://lazaregue-avocats.fr', logo: { '@type': 'ImageObject', url: 'https://lazaregue-avocats.fr/dossiers/logo.png' } },
+  datePublished: '2026-01-01',
+  dateModified: '2026-07-07',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://lazaregue-avocats.fr/picrights/' },
+}
+
+const pillarLegalService = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Lazarègue Avocats — Défense contre les réclamations PicRights',
+  url: 'https://lazaregue-avocats.fr/picrights/',
+  description: 'Cabinet d’avocats spécialisé en défense contre les réclamations PicRights. Examen juridique complet, contestation et négociation. Forfait à partir de 200 € HT.',
+  areaServed: 'FR',
+  serviceType: 'Défense contre les réclamations photographiques PicRights',
+  priceRange: 'À partir de 200 € HT',
+  provider: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris' },
+}
 
 export default function PicRightsPillar() {
   const s = {
@@ -129,15 +153,18 @@ export default function PicRightsPillar() {
         { name: 'PicRights', url: 'https://lazaregue-avocats.fr/picrights/' },
       ]} />
       <JsonLd data={faqPage(faq)} />
+      <JsonLd data={pillarArticle} />
+      <JsonLd data={pillarLegalService} />
       <div style={{ padding: '32px 0 0' }}>
         <nav style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 20 }}>
           <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}
           <Link href="/agences/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Guides</Link>{' → PicRights'}
         </nav>
         <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 14 }}>Guide complet</div>
-        <h1 style={{ fontSize: 28, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 16 }}>Réclamation PicRights : le guide juridique complet pour comprendre, contester et se défendre</h1>
-        <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Recevoir un courrier ou un e-mail de PicRights est souvent déstabilisant. La société affirme avoir détecté sur votre site une photographie appartenant à une agence de presse ou à un photographe, et vous demande de la retirer et de régler plusieurs centaines, voire plusieurs milliers d’euros.</p>
-        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Beaucoup de destinataires pensent immédiatement qu’ils sont condamnés d’avance. Ce n’est pourtant pas le cas : une réclamation PicRights ne constitue ni une condamnation, ni une décision de justice, ni même la preuve définitive qu’une contrefaçon est caractérisée.</p>
+        <h1 style={{ fontSize: 28, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 8 }}>PicRights : faut-il payer la réclamation reçue ?</h1>
+        <div style={{ fontSize: 17, color: 'var(--blue-mid)', marginBottom: 16 }}>Le guide juridique complet pour analyser votre dossier</div>
+        <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Vous avez reçu un courrier PicRights vous réclamant plusieurs centaines ou milliers d’euros pour une photographie publiée sur votre site internet ? Avant de décider si vous devez <strong>payer PicRights</strong>, une question préalable s’impose : cette réclamation est-elle juridiquement fondée ?</p>
+        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>La réponse n’est pas automatiquement oui — et les tribunaux français ont rendu en 2025-2026 une série de décisions qui le confirment. Une réclamation PicRights ne constitue ni une condamnation, ni une décision de justice, ni la preuve définitive qu’une contrefaçon est caractérisée.</p>
         <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 10 }}>Avant tout paiement, plusieurs questions essentielles doivent être analysées :</p>
         <ul style={{ margin: '0 0 22px', padding: 0, listStyle: 'none' }}>
           {['PicRights agit-elle réellement pour le titulaire des droits ?', 'La photographie est-elle effectivement protégée par le droit d’auteur ?', 'Les preuves produites sont-elles juridiquement suffisantes ?', 'Le montant réclamé est-il justifié ?', 'Existe-t-il des moyens de défense ?'].map((t, i) => (

@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'PicRights Europe GmbH : quel est son rôle dans les réclamations photographiques ?',
-  description: 'Vous avez reçu un courrier mentionnant PicRights Europe GmbH ? Découvrez le rôle de cette société, pourquoi elle vous contacte et ce qu’il convient de vérifier avant toute réponse.',
+  title: 'PicRights Europe GmbH : quel est son rôle dans les réclamations ?',
+  description: 'PicRights Europe GmbH vous a contacté ? Découvrez qui est cette société, pourquoi elle intervient et ce qu’il faut vérifier avant de répondre.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-europe-gmbh/' },
 }
 

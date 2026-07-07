@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'Avis sur PicRights : faut-il s’inquiéter après une réclamation ?',
-  description: 'Vous recherchez un avis sur PicRights ? Découvrez qui est cette société, pourquoi elle vous contacte et pourquoi une réclamation ne signifie pas automatiquement que vous devez payer.',
+  title: 'Avis PicRights : faut-il s’inquiéter après une réclamation ?',
+  description: 'Vous cherchez des avis sur PicRights ? Découvrez pourquoi la vraie question n’est pas la réputation de la société mais le bien-fondé de votre dossier.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/avis-sur-picrights/' },
 }
 

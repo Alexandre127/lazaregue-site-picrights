@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'Peut-on ignorer une réclamation PicRights ? Ce qui se passe vraiment',
-  description: 'Que se passe-t-il si vous ne répondez pas à PicRights ? Ignorer n’entraîne pas automatiquement un procès. Les trois scénarios possibles, faut-il supprimer la photo, et pourquoi une réponse mesurée est préférable.',
+  title: 'Peut-on ignorer une réclamation PicRights ?',
+  description: 'Vous pouvez ne pas répondre à PicRights — mais est-ce prudent ? Découvrez les conséquences réelles du silence et la bonne stratégie à adopter.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/peut-on-ignorer-picrights/' },
 }
 

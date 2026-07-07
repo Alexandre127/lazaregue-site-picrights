@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'Faut-il payer PicRights ? Les vérifications indispensables avant toute décision',
-  description: 'Faut-il payer PicRights ? Il n’existe aucune réponse universelle. Avant tout paiement, vérifiez si la photographie est protégée, qui détient les droits, si les preuves suffisent et si le montant est justifié.',
+  title: 'Faut-il payer PicRights ? Les 6 vérifications essentielles',
+  description: 'PicRights réclame le paiement d’une photographie ? Découvrez les 6 questions à examiner avant toute décision — originalité, preuve, titularité, montant.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/faut-il-payer-picrights/' },
 }
 

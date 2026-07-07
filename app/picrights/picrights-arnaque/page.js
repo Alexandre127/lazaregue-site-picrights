@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'PicRights arnaque ? Ce qu’il faut réellement vérifier avant de payer',
-  description: 'Vous recherchez « PicRights arnaque » ? Découvrez pourquoi cette question revient souvent, ce qu’il faut vérifier avant toute réponse et pourquoi une réclamation ne signifie pas automatiquement que vous devez payer.',
+  title: 'PicRights arnaque ? Ce qu’il faut vérifier avant de payer',
+  description: 'PicRights est-elle une arnaque ? La vraie question : votre réclamation est-elle fondée ? Découvrez les 4 vérifications essentielles.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-arnaque/' },
 }
 

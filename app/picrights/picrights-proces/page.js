@@ -1,8 +1,8 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
 
 export const metadata = {
-  title: 'PicRights procès : risquez-vous réellement une procédure judiciaire ?',
-  description: 'Vous craignez un procès après une réclamation PicRights ? Découvrez dans quels cas une procédure peut être engagée, ce que doit démontrer le demandeur devant le tribunal et pourquoi toutes les réclamations n’aboutissent pas à une action en justice.',
+  title: 'PicRights procès : risquez-vous une procédure judiciaire ?',
+  description: 'PicRights peut-elle engager un procès ? Découvrez dans quels cas une assignation est possible et ce que le demandeur devra démontrer au tribunal.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/picrights-proces/' },
 }
 
