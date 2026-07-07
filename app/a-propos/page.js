@@ -77,6 +77,27 @@ export default function APropos() {
       </div>
 
       <div style={s.block}>
+        <div style={s.label}>Avis clients</div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap', marginBottom: 14 }}>
+          <span style={{ fontSize: 18, color: '#E8A33D', letterSpacing: 1 }}>★★★★★</span>
+          <span style={{ fontSize: 14, color: 'var(--text)', fontWeight: 600 }}>5,0 / 5</span>
+          <span style={{ fontSize: 13, color: 'var(--muted)' }}>· 17 avis Google · 4,3/5 sur 1 009 avis (Juritravail)</span>
+        </div>
+        {[
+          ['Rayan K.', 'J’ai eu la chance d’être accompagné par Me Lazarègue dans une affaire délicate, et je tiens à souligner son professionnalisme et sa réactivité.'],
+          ['Carole D.', 'Nous avons fait appel au cabinet Lazarègue Avocats dans le cadre d’une restructuration juridique impliquant à la fois des enjeux capitalistiques…'],
+          ['Steeve T.', 'Nous sommes passés par les services du cabinet Lazarègue Avocats dans le cadre d’une restructuration d’entreprise…'],
+        ].map(([n, t]) => (
+          <div key={n} style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '14px 16px', marginBottom: 10 }}>
+            <div style={{ fontSize: 13, color: '#E8A33D', letterSpacing: 1, marginBottom: 6 }}>★★★★★</div>
+            <p style={{ fontSize: 13.5, color: 'var(--secondary)', lineHeight: 1.6, margin: '0 0 8px', fontStyle: 'italic' }}>« {t} »</p>
+            <div style={{ fontSize: 12, color: 'var(--muted)' }}>{n} — avis Google</div>
+          </div>
+        ))}
+        <div style={{ fontSize: 11.5, color: 'var(--muted)' }}>Extraits d’avis clients, vérifiables sur notre fiche Google et sur Juritravail.</div>
+      </div>
+
+      <div style={s.block}>
         <div style={s.label}>Contact</div>
         <div style={{ fontSize: 14, color: 'var(--secondary)', lineHeight: 1.9 }}>
           <div>Téléphone : <a href="tel:+33181706200" style={{ color: 'var(--text)', textDecoration: 'none', fontWeight: 500 }}>01 81 70 62 00</a></div>
