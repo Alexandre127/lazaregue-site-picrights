@@ -1,4 +1,5 @@
 import ArticleLayout from '../../components/guide/ArticleLayout'
+import AvisClients from '../../components/AvisClients'
 
 export const metadata = {
   title: 'Avis PicRights : faut-il s’inquiéter après une réclamation ?',
@@ -37,5 +38,5 @@ const faq = [
 ]
 
 export default function Page() {
-  return <ArticleLayout slug="avis-sur-picrights" lead={lead} blocks={blocks} faq={faq} />
+  return <ArticleLayout slug="avis-sur-picrights" lead={lead} blocks={blocks} faq={faq} extra={<AvisClients title="Avis de nos clients" />} />
 }

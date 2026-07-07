@@ -10,7 +10,7 @@ const MAJ = 'juillet 2026'
 
 // Gabarit d'un article approfondi du guide PicRights.
 // Rappelle toujours la page pilier (« Consulter le guide complet »).
-export default function ArticleLayout({ slug, lead, blocks, faq }) {
+export default function ArticleLayout({ slug, lead, blocks, faq, extra }) {
   const meta = bySlug(slug)
   const related = relatedOf(slug).filter((a) => a.slug !== slug)
   const relatedSlugs = new Set(related.map((a) => a.slug))
@@ -64,6 +64,8 @@ export default function ArticleLayout({ slug, lead, blocks, faq }) {
           ))}
         </div>
       )}
+
+      {extra}
 
       {/* Encadré analyse — porte d'entrée vers l'outil interactif */}
       <div style={{ background: '#F8FBFE', border: '1px solid var(--blue)', borderRadius: 12, padding: '18px 20px', margin: '20px 0' }}>

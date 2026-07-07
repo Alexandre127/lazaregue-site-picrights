@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import CtaBanner from '../components/CtaBanner'
 import Portrait from '../components/Portrait'
+import AvisClients from '../components/AvisClients'
 import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd'
 import JsonLd from '../components/JsonLd'
 
@@ -75,6 +76,8 @@ export default function APropos() {
           ))}
         </div>
       </div>
+
+      <AvisClients />
 
       <div style={s.block}>
         <div style={s.label}>Contact</div>
