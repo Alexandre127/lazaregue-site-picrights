@@ -243,12 +243,12 @@ export default function Home() {
 
         {/* AFFAIRES PLAIDÉES PAR LE CABINET */}
         <div style={s.block}>
-          <div style={s.label}>Deux affaires plaidées par le cabinet</div>
-          <h3 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)', margin: '0 0 6px', lineHeight: 1.35 }}>Devant le tribunal, le droit d’auteur de l’AFP écarté faute d’originalité</h3>
+          <div style={s.label}>Des affaires plaidées par le cabinet</div>
+          <h3 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)', margin: '0 0 6px', lineHeight: 1.35 }}>Devant le tribunal, le droit d’auteur écarté faute d’originalité</h3>
           <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>
-            Le cabinet a obtenu, dans deux affaires distinctes, le rejet de la demande de contrefaçon parce que le titulaire n’avait pas démontré l’originalité de la photographie.
+            Dans plusieurs affaires — voici trois exemples, contre des demandeurs différents — le cabinet a obtenu le rejet de la demande de contrefaçon, faute pour le titulaire d’avoir démontré l’originalité de la photographie.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
             <div style={{ borderLeft: '3px solid var(--blue-mid)', background: '#F1F5FA', borderRadius: '0 8px 8px 0', padding: '14px 16px' }}>
               <div style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text)', marginBottom: 6, lineHeight: 1.35 }}>Une photographie de presse « prise sur le vif »</div>
               <p style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 8px' }}>
@@ -267,9 +267,30 @@ export default function Home() {
                 TJ Paris, 27 mars 2026, n° 24/07491.
               </div>
             </div>
+            <div style={{ borderLeft: '3px solid var(--blue-mid)', background: '#F1F5FA', borderRadius: '0 8px 8px 0', padding: '14px 16px' }}>
+              <div style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text)', marginBottom: 6, lineHeight: 1.35 }}>Une photographie de plat réclamée par une agence de recouvrement</div>
+              <p style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 8px' }}>
+                Une société de recouvrement de droits (Rights Control) réclamait plus de <strong>4 000 €</strong> à un exploitant de camping pour une photographie de petit-déjeuner. Le tribunal a <strong>débouté la société de son action en contrefaçon</strong>, la photographie étant jugée dépourvue d’originalité.
+              </p>
+              <div style={{ fontSize: 11.5, color: 'var(--muted)' }}>
+                TJ Rennes, 9 mars 2026, n° 23/05206.
+              </div>
+            </div>
           </div>
           <div style={{ fontSize: 11.5, color: 'var(--muted)', fontStyle: 'italic', marginTop: 10, lineHeight: 1.55 }}>
             Chaque affaire dépend de ses faits propres ; ces décisions ne préjugent pas de l’issue d’un autre litige.
+          </div>
+
+          {/* DANS LA PRESSE */}
+          <div style={{ marginTop: 16, borderTop: '0.5px solid var(--border)', paddingTop: 14 }}>
+            <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8 }}>Dans la presse</div>
+            <p style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 8px' }}>
+              Ces contentieux et les positions défendues par le cabinet ont été évoqués dans <strong>l’Informé</strong> (Marc Rees) :
+            </p>
+            <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12.5, lineHeight: 1.7 }}>
+              <li><a href="https://www.linforme.com/medias-culture/article/l-afp-paris-match-le-droit-d-auteur-de-la-photo-de-presse-de-nouveau-en-question_3676.html" target="_blank" rel="noopener nofollow" style={{ color: 'var(--blue)', textDecoration: 'none' }}>L’AFP, Paris Match… le droit d’auteur de la photo de presse de nouveau en question</a> <span style={{ color: 'var(--muted)' }}>(févr. 2026)</span></li>
+              <li><a href="https://www.linforme.com/medias-culture/article/le-droit-d-auteur-des-photographes-de-presse-encore-fragilise_3903.html" target="_blank" rel="noopener nofollow" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Le droit d’auteur des photographes de presse encore fragilisé</a> <span style={{ color: 'var(--muted)' }}>(avr. 2026)</span></li>
+            </ul>
           </div>
         </div>
 
