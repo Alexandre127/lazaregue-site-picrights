@@ -131,6 +131,16 @@ function DocAssignation() {
   )
 }
 
+// Décodage des formules-type d'un courrier PicRights [ ce qui est écrit, ce que ça signifie en droit ]
+const DECODAGE = [
+  ['a confié à PicRights la vérification…', 'PicRights agit comme intermédiaire mandaté : il ne détient pas nécessairement les droits lui-même. La titularité doit être démontrée.'],
+  ['une image appartenant à [l’agence]', 'L’appartenance à un catalogue d’agence ne vaut pas originalité. Une photo de presse « prise sur le vif » n’est protégée que si elle reflète des choix créatifs (CJUE, Painer).'],
+  ['le seul retrait ne suffira pas à clore ce différend', 'Formule d’anticipation, choisie pour dissuader la première réaction de bon sens. Juridiquement, le retrait fait cesser le préjudice et complique la preuve de l’utilisation.'],
+  ['nous réclamons le paiement de [montant]', 'Un barème commercial, pas une créance judiciaire. L’indemnisation répare un préjudice réel, qui doit être prouvé — et que les juges réduisent souvent.'],
+  ['veuillez trouver la capture d’écran jointe', 'Une simple capture n’a pas de valeur probante certaine sans constat de commissaire de justice : elle n’est pas horodatée de façon infalsifiable.'],
+  ['à défaut de règlement sous 14 jours…', 'Pression temporelle. Ce délai est contractuellement inexistant : il crée l’urgence, pas une obligation.'],
+]
+
 const DOCS = [
   { id: 'contact', agence: 'PicRights · au nom de l’AFP', titre: 'Premier courriel « demande d’information »', etape: 'Phase amiable — 1ʳᵉ prise de contact', accent: '#4c9a2a', render: DocContact },
   { id: 'paiement', agence: 'PicRights · AFP', titre: 'Demande de paiement — 4 200 €', etape: 'Phase amiable — chiffrage', accent: '#1b3a8c', render: DocPaiement },
@@ -162,6 +172,23 @@ export default function ExemplesCourriers() {
 
       <div style={{ fontSize: 11.5, color: 'var(--muted)', fontStyle: 'italic', marginTop: 12, lineHeight: 1.55 }}>
         Reconstitutions à titre pédagogique (données fictives). Chaque situation est différente : recevoir un tel courrier ne préjuge pas de l’issue.
+      </div>
+
+      {/* DÉCODAGE LIGNE PAR LIGNE */}
+      <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', margin: '26px 0 6px' }}>Décoder un courrier PicRights, ligne par ligne</h3>
+      <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.65, marginBottom: 14 }}>
+        Chaque formule d’un tel courrier vise un effet précis. Voici ce qu’elles signifient réellement en droit.
+      </p>
+      {DECODAGE.map(([dit, sens], i) => (
+        <div key={i} style={{ borderLeft: '3px solid var(--blue-mid)', background: '#F8F7F3', borderRadius: '0 6px 6px 0', padding: '10px 14px', marginBottom: 8 }}>
+          <div style={{ fontSize: 12.5, fontStyle: 'italic', color: 'var(--text)', marginBottom: 4 }}>« {dit} »</div>
+          <div style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.6 }}>{sens}</div>
+        </div>
+      ))}
+      <div style={{ background: '#fbf3f2', border: '0.5px solid #e8c9c4', borderRadius: 8, padding: '12px 14px', marginTop: 6 }}>
+        <div style={{ fontSize: 12.5, color: '#7a2e26', lineHeight: 1.6 }}>
+          <strong>La seule erreur vraiment coûteuse :</strong> répondre en reconnaissant l’utilisation (« je ne savais pas », « je l’ai retirée, je ne recommencerai plus »). Une reconnaissance, même de bonne foi, fournit au demandeur la preuve qui lui manquait.
+        </div>
       </div>
 
       {doc && (

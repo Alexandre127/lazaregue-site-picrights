@@ -6,18 +6,43 @@ import JsonLd, { faqPage } from '../components/JsonLd'
 
 const legalService = {
   '@context': 'https://schema.org',
-  '@type': 'LegalService',
-  name: 'Lazarègue Avocats',
+  '@type': ['LegalService', 'Attorney'],
+  name: 'Lazarègue Avocats — Défense contre les réclamations photographiques',
   url: 'https://lazaregue-avocats.fr/litige-afp-picrights/',
+  image: 'https://lazaregue-avocats.fr/dossiers/logo.png',
   description: 'Cabinet d\'avocats spécialisé dans la défense contre les réclamations photographiques (PicRights, AFP, Reuters, Getty Images, Copytrack, Rights Control).',
   areaServed: 'FR',
   serviceType: 'Droit de la propriété intellectuelle — photographies',
   priceRange: 'À partir de 200 € HT',
   address: { '@type': 'PostalAddress', streetAddress: '18 rue de Tilsitt', postalCode: '75017', addressLocality: 'Paris', addressCountry: 'FR' },
+  knowsAbout: ['droit d\'auteur', 'propriété intellectuelle', 'photographie de presse', 'PicRights', 'AFP', 'Reuters', 'Getty Images', 'Copytrack', 'copyright trolling'],
   founder: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris', url: 'https://lazaregue-avocats.fr/a-propos/' },
   email: 'contact@lazaregue-avocats.fr',
   telephone: '+33 1 81 70 62 00',
   openingHours: 'Mo-Fr 09:00-18:00',
+  identifier: { '@type': 'PropertyValue', propertyID: 'SIREN', value: '823894142' },
+  // sameAs: à compléter avec les URLs réelles (LinkedIn, fiche Barreau/CNB, doctrine.fr, tribune Village-Justice)
+}
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://lazaregue-avocats.fr/' },
+    { '@type': 'ListItem', position: 2, name: 'Mise en demeure PicRights, AFP, Reuters', item: 'https://lazaregue-avocats.fr/litige-afp-picrights/' },
+  ],
+}
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Courrier PicRights : faut-il payer ? Guide complet 2026',
+  description: 'Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d\'une autre agence de presse ? Avant de payer, ce guide explique comment vérifier si la réclamation est juridiquement fondée.',
+  author: { '@type': 'Person', name: 'Alexandre Lazarègue', url: 'https://lazaregue-avocats.fr/a-propos/' },
+  publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', logo: { '@type': 'ImageObject', url: 'https://lazaregue-avocats.fr/dossiers/logo.png' } },
+  datePublished: '2026-07-02',
+  dateModified: '2026-07-08',
+  mainEntityOfPage: 'https://lazaregue-avocats.fr/litige-afp-picrights/',
 }
 
 export const metadata = {
@@ -62,6 +87,8 @@ export default function Home() {
     <>
       <JsonLd data={legalService} />
       <JsonLd data={faqPage(faqItems.map((f) => [f.q, f.a]))} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={article} />
       {/* HERO — deux modules interactifs (analyseur + devis) */}
       <div id="analyseur" style={{ background: 'var(--navy)', scrollMarginTop: 56 }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', padding: '48px 24px 56px' }}>
