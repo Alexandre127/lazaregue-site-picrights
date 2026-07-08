@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
 import AuthorPhoto from '../components/AuthorPhoto'
+import ExemplesCourriers from '../components/ExemplesCourriers'
 import JsonLd, { faqPage } from '../components/JsonLd'
 
 const legalService = {
@@ -184,6 +185,9 @@ export default function Home() {
             Chaque affaire dépend de ses faits propres. Ces enseignements ne valent pas consultation : ils montrent qu’une réclamation ne préjuge jamais de l’issue — d’où l’intérêt de faire vérifier votre dossier avant de payer.
           </div>
         </div>
+
+        {/* EXEMPLES DE COURRIERS ANONYMISÉS */}
+        <ExemplesCourriers />
 
         {/* PRISE EN CHARGE */}
         <div style={s.block}>
