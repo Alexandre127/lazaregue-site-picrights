@@ -15,7 +15,7 @@ export default function AuthorPhoto({ src = '/dossiers/photo-lazaregue.jpg', siz
 
   const box = {
     width: size, height: size, borderRadius: '50%', flexShrink: 0,
-    objectFit: 'cover', display: 'block', border: `1px solid ${ring}`,
+    objectFit: 'cover', objectPosition: 'center 22%', display: 'block', border: `1px solid ${ring}`,
   }
   if (broken) {
     return (
