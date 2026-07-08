@@ -2,7 +2,29 @@ import Link from 'next/link'
 import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
 import AuthorPhoto from '../components/AuthorPhoto'
 import ExemplesCourriers from '../components/ExemplesCourriers'
+import ComparaisonsOriginalite from '../components/ComparaisonsOriginalite'
+import { COMPARAISONS } from '../components/comparaisons-data'
 import JsonLd, { faqPage } from '../components/JsonLd'
+
+const imageObjects = COMPARAISONS.map((c) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  contentUrl: `https://lazaregue-avocats.fr${c.src}`,
+  caption: c.legende,
+  creditText: 'Lazarègue Avocats — illustration générée',
+  creator: { '@type': 'Organization', name: 'Lazarègue Avocats' },
+  copyrightNotice: 'Illustration pédagogique, personnages fictifs',
+}))
+
+// Profils et publications de l'auteur — signal d'entité (E-E-A-T) pour Google et les LLM.
+const authorSameAs = [
+  'https://www.linkedin.com/in/alexandre-lazarègue',
+  'https://consultation.avocat.fr/avocat-paris/alexandre-lazaregue-43609.html',
+  'https://www.avocatparis.org/annuaire?page=0&result=30&nom=lazaregue',
+  'https://www.village-justice.com/articles/images-droit-auteur-stop-aux-abus,33003.html',
+  'https://www.village-justice.com/articles/non-une-photographie-est-pas-une-oeuvre-originale,38914.html',
+  'https://www.lesechos.fr/idees-debats/cercle/opinion-images-et-droit-dauteur-stop-aux-abus-1147515',
+]
 
 const legalService = {
   '@context': 'https://schema.org',
@@ -16,12 +38,17 @@ const legalService = {
   priceRange: 'À partir de 200 € HT',
   address: { '@type': 'PostalAddress', streetAddress: '18 rue de Tilsitt', postalCode: '75017', addressLocality: 'Paris', addressCountry: 'FR' },
   knowsAbout: ['droit d\'auteur', 'propriété intellectuelle', 'photographie de presse', 'PicRights', 'AFP', 'Reuters', 'Getty Images', 'Copytrack', 'copyright trolling'],
-  founder: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris', url: 'https://lazaregue-avocats.fr/a-propos/' },
+  founder: {
+    '@type': 'Person',
+    name: 'Alexandre Lazarègue',
+    jobTitle: 'Avocat au Barreau de Paris',
+    url: 'https://lazaregue-avocats.fr/a-propos/',
+    sameAs: authorSameAs,
+  },
   email: 'contact@lazaregue-avocats.fr',
   telephone: '+33 1 81 70 62 00',
   openingHours: 'Mo-Fr 09:00-18:00',
   identifier: { '@type': 'PropertyValue', propertyID: 'SIREN', value: '823894142' },
-  // sameAs: à compléter avec les URLs réelles (LinkedIn, fiche Barreau/CNB, doctrine.fr, tribune Village-Justice)
 }
 
 const breadcrumb = {
@@ -38,7 +65,7 @@ const article = {
   '@type': 'Article',
   headline: 'Courrier PicRights : faut-il payer ? Guide complet 2026',
   description: 'Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d\'une autre agence de presse ? Avant de payer, ce guide explique comment vérifier si la réclamation est juridiquement fondée.',
-  author: { '@type': 'Person', name: 'Alexandre Lazarègue', url: 'https://lazaregue-avocats.fr/a-propos/' },
+  author: { '@type': 'Person', name: 'Alexandre Lazarègue', url: 'https://lazaregue-avocats.fr/a-propos/', sameAs: authorSameAs },
   publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', logo: { '@type': 'ImageObject', url: 'https://lazaregue-avocats.fr/dossiers/logo.png' } },
   datePublished: '2026-07-02',
   dateModified: '2026-07-08',
@@ -89,6 +116,7 @@ export default function Home() {
       <JsonLd data={faqPage(faqItems.map((f) => [f.q, f.a]))} />
       <JsonLd data={breadcrumb} />
       <JsonLd data={article} />
+      <JsonLd data={imageObjects} />
       {/* HERO — deux modules interactifs (analyseur + devis) */}
       <div id="analyseur" style={{ background: 'var(--navy)', scrollMarginTop: 56 }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', padding: '48px 24px 56px' }}>
@@ -212,6 +240,9 @@ export default function Home() {
             Chaque affaire dépend de ses faits propres. Ces enseignements ne valent pas consultation : ils montrent qu’une réclamation ne préjuge jamais de l’issue — d’où l’intérêt de faire vérifier votre dossier avant de payer.
           </div>
         </div>
+
+        {/* COMPARAISONS VISUELLES ORIGINALITÉ */}
+        <ComparaisonsOriginalite />
 
         {/* EXEMPLES DE COURRIERS ANONYMISÉS */}
         <ExemplesCourriers />
