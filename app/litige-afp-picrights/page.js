@@ -32,6 +32,19 @@ const faqItems = [
   { q: 'Et si, après examen, la réclamation est fondée ?', a: 'Nous commençons toujours par contrôler le bien-fondé de la réclamation. Ce n\'est que si cet examen la confirme — photographie protégée, droits démontrés, montant justifié — que nous recherchons la solution la moins coûteuse pour vous, régularisation ou discussion amiable. Aucune somme n\'est proposée à l\'adversaire tant que nous n\'avons pas établi qu\'elle est réellement due.' },
   { q: 'Un cabinet d\'avocats a déjà pris le relais de PicRights ou de l\'AFP — est-ce trop tard ?', a: 'Non — c\'est même l\'un des cas les plus fréquents que nous traitons. Le passage du dossier à un cabinet mandataire ne change ni notre démarche — vérifier d\'abord si la réclamation est juridiquement fondée — ni notre tarif. Déposez le courrier reçu, le devis est identique.' },
   { q: 'J\'ai reçu une assignation devant le tribunal judiciaire — que faire ?', a: 'Ne laissez pas passer les délais : une assignation impose de constituer avocat avant l\'audience. Votre dossier ne passe pas par le forfait en ligne — transmettez votre assignation dans la section dédiée en bas de page : elle est adressée directement à un avocat, qui vous répond avec un devis personnalisé sous 24h, sans engagement.' },
+  { q: 'PicRights est-elle une arnaque ?', a: 'Non au sens juridique : PicRights agit légalement pour le compte de titulaires de droits. Mais ses réclamations restent contestables au cas par cas — souvent parce que la photographie n’est pas « originale » ou que les droits invoqués ne sont pas démontrés. La vraie question n’est pas « arnaque ou pas » mais « ma réclamation est-elle juridiquement fondée ? ».' },
+  { q: 'Qu\'est-ce que le copyright trolling ?', a: 'On désigne ainsi l’envoi massif et automatisé de demandes d’indemnisation pour l’utilisation d’images, fondées sur une détection logicielle et misant sur un paiement rapide. Recevoir un tel courrier n’empêche jamais de vérifier d’abord si la demande est juridiquement fondée.' },
+  { q: 'PicRights peut-elle me poursuivre si je n\'habite pas en France ?', a: 'La compétence dépend notamment du lieu du dommage et de la mise en ligne. Mais dans tous les cas, la même analyse s’applique : originalité de la photographie, titularité des droits, preuve de l’utilisation et réalité du préjudice. Une dimension transfrontalière ne dispense jamais le demandeur de démontrer ses droits.' },
+  { q: 'Que faire si PicRights me réclame plus de 3 000 € ?', a: 'Un montant élevé ne prouve pas qu’il est dû. En cas de procédure, le juge apprécie lui-même le préjudice et réduit régulièrement les sommes non justifiées. Plus le montant est important, plus une analyse préalable est utile avant toute décision de paiement.' },
+  { q: 'Puis-je me défendre seul sans avocat ?', a: 'Rien ne l’interdit en phase amiable. Mais une réponse mal formulée peut reconnaître involontairement des faits et compliquer la suite. Un examen préalable permet d’éviter ces erreurs et de répondre sur le bon terrain : originalité, droits invoqués, preuve, montant.' },
+  { q: 'PicRights a-t-elle déjà gagné des procès ?', a: 'Comme tout titulaire de droits, elle obtient gain de cause dans certains dossiers et est déboutée dans d’autres. La jurisprudence 2025-2026 montre plusieurs rejets faute d’originalité démontrée. Aucune issue n’est automatique : tout dépend des preuves et de la photographie.' },
+  { q: 'Combien de temps dure la phase amiable ?', a: 'Elle varie fortement : de quelques semaines à plusieurs mois, avec des relances successives. Elle prend fin par un accord, un abandon de la réclamation, ou l’engagement éventuel d’une procédure judiciaire.' },
+  { q: 'PicRights peut-elle relancer plusieurs fois ?', a: 'Oui. Les relances successives — parfois via un cabinet d’avocats mandaté — font partie du déroulement normal de la phase amiable. Elles ne changent rien à la nécessité, pour le demandeur, de démontrer le bien-fondé de sa demande.' },
+  { q: 'Que se passe-t-il si je paye partiellement ?', a: 'Un paiement, même partiel, peut être interprété comme une reconnaissance de la créance et fragiliser une contestation ultérieure. Mieux vaut vérifier le bien-fondé de la réclamation avant tout versement, fût-il partiel.' },
+  { q: 'Mon assurance protection juridique couvre-t-elle ce type de litige ?', a: 'Souvent oui, selon votre contrat : vérifiez la garantie « propriété intellectuelle » ou « litiges liés à Internet ». Transmettez-nous votre courrier, nous vous indiquons si une prise en charge par votre assurance paraît envisageable.' },
+  { q: 'Une photo trouvée sur un site « libre de droits » peut-elle faire l\'objet d\'une réclamation ?', a: 'Oui, cela arrive : « libre de droits » ne signifie pas « sans aucune condition », et certaines images y figurent à tort. Il faut vérifier la licence réellement obtenue et les droits effectivement invoqués par le demandeur.' },
+  { q: 'PicRights m\'a contacté il y a 2 ans, peuvent-ils encore agir ?', a: 'Une réclamation ancienne n’est pas nécessairement éteinte : l’action en contrefaçon se prescrit en principe par cinq ans à compter de la connaissance des faits. Mais l’ancienneté et la preuve d’une utilisation passée sont des éléments importants à examiner.' },
+  { q: 'Mon agence web est-elle responsable si c\'est elle qui a intégré la photo ?', a: 'Cela dépend du contrat conclu et des garanties données. Si votre prestataire a inséré une image sans autorisation suffisante, une action en garantie ou en responsabilité contractuelle contre lui peut être envisagée, en parallèle de la défense face à la réclamation.' },
 ]
 
 export default function Home() {
@@ -54,10 +67,15 @@ export default function Home() {
             PicRights · AFP · Reuters · AP · PA Images · MaxPPP · Paris Match · Rights Control
           </div>
           <h1 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 500, color: 'white', lineHeight: 1.25, marginBottom: 10, maxWidth: 820 }}>
-            Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d'une autre agence de presse ?<br />
-            <span style={{ color: '#7ec8e3' }}>Avant de payer, vérifiez si la photographie est réellement protégée.</span>
+            Courrier PicRights : faut-il payer ? <span style={{ color: '#7ec8e3' }}>Guide complet 2026</span>
           </h1>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.68)', lineHeight: 1.6, maxWidth: 640, marginBottom: 32 }}>
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.78)', lineHeight: 1.6, maxWidth: 660, marginBottom: 14 }}>
+            Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d'une autre agence de presse ? Avant de payer quoi que ce soit, lisez ce guide.
+          </p>
+          <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.62)', lineHeight: 1.6, marginBottom: 12 }}>
+            <strong style={{ color: 'white', fontWeight: 600 }}>300+</strong> mises en demeure analysées · <strong style={{ color: 'white', fontWeight: 600 }}>800 000 €+</strong> de réclamations examinées · Contentieux photographique uniquement
+          </div>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, maxWidth: 640, marginBottom: 30 }}>
             Une réponse maladroite peut vous coûter plusieurs milliers d'euros. Deux façons d'agir, dès maintenant.
           </p>
 
@@ -121,6 +139,35 @@ export default function Home() {
             <div style={{ padding: '10px 16px', borderTop: '0.5px solid rgba(255,255,255,0.1)', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
               <strong style={{ color: 'rgba(255,255,255,0.65)' }}>Interview média :</strong> pourquoi certaines réclamations peuvent être sérieusement contestées, et ce que vous risquez réellement.
             </div>
+          </div>
+        </div>
+
+        {/* CE QUE DISENT LES TRIBUNAUX 2025-2026 */}
+        <div style={s.block}>
+          <h2 style={{ fontSize: 18, fontWeight: 600, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.3 }}>Ce que disent les tribunaux français en 2025-2026</h2>
+          <p style={{ fontSize: 13.5, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>
+            En droit d’auteur, ce n’est jamais à vous de prouver votre innocence : c’est au demandeur — PicRights, l’AFP, Reuters… — de démontrer que la photographie est <strong>originale</strong>, qu’il <strong>détient les droits</strong> invoqués, que l’<strong>utilisation</strong> est établie et que le <strong>préjudice</strong> est réel. Les décisions récentes le confirment : de nombreuses réclamations se soldent par un rejet ou une forte réduction lorsque cette démonstration fait défaut.
+          </p>
+          {[
+            ['CJUE, 1er déc. 2011 (Painer, C-145/10)', 'Quand une photographie est-elle protégée ?', 'Une photo n’est protégée que si elle reflète des choix libres et créatifs de son auteur — la seule maîtrise technique ne suffit pas. Une image « prise sur le vif » est souvent contestable.'],
+            ['CJUE, 16 juil. 2009 (Infopaq, C-5/08)', 'Qu’est-ce que l’« originalité » ?', 'L’œuvre doit être une « création intellectuelle propre à son auteur » : un critère exigeant, jamais rempli du seul fait qu’une photographie existe.'],
+            ['CJUE, 12 sept. 2019 (Cofemel, C-683/17)', 'La valeur de la photo change-t-elle quelque chose ?', 'L’originalité ne dépend ni de la beauté ni de la valeur commerciale, mais des seuls choix créatifs. Le montant réclamé ne prouve donc rien.'],
+            ['Cour d’appel de Paris, 9 juin 2009 (AFP)', 'Les droits invoqués sont-ils réellement acquis ?', 'Les cessions de droits s’interprètent strictement : sans cession suffisamment précise, même une agence peut être en tort. Le demandeur doit prouver qu’il détient vraiment les droits.'],
+            ['TJ Paris, 18 févr. 2026 (n° 24/12841)', 'Une photo de presse est-elle protégée d’office ?', 'Protection refusée faute de choix créatifs démontrés. Être diffusée par l’AFP ne veut pas dire être protégée.'],
+            ['TJ Paris, 27 mars 2026 (n° 24/12313)', 'Décrire la photo suffit-il à prouver l’originalité ?', 'Non : le juge exige la démonstration concrète des choix créatifs, pas une simple description de l’image.'],
+            ['TJ Paris, 19 nov. 2025 (n° 25/05168)', 'Un cadrage classique rend-il la photo originale ?', 'Cadrage banal et lumière imposée par les lieux : l’originalité est écartée.'],
+            ['Tribunal judiciaire de Bordeaux (escalier monumental)', 'Quand la protection est-elle, au contraire, retenue ?', 'Lorsque l’auteur démontre précisément mise en scène, lumière, composition et perspective, la protection est accordée. L’analyse reste au cas par cas.'],
+            ['Tendance 2024-2026 (plusieurs TJ) — la preuve', 'Une capture d’écran suffit-elle à prouver l’utilisation ?', 'Une simple capture, non corroborée, a une valeur probatoire limitée face à un constat de commissaire de justice. La preuve de l’utilisation doit être solide.'],
+            ['Tendance 2024-2026 (plusieurs TJ) — le montant', 'Le montant réclamé est-il dû tel quel ?', 'Les juges réduisent régulièrement les sommes insuffisamment justifiées ; et lorsque le droit d’auteur est écarté, ils examinent parfois le parasitisme.'],
+          ].map(([ref, q, e], i) => (
+            <div key={i} style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '12px 14px', marginBottom: 8 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--blue-mid)', marginBottom: 3 }}>{ref}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 3, lineHeight: 1.4 }}>{q}</div>
+              <div style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.55 }}>{e}</div>
+            </div>
+          ))}
+          <div style={{ fontSize: 11.5, color: 'var(--muted)', fontStyle: 'italic', marginTop: 4, lineHeight: 1.55 }}>
+            Chaque affaire dépend de ses faits propres. Ces enseignements ne valent pas consultation : ils montrent qu’une réclamation ne préjuge jamais de l’issue — d’où l’intérêt de faire vérifier votre dossier avant de payer.
           </div>
         </div>
 
@@ -281,6 +328,18 @@ export default function Home() {
 
       {/* SECTION ASSIGNATION — hors circuit de paiement, avant le footer */}
       <SectionAssignation />
+
+      {/* SIGNATURE AUTEUR — avant le footer */}
+      <div style={{ maxWidth: 720, margin: '0 auto', padding: '24px 24px 8px' }}>
+        <div style={{ display: 'flex', gap: 14, alignItems: 'center', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 10, padding: '16px 18px' }}>
+          <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--navy)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17, fontWeight: 600, flexShrink: 0 }}>AL</div>
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Maître Alexandre Lazarègue</div>
+            <div style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5 }}>Avocat au Barreau de Paris — spécialisé en défense contre les réclamations photographiques. <Link href="/a-propos/" style={{ color: 'var(--blue)', textDecoration: 'none' }}>À propos →</Link></div>
+            <div style={{ fontSize: 11.5, color: 'var(--muted)', marginTop: 4 }}>Dernière mise à jour de cette page : juillet 2026</div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

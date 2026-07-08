@@ -258,6 +258,7 @@ function Analyseur() {
           </div>
           <input ref={inputRef} type="file" accept="application/pdf,image/*" style={{ display: 'none' }} onChange={(e) => lancer(e.target.files?.[0])} />
           <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '12px 0 0' }}>Aucune inscription requise · Fichier analysé puis supprimé</p>
+          <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '4px 0 0' }}>Reçu par e-mail ? Enregistrez-le en PDF ou faites une capture d’écran.</p>
           <p style={{ fontFamily: sans, fontSize: 11.5, color: C.slate, textAlign: 'center', fontStyle: 'italic', margin: '6px 0 0' }}>Analyse préliminaire — ne constitue pas une consultation juridique.</p>
         </>
       )}
