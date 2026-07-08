@@ -241,6 +241,26 @@ export default function Home() {
           </div>
         </div>
 
+        {/* AFFAIRE PLAIDÉE PAR LE CABINET — cas concret */}
+        <div style={s.block}>
+          <div style={{ borderLeft: '3px solid var(--blue-mid)', background: '#F1F5FA', borderRadius: '0 8px 8px 0', padding: '16px 18px' }}>
+            <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--blue-mid)', fontWeight: 600, marginBottom: 8 }}>Une affaire plaidée par le cabinet</div>
+            <h3 style={{ fontSize: 15.5, fontWeight: 600, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.35 }}>Devant le tribunal, la contrefaçon rejetée faute d’originalité démontrée</h3>
+            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.7, margin: '0 0 8px' }}>
+              L’Agence France-Presse réclamait <strong>3 500 €</strong> pour l’utilisation d’une seule photographie sur un site internet. Le tribunal a <strong>écarté la demande fondée sur le droit d’auteur</strong> : l’AFP n’a pas démontré l’<strong>originalité</strong> du cliché, le juge rappelant qu’il appartient à celui qui invoque un droit d’auteur d’en expliciter les contours — « seul l’auteur, dont le juge ne peut suppléer la carence », peut le faire.
+            </p>
+            <p style={{ fontSize: 13, color: 'var(--secondary)', lineHeight: 1.7, margin: '0 0 10px' }}>
+              Faute d’originalité, aucune indemnité n’a été accordée au titre du droit d’auteur. Le tribunal n’a retenu qu’un dédommagement de <strong>585,75 €</strong> sur le fondement de la responsabilité civile — très loin de la somme réclamée.
+            </p>
+            <div style={{ fontSize: 12, color: 'var(--muted)' }}>
+              TJ Paris, 3<sup>e</sup> ch. 1<sup>re</sup> sect., 27 juin 2024, n° 22/02990. <a href="https://www.doctrine.fr/d/TJ/Paris/2024/TJPF2FD447B4B5E569F6A38" target="_blank" rel="noopener nofollow" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Lire la décision →</a>
+            </div>
+            <div style={{ fontSize: 11.5, color: 'var(--muted)', fontStyle: 'italic', marginTop: 8, lineHeight: 1.55 }}>
+              Chaque affaire dépend de ses faits propres ; cette décision ne préjuge pas de l’issue d’un autre litige.
+            </div>
+          </div>
+        </div>
+
         {/* COMPARAISONS VISUELLES ORIGINALITÉ */}
         <ComparaisonsOriginalite />
 
