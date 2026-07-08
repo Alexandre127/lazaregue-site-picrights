@@ -243,8 +243,31 @@ function Analyseur() {
 
       {etat === 'idle' && (
         <>
-          <h2 style={{ fontFamily: serif, fontSize: 21, fontWeight: 500, color: C.ink, margin: '0 0 6px', lineHeight: 1.3 }}>La photographie qui vous est reprochée est-elle réellement protégée ?</h2>
-          <p style={{ fontFamily: sans, fontSize: 14, color: C.slate, lineHeight: 1.55, margin: '0 0 18px' }}>Déposez-la : notre moteur identifie en 30 secondes les caractéristiques fréquemment discutées devant les tribunaux pour les photographies de presse.</p>
+          <h2 style={{ fontFamily: serif, fontSize: 21, fontWeight: 500, color: C.ink, margin: '0 0 6px', lineHeight: 1.3 }}>Avant de payer, vérifiez si cette photographie est réellement protégée</h2>
+          <p style={{ fontFamily: sans, fontSize: 14, color: C.slate, lineHeight: 1.55, margin: '0 0 16px' }}>Notre moteur identifie en 30 secondes les caractéristiques fréquemment discutées devant les tribunaux pour les photographies de presse. Voici le type de rapport que vous obtenez :</p>
+
+          {/* EXEMPLE DE RAPPORT — illustratif, avant le dépôt */}
+          <div style={{ border: `1px solid ${C.line}`, borderRadius: 8, overflow: 'hidden', marginBottom: 18 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: C.amberBg, padding: '10px 14px', borderBottom: `1px solid ${C.line}` }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ width: 10, height: 10, borderRadius: '50%', background: C.amber, display: 'inline-block', flexShrink: 0 }} />
+                <span style={{ fontFamily: sans, fontSize: 13.5, fontWeight: 600, color: C.ink }}>Originalité discutable</span>
+              </div>
+              <span style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, color: C.amber }}>Indice 62 / 100</span>
+            </div>
+            <div style={{ padding: '12px 14px' }}>
+              {['Cadrage classique, sans parti pris de composition', 'Éclairage imposé par le lieu et le moment', 'Absence de mise en scène ou de direction du sujet'].map((t, i) => (
+                <div key={i} style={{ display: 'flex', gap: 8, fontFamily: sans, fontSize: 13, color: C.slate, lineHeight: 1.5, marginBottom: 5 }}>
+                  <span style={{ color: C.green, flexShrink: 0 }}>✔</span><span>{t}</span>
+                </div>
+              ))}
+              <p style={{ fontFamily: sans, fontSize: 13, color: C.ink, lineHeight: 1.55, margin: '10px 0 0' }}>
+                <strong>Conclusion :</strong> cette photographie présente plusieurs caractéristiques fréquemment discutées devant les juridictions.
+              </p>
+            </div>
+            <div style={{ background: C.cream, padding: '8px 14px', borderTop: `1px solid ${C.line}`, fontFamily: sans, fontSize: 11, color: C.slate, fontStyle: 'italic' }}>Exemple illustratif — votre rapport est établi à partir de votre propre photographie.</div>
+          </div>
+
           <div
             onClick={() => inputRef.current?.click()}
             onDragOver={(e) => { e.preventDefault(); setSurvol(true) }}
@@ -259,7 +282,7 @@ function Analyseur() {
           <input ref={inputRef} type="file" accept="application/pdf,image/*" style={{ display: 'none' }} onChange={(e) => lancer(e.target.files?.[0])} />
           <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '12px 0 0' }}>Aucune inscription requise · Fichier analysé puis supprimé</p>
           <p style={{ fontFamily: sans, fontSize: 12, color: C.slate, textAlign: 'center', margin: '4px 0 0' }}>Reçu par e-mail ? Enregistrez-le en PDF ou faites une capture d’écran.</p>
-          <p style={{ fontFamily: sans, fontSize: 11.5, color: C.slate, textAlign: 'center', fontStyle: 'italic', margin: '6px 0 0' }}>Analyse préliminaire — ne constitue pas une consultation juridique.</p>
+          <p style={{ fontFamily: sans, fontSize: 11.5, color: C.slate, textAlign: 'center', fontStyle: 'italic', margin: '8px 0 0', lineHeight: 1.5 }}>Analyse automatisée selon les principaux critères d'originalité retenus par les tribunaux. Cette analyse constitue une première orientation et ne remplace pas une consultation juridique.</p>
         </>
       )}
 

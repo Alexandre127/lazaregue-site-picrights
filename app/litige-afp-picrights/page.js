@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { HeroModules, SectionAssignation } from '../components/HeroAnalyseur'
+import AuthorPhoto from '../components/AuthorPhoto'
 import JsonLd, { faqPage } from '../components/JsonLd'
 
 const legalService = {
@@ -72,9 +73,22 @@ export default function Home() {
           <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.78)', lineHeight: 1.6, maxWidth: 660, marginBottom: 14 }}>
             Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d'une autre agence de presse ? Avant de payer quoi que ce soit, lisez ce guide.
           </p>
-          <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.62)', lineHeight: 1.6, marginBottom: 12 }}>
+          <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.62)', lineHeight: 1.6, marginBottom: 16 }}>
             <strong style={{ color: 'white', fontWeight: 600 }}>300+</strong> mises en demeure analysées · <strong style={{ color: 'white', fontWeight: 600 }}>800 000 €+</strong> de réclamations examinées · Contentieux photographique uniquement
           </div>
+
+          {/* ENCADRÉ AUTEUR — E-E-A-T, sous les statistiques */}
+          <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', maxWidth: 660, background: 'rgba(255,255,255,0.05)', border: '0.5px solid rgba(255,255,255,0.14)', borderRadius: 10, padding: '14px 16px', marginBottom: 26 }}>
+            <AuthorPhoto />
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: 'white' }}>Alexandre Lazarègue</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 6 }}>Avocat au Barreau de Paris</div>
+              <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.72)', lineHeight: 1.6, margin: 0 }}>
+                Depuis plusieurs années, j'interviens exclusivement dans les contentieux liés aux réclamations photographiques — PicRights, AFP, Reuters, AP et autres agences. Chaque dossier est analysé personnellement selon la Grille Lazarègue® avant toute prise de position.
+              </p>
+            </div>
+          </div>
+
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, maxWidth: 640, marginBottom: 30 }}>
             Une réponse maladroite peut vous coûter plusieurs milliers d'euros. Deux façons d'agir, dès maintenant.
           </p>
