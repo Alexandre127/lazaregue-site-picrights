@@ -44,6 +44,7 @@ const menu = [
       { label: 'Questions fréquentes', href: '/litige-afp-picrights/#faq' },
     ],
   },
+  { label: 'Action collective', href: '/action-collective/' },
 ]
 
 const linkStyle = { fontSize: 12, color: 'var(--muted)', padding: '6px 10px', borderRadius: 6, textDecoration: 'none', whiteSpace: 'nowrap', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }
