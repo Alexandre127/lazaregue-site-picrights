@@ -1,13 +1,12 @@
 import Link from 'next/link'
-import CtaBanner from '../components/CtaBanner'
 import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd'
 import JsonLd, { faqPage } from '../components/JsonLd'
 import Blocks from '../components/guide/Blocks'
 import { href } from '../components/guide/picrightsArticles'
 
 export const metadata = {
-  title: 'PicRights : faut-il payer ? Guide juridique par un avocat',
-  description: 'PicRights vous réclame plusieurs centaines d’euros ? Découvrez pourquoi une réclamation ne signifie pas que vous devez payer — et les 4 vérifications indispensables avant toute décision.',
+  title: 'PicRights : tout comprendre — qui, comment et vos recours | Avocat',
+  description: 'Le centre de ressources PicRights : qui est cette société, comment fonctionne la réclamation, ce que disent les tribunaux et vos recours. Chaque sujet renvoie vers un article dédié — et vers l’analyse de votre dossier.',
   alternates: { canonical: 'https://lazaregue-avocats.fr/picrights/' },
 }
 
@@ -118,7 +117,7 @@ const faq = [
 const pillarArticle = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'PicRights : faut-il payer la réclamation reçue ?',
+  headline: 'PicRights : tout comprendre sur la réclamation reçue',
   author: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris', url: 'https://lazaregue-avocats.fr/a-propos/' },
   publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', url: 'https://lazaregue-avocats.fr', logo: { '@type': 'ImageObject', url: 'https://lazaregue-avocats.fr/dossiers/logo.png' } },
   datePublished: '2026-01-01',
@@ -136,6 +135,16 @@ const pillarLegalService = {
   serviceType: 'Défense contre les réclamations photographiques PicRights',
   priceRange: 'À partir de 200 € HT',
   provider: { '@type': 'Person', name: 'Alexandre Lazarègue', jobTitle: 'Avocat au Barreau de Paris' },
+}
+
+// CTA discret vers la landing (page de traitement) — le guide oriente, il ne convertit pas lui-même.
+function AnalyseCta() {
+  return (
+    <div style={{ background: 'var(--blue-light)', borderRadius: 8, padding: '11px 16px', margin: '16px 0 4px', fontSize: 13.5, lineHeight: 1.5 }}>
+      <span style={{ color: 'var(--text)' }}>Vous avez reçu un courrier PicRights ? </span>
+      <Link href="/litige-afp-picrights/#analyseur" style={{ color: 'var(--blue)', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Faire analyser votre dossier →</Link>
+    </div>
+  )
 }
 
 export default function PicRightsPillar() {
@@ -160,12 +169,12 @@ export default function PicRightsPillar() {
           <Link href="/litige-afp-picrights/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Accueil</Link>{' → '}
           <Link href="/agences/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Guides</Link>{' → PicRights'}
         </nav>
-        <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 14 }}>Guide complet</div>
-        <h1 style={{ fontSize: 28, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 8 }}>PicRights : faut-il payer la réclamation reçue ?</h1>
-        <div style={{ fontSize: 17, color: 'var(--blue-mid)', marginBottom: 16 }}>Le guide juridique complet pour analyser votre dossier</div>
-        <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Vous avez reçu un courrier PicRights vous réclamant plusieurs centaines ou milliers d’euros pour une photographie publiée sur votre site internet ? Avant de décider si vous devez <strong>payer PicRights</strong>, une question préalable s’impose : cette réclamation est-elle juridiquement fondée ?</p>
-        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>La réponse n’est pas automatiquement oui — et les tribunaux français ont rendu en 2025-2026 une série de décisions qui le confirment. Une réclamation PicRights ne constitue ni une condamnation, ni une décision de justice, ni la preuve définitive qu’une contrefaçon est caractérisée.</p>
-        <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 10 }}>Avant tout paiement, plusieurs questions essentielles doivent être analysées :</p>
+        <div style={{ display: 'inline-block', fontSize: 11, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '3px 10px', borderRadius: 20, marginBottom: 14 }}>Centre de ressources</div>
+        <h1 style={{ fontSize: 28, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 8 }}>PicRights : tout comprendre sur la réclamation reçue</h1>
+        <div style={{ fontSize: 17, color: 'var(--blue-mid)', marginBottom: 16 }}>Qui est PicRights, comment fonctionne la réclamation, ce que disent les tribunaux — et vos recours</div>
+        <p style={{ fontSize: 16, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Vous avez reçu un courrier PicRights vous réclamant plusieurs centaines ou milliers d’euros pour une photographie publiée sur votre site internet ? Ce guide de référence fait le tour de la question : ce qu’est PicRights, pourquoi vous recevez ce courrier, ce que dit le droit d’auteur, comment sont calculés les montants et quels sont vos recours.</p>
+        <p style={{ fontSize: 15, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 14 }}>Une réclamation PicRights ne constitue ni une condamnation, ni une décision de justice, ni la preuve définitive qu’une contrefaçon est caractérisée — et les tribunaux français ont rendu en 2025-2026 une série de décisions qui le confirment. <strong>Chaque section renvoie vers un article spécialisé</strong> pour approfondir.</p>
+        <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.7, marginBottom: 10 }}>Les questions essentielles que ce guide passe en revue :</p>
         <ul style={{ margin: '0 0 22px', padding: 0, listStyle: 'none' }}>
           {['PicRights agit-elle réellement pour le titulaire des droits ?', 'La photographie est-elle effectivement protégée par le droit d’auteur ?', 'Les preuves produites sont-elles juridiquement suffisantes ?', 'Le montant réclamé est-il justifié ?', 'Existe-t-il des moyens de défense ?'].map((t, i) => (
             <li key={i} style={{ display: 'flex', gap: 10, fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.55, marginBottom: 8 }}>
@@ -173,7 +182,7 @@ export default function PicRightsPillar() {
             </li>
           ))}
         </ul>
-        <CtaBanner title="Vous avez reçu une réclamation PicRights ?" subtitle="Nous examinons votre dossier et répondons à votre place — forfait 200 € HT." />
+        <AnalyseCta />
       </div>
 
       {/* Sommaire */}
@@ -188,15 +197,18 @@ export default function PicRightsPillar() {
         </ol>
       </div>
 
-      {/* Sections — chacune résume puis renvoie vers l'article approfondi */}
+      {/* Sections — chacune résume, renvoie vers l'article approfondi, et (aux moments de décision) vers l'analyse du dossier */}
       {sections.map((sec) => (
-        <div key={sec.id} id={sec.id} style={{ ...s.block, scrollMarginTop: 66 }}>
-          <div style={s.kicker}>{sec.kicker}</div>
-          <h2 style={{ fontSize: 21, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 12 }}>{sec.title}</h2>
-          <Blocks items={sec.summary} />
-          <Link href={sec.customHref || href(sec.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
-            {sec.cta || 'Lire l’article complet'} →
-          </Link>
+        <div key={sec.id}>
+          <div id={sec.id} style={{ ...s.block, scrollMarginTop: 66 }}>
+            <div style={s.kicker}>{sec.kicker}</div>
+            <h2 style={{ fontSize: 21, fontWeight: 500, color: 'var(--text)', lineHeight: 1.3, marginBottom: 12 }}>{sec.title}</h2>
+            <Blocks items={sec.summary} />
+            <Link href={sec.customHref || href(sec.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
+              {sec.cta || 'Lire l’article complet'} →
+            </Link>
+          </div>
+          {['payer', 'contester', 'montant', 'proces'].includes(sec.id) && <AnalyseCta />}
         </div>
       ))}
 
@@ -220,7 +232,13 @@ export default function PicRightsPillar() {
         <p style={{ fontSize: 14.5, color: 'var(--secondary)', lineHeight: 1.75 }}>Une analyse juridique rigoureuse permet de déterminer si la demande est fondée, si elle peut être contestée, ou si une solution amiable est préférable.</p>
       </div>
 
-      <CtaBanner title="Faites examiner votre réclamation PicRights" subtitle="Plus de 300 dossiers traités. Chaque dossier examiné personnellement par un avocat — forfait 200 € HT." />
+      <div style={{ background: 'var(--navy)', borderRadius: 12, padding: '24px 28px', margin: '24px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
+        <div>
+          <div style={{ fontSize: 15.5, fontWeight: 500, color: 'white', marginBottom: 3 }}>Vous avez reçu un courrier PicRights ?</div>
+          <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.55)' }}>Passez de la compréhension à l’action : faites analyser votre dossier sur notre page de traitement dédiée.</div>
+        </div>
+        <Link href="/litige-afp-picrights/" style={{ flexShrink: 0, background: 'white', color: 'var(--navy)', fontWeight: 600, fontSize: 13, padding: '10px 20px', borderRadius: 8, textDecoration: 'none', whiteSpace: 'nowrap' }}>Faire analyser mon dossier →</Link>
+      </div>
 
       {/* Autres guides */}
       <div style={{ padding: '20px 0 32px' }}>
