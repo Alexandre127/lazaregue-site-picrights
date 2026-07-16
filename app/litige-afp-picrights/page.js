@@ -14,6 +14,8 @@ const imageObjects = COMPARAISONS.map((c) => ({
   creditText: 'Lazarègue Avocats — illustration générée',
   creator: { '@type': 'Organization', name: 'Lazarègue Avocats' },
   copyrightNotice: 'Illustration pédagogique, personnages fictifs',
+  license: 'https://lazaregue-avocats.fr/licence-images/',
+  acquireLicensePage: 'https://lazaregue-avocats.fr/licence-images/',
 }))
 
 // Profils et publications de l'auteur — signal d'entité (E-E-A-T) pour Google et les LLM.

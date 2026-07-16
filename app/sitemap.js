@@ -24,6 +24,7 @@ export default function sitemap() {
     { url: `${base}/notre-methode/`, lastModified: now, priority: 0.7 },
     { url: `${base}/a-propos/`, lastModified: now, priority: 0.6 },
     { url: `${base}/confidentialite/`, lastModified: now, priority: 0.4 },
+    { url: `${base}/licence-images/`, lastModified: now, priority: 0.3 },
     { url: `${base}/mentions-legales/`, lastModified: now, priority: 0.3 },
   ]
   return urls
