@@ -2,48 +2,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-// Menu organisé selon l'intention de recherche du visiteur, pas selon nos contenus :
-// comprendre (Guides) · voir les décisions (Jurisprudence) · voir des exemples
-// (Cas pratiques) · comprendre notre différence (Notre méthode) · agir (Confier).
-// Chaque lien pointe vers une destination réelle (page ou ancre existante).
+// Consolidation SEO : le menu ne pointe plus que vers les deux pages conservées
+// (la landing de conversion et l'action collective), plus les ancres internes de
+// la landing. Les guides PicRights / AFP ont été supprimés.
 const menu = [
   { label: 'Accueil', href: '/litige-afp-picrights/' },
-  {
-    label: 'Guides',
-    children: [
-      { label: 'PicRights', href: '/picrights/' },
-      { label: 'AFP', href: '/picrights-afp/' },
-      { label: 'Reuters', href: '/reuters/' },
-      { label: 'Getty Images', href: '/getty-images/' },
-      { label: 'Copytrack', href: '/copytrack/' },
-      { label: 'Toutes les agences', href: '/agences/', divider: true },
-    ],
-  },
-  {
-    label: 'Jurisprudence',
-    children: [
-      { label: 'Toute la jurisprudence', href: '/jurisprudence/' },
-      { label: 'Originalité des photographies', href: '/jurisprudence/#originalite' },
-    ],
-  },
-  {
-    label: 'Cas pratiques',
-    children: [
-      { label: 'Tous les dossiers', href: '/cas-pratiques/' },
-      { label: 'PicRights', href: '/cas-pratiques/#picrights' },
-      { label: 'Copytrack', href: '/cas-pratiques/#copytrack' },
-      { label: 'Getty Images', href: '/cas-pratiques/#getty-images' },
-    ],
-  },
-  {
-    label: 'Notre méthode',
-    children: [
-      { label: 'Notre méthode', href: '/notre-methode/' },
-      { label: 'Grille Lazarègue®', href: '/notre-methode/#grille' },
-      { label: 'Analyse automatique', href: '/litige-afp-picrights/#analyseur' },
-      { label: 'Questions fréquentes', href: '/litige-afp-picrights/#faq' },
-    ],
-  },
+  { label: 'Analyse automatique', href: '/litige-afp-picrights/#analyseur' },
+  { label: 'Questions fréquentes', href: '/litige-afp-picrights/#faq' },
   { label: 'Action collective', href: '/action-collective/' },
 ]
 

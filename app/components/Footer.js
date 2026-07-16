@@ -1,32 +1,15 @@
 import Link from 'next/link'
 
+// Consolidation SEO : le footer ne conserve que les liens légaux
+// (obligatoires pour un cabinet d'avocats). La navigation vers les deux pages
+// conservées se fait par le menu.
 const cols = [
-  {
-    titre: 'Guides',
-    liens: [
-      ['PicRights', '/picrights/'],
-      ['AFP', '/picrights-afp/'],
-      ['Reuters', '/reuters/'],
-      ['Getty Images', '/getty-images/'],
-      ['Copytrack', '/copytrack/'],
-      ['Toutes les agences', '/agences/'],
-    ],
-  },
-  {
-    titre: 'Ressources',
-    liens: [
-      ['Jurisprudence', '/jurisprudence/'],
-      ['Cas pratiques', '/cas-pratiques/'],
-      ['Notre méthode', '/notre-methode/'],
-      ['À propos', '/a-propos/'],
-      ['Confier mon dossier', '/litige-afp-picrights/confier/'],
-    ],
-  },
   {
     titre: 'Légal',
     liens: [
       ['Mentions légales', '/mentions-legales/'],
       ['Confidentialité & RGPD', '/confidentialite/'],
+      ['Licence des illustrations', '/licence-images/'],
     ],
   },
 ]

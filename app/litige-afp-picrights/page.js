@@ -44,7 +44,7 @@ const legalService = {
     '@type': 'Person',
     name: 'Alexandre Lazarègue',
     jobTitle: 'Avocat au Barreau de Paris',
-    url: 'https://lazaregue-avocats.fr/a-propos/',
+    url: 'https://lazaregue-avocats.fr/litige-afp-picrights/',
     sameAs: authorSameAs,
   },
   email: 'contact@lazaregue-avocats.fr',
@@ -67,7 +67,7 @@ const article = {
   '@type': 'Article',
   headline: 'Courrier PicRights : faut-il payer ? Guide complet 2026',
   description: 'Vous avez reçu une mise en demeure PicRights, AFP, Reuters ou d\'une autre agence de presse ? Avant de payer, ce guide explique comment vérifier si la réclamation est juridiquement fondée.',
-  author: { '@type': 'Person', name: 'Alexandre Lazarègue', url: 'https://lazaregue-avocats.fr/a-propos/', sameAs: authorSameAs },
+  author: { '@type': 'Person', name: 'Alexandre Lazarègue', url: 'https://lazaregue-avocats.fr/litige-afp-picrights/', sameAs: authorSameAs },
   publisher: { '@type': 'Organization', name: 'Lazarègue Avocats', logo: { '@type': 'ImageObject', url: 'https://lazaregue-avocats.fr/dossiers/logo.png' } },
   datePublished: '2026-07-02',
   dateModified: '2026-07-08',
@@ -404,18 +404,15 @@ export default function Home() {
         {/* CAS PRATIQUES */}
         <div style={s.block}>
           <div style={s.label}>Cas pratiques — dossiers traités par le cabinet</div>
-          {[['PicRights', 'PicRights réclamait 980 € pour une photographie de produit utilisée sur un site e-commerce.', 'Photographie de catalogue · 2023', '/cas-pratiques/'],
-            ['AFP', 'L\'AFP réclamait 1 400 € pour une photographie de presse reprise sur un site d\'actualité.', 'Photo de presse · 2023', '/cas-pratiques/'],
-            ['Reuters', 'Reuters réclamait 2 200 € pour une photographie d\'agence illustrant un article de blog.', 'Photo d\'agence · 2024', '/cas-pratiques/']].map(([tag, title, detail, href]) => (
-            <Link key={tag} href={href} style={{ display: 'block', background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '14px 16px', marginBottom: 10, textDecoration: 'none' }}>
+          {[['PicRights', 'PicRights réclamait 980 € pour une photographie de produit utilisée sur un site e-commerce.', 'Photographie de catalogue · 2023'],
+            ['AFP', 'L\'AFP réclamait 1 400 € pour une photographie de presse reprise sur un site d\'actualité.', 'Photo de presse · 2023'],
+            ['Reuters', 'Reuters réclamait 2 200 € pour une photographie d\'agence illustrant un article de blog.', 'Photo d\'agence · 2024']].map(([tag, title, detail]) => (
+            <div key={tag} style={{ background: '#F8F7F3', border: '0.5px solid var(--border)', borderRadius: 8, padding: '14px 16px', marginBottom: 10 }}>
               <div style={{ display: 'inline-block', fontSize: 10, color: 'var(--blue-mid)', background: 'var(--blue-light)', padding: '2px 8px', borderRadius: 10, marginBottom: 7 }}>{tag}</div>
               <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)', marginBottom: 4, lineHeight: 1.4 }}>{title}</div>
-              <div style={{ fontSize: 11, color: 'var(--muted)', display: 'flex', justifyContent: 'space-between' }}>
-                <span>{detail}</span><span style={{ color: 'var(--blue)' }}>Lire →</span>
-              </div>
-            </Link>
+              <div style={{ fontSize: 11, color: 'var(--muted)' }}>{detail}</div>
+            </div>
           ))}
-          <Link href="/cas-pratiques" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>Voir tous les cas pratiques →</Link>
         </div>
 
         {/* FIN DE PHASE */}
@@ -439,19 +436,6 @@ export default function Home() {
           <div style={{ fontSize: 11, color: 'var(--muted)' }}>Paiement Stripe sécurisé · Secret professionnel garanti · Barreau de Paris</div>
         </div>
 
-        {/* RESSOURCES SEO */}
-        <div style={{ borderTop: '0.5px solid var(--border)', padding: '20px 0' }}>
-          <div style={s.label}>Pour aller plus loin</div>
-          <Link href="/picrights/" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', marginBottom: 12 }}>
-            Lire le guide complet PicRights →
-          </Link>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {[['Faut-il payer PicRights ?', '/picrights/faut-il-payer-picrights/'], ['Guide : mise en demeure AFP', '/picrights-afp/'], ['Guide : mise en demeure Reuters', '/reuters/'], ['Toutes les agences', '/agences/'], ['Jurisprudence commentée', '/jurisprudence/'], ['Tous les cas pratiques', '/cas-pratiques/'], ['Notre méthode', '/notre-methode/']].map(([label, href]) => (
-              <Link key={href} href={href} style={{ fontSize: 12, color: 'var(--secondary)', background: 'white', border: '0.5px solid var(--border)', borderRadius: 8, padding: '6px 12px', textDecoration: 'none' }}>{label}</Link>
-            ))}
-          </div>
-        </div>
-
         {/* TRUST */}
         <div style={{ borderTop: '0.5px solid var(--border)', padding: '16px 0', display: 'flex', flexWrap: 'wrap', gap: 16 }}>
           {['🏛 Barreau de Paris', '🔒 Secret professionnel', '📄 Conforme CNB', '🛡 Données chiffrées', '💳 Stripe sécurisé'].map(t => (
@@ -469,7 +453,7 @@ export default function Home() {
           <AuthorPhoto size={48} ring="var(--border)" />
           <div>
             <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Maître Alexandre Lazarègue</div>
-            <div style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5 }}>Avocat au Barreau de Paris — spécialisé en défense contre les réclamations photographiques. <Link href="/a-propos/" style={{ color: 'var(--blue)', textDecoration: 'none' }}>À propos →</Link></div>
+            <div style={{ fontSize: 12.5, color: 'var(--secondary)', lineHeight: 1.5 }}>Avocat au Barreau de Paris — spécialisé en défense contre les réclamations photographiques.</div>
             <div style={{ fontSize: 11.5, color: 'var(--muted)', marginTop: 4 }}>Dernière mise à jour de cette page : juillet 2026</div>
           </div>
         </div>
